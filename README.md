@@ -1,2 +1,2 @@
-# My website
-a portfolio for all of my work.
+# My Personal Website
+Displaying all of my professional experiences and projects.
