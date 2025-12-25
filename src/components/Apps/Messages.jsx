@@ -4,9 +4,9 @@ import { Send, User } from 'lucide-react';
 export default function Messages() {
     const [messages, setMessages] = useState([
         { id: 1, sender: 'Namkhang', text: "Hi! I'm Namkhang Le. 👋", time: 'Now' },
-        { id: 2, sender: 'Namkhang', text: "I'm a 4th year CS student at Georgia Tech (May 2025) focusing on Intelligence and Info Internetworks.", time: 'Now' },
-        { id: 3, sender: 'Namkhang', text: "I've interned at Citi and Lockheed Martin, building scalable web apps and modernizing UIs.", time: 'Now' },
-        { id: 4, sender: 'Namkhang', text: "I love ML, Full Stack Dev, and Hackathons! 🚀", time: 'Now' },
+        { id: 2, sender: 'Namkhang', text: "I'm a Georgia Tech CS grad (Class of 2025) and Software Engineer at Meta. 🎓", time: 'Now' },
+        { id: 3, sender: 'Namkhang', text: "I've built scalable web apps at Citi, Lockheed Martin, Amazon Web Services,and now Meta!", time: 'Now' },
+        { id: 4, sender: 'Namkhang', text: "I love ML, Full Stack Dev, and Hackathons! Check out my projects in Finder. 🚀", time: 'Now' },
     ]);
     const [inputValue, setInputValue] = useState('');
 
@@ -35,7 +35,7 @@ export default function Messages() {
                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold">NL</div>
                         <div>
                             <div className="font-semibold">Namkhang Le</div>
-                            <div className="text-xs text-gray-500">I'm a 4th year CS...</div>
+                            <div className="text-xs text-gray-500">Georgia Tech '25, Meta SWE</div>
                         </div>
                     </div>
                 </div>

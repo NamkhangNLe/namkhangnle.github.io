@@ -1,9 +1,46 @@
 import React from 'react';
-import { Folder, FileText, Download } from 'lucide-react';
+import { Folder, FileText, Download, ExternalLink } from 'lucide-react';
 import { useWindowContext } from '../../context/WindowContext';
+
+const ProjectContent = ({ title, description, link, linkText }) => (
+    <div className="p-6 text-white space-y-4">
+        <h2 className="text-xl font-bold">{title}</h2>
+        <p className="text-gray-300 leading-relaxed">{description}</p>
+        <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-medium transition-colors"
+        >
+            <ExternalLink className="w-4 h-4" />
+            {linkText}
+        </a>
+    </div>
+);
 
 export default function Finder() {
     const { openWindow } = useWindowContext();
+
+    const projectData = {
+        diagnoseme: {
+            title: 'DiagnoseMe',
+            description: 'An interactive GPT4 Electron.js application designed to simulate patient interactions. It leverages the power of AI to generate responses based on a variety of medical conditions, providing a user-friendly React interface for medical students to practice their diagnostic skills.',
+            link: 'https://devfolio.co/projects/diagnoseme-1992',
+            linkText: 'View on Devfolio'
+        },
+        scribbletex: {
+            title: 'ScribbleTex',
+            description: 'A web application that leverages custom machine learning to convert handwritten text to LaTeX code. This application utilizes a React frontend with a Flask backend, integrating a machine learning model hosted on Google Cloud\'s Vertex AI for handwriting recognition.',
+            link: 'https://namkhangnle.github.io/ScribbleTex/',
+            linkText: 'AI ATL Github Winners!'
+        },
+        morsetorch: {
+            title: 'MorseTorch',
+            description: 'A Swift-based iOS application designed to provide essential Morse code communication tools. Using advanced computer vision technology and state-of-the-art language processing, our app allows users to seamlessly communicate in Morse code. Whether you need to transmit messages in challenging situations or simply want to explore the world of Morse code, MorseTorch has you covered.',
+            link: 'https://cpjoseph18.wixsite.com/morsetorch',
+            linkText: 'My First Hackathon!'
+        }
+    };
 
     const projects = [
         { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
@@ -14,11 +51,19 @@ export default function Finder() {
 
     const handleOpen = (item) => {
         if (item.type === 'folder') {
-            // Open folder content (mock)
-            openWindow(`project-${item.id}`, item.title, <div className="p-4 text-white">Project Details for {item.title}... <br /><a href="#" className="text-blue-400 underline">View content</a></div>);
+            const data = projectData[item.id];
+            openWindow(
+                `project-${item.id}`,
+                item.title,
+                <ProjectContent
+                    title={data.title}
+                    description={data.description}
+                    link={data.link}
+                    linkText={data.linkText}
+                />
+            );
         } else {
-            // Open file
-            window.open('https://linkedin.com/in/namkhangnle', '_blank'); // Mock resume link
+            window.open('https://linkedin.com/in/namkhangnle', '_blank');
         }
     };
 
