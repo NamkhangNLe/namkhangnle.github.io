@@ -17,7 +17,7 @@ export default function Dock() {
                 openWindow('messages', 'Messages', <Messages />, { w: 800, h: 600 });
                 break;
             case 'safari':
-                openWindow('safari', 'Safari', <div className="p-4 text-white">Browser Coming Soon</div>);
+                window.open('https://linkedin.com/in/namkhangnle', '_blank');
                 break;
             case 'github':
                 window.open('https://github.com/namkhangnle', '_blank');

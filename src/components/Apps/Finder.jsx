@@ -63,7 +63,7 @@ export default function Finder() {
                 />
             );
         } else {
-            window.open('https://linkedin.com/in/namkhangnle', '_blank');
+            window.open('/Website/Namkhang_Le_Resume.pdf', '_blank');
         }
     };
 
