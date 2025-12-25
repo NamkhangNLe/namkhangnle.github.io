@@ -93,7 +93,7 @@ export default function Finder() {
                     {projects.map((item) => (
                         <div
                             key={item.id}
-                            onDoubleClick={() => handleOpen(item)}
+                            onClick={() => handleOpen(item)}
                             className="flex flex-col items-center gap-2 p-2 hover:bg-blue-50 rounded-lg cursor-pointer group"
                         >
                             {item.icon}
