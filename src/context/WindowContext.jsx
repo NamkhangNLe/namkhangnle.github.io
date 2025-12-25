@@ -23,7 +23,7 @@ export const WindowProvider = ({ children }) => {
                 title,
                 content,
                 size: initSize,
-                position: { x: 100 + prev.length * 20, y: 100 + prev.length * 20 },
+                position: { x: 100 + prev.length * 20, y: 50 + prev.length * 20 },
                 isMinimized: false,
                 zIndex: getNextZIndex(prev)
             }];
