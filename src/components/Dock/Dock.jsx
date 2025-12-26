@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppWindow, MessageSquare, Folder, Github, Globe } from 'lucide-react';
+import { AppWindow, MessageSquare, Folder, Github, Globe, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useWindowContext } from '../../context/WindowContext';
 import Messages from '../Apps/Messages';
@@ -16,7 +16,7 @@ export default function Dock() {
             case 'messages':
                 openWindow('messages', 'Messages', <Messages />, { w: 800, h: 600 });
                 break;
-            case 'safari':
+            case 'linkedin':
                 window.open('https://linkedin.com/in/namkhangnle', '_blank');
                 break;
             case 'github':
@@ -30,7 +30,7 @@ export default function Dock() {
     const apps = [
         { id: 'finder', icon: <Folder className="w-8 h-8 text-blue-500 fill-blue-500" />, label: 'Finder' },
         { id: 'messages', icon: <MessageSquare className="w-8 h-8 text-green-500 fill-green-500" />, label: 'Messages' },
-        { id: 'safari', icon: <Globe className="w-8 h-8 text-blue-400 fill-blue-400" />, label: 'Safari' },
+        { id: 'linkedin', icon: <Linkedin className="w-8 h-8 text-blue-600 fill-blue-600" />, label: 'LinkedIn' },
         { id: 'github', icon: <Github className="w-8 h-8 text-white fill-black" />, label: 'GitHub' },
     ];
 

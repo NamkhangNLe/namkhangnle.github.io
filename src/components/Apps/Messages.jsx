@@ -4,8 +4,8 @@ import { Send, User } from 'lucide-react';
 export default function Messages() {
     const [messages, setMessages] = useState([
         { id: 1, sender: 'Namkhang', text: "Hi! I'm Namkhang Le. 👋", time: 'Now' },
-        { id: 2, sender: 'Namkhang', text: "I'm a Georgia Tech CS grad (Class of 2025) and Software Engineer at Meta. 🎓", time: 'Now' },
-        { id: 3, sender: 'Namkhang', text: "I've built scalable web apps at Citi, Lockheed Martin, Amazon Web Services,and now Meta!", time: 'Now' },
+        { id: 2, sender: 'Namkhang', text: "I'm a Georgia Tech CS grad and working on LLMs and GenAI. 🎓", time: 'Now' },
+        { id: 3, sender: 'Namkhang', text: "I've built scalable web apps at Citi, Lockheed Martin, Amazon Web Services, and now Meta!", time: 'Now' },
         { id: 4, sender: 'Namkhang', text: "I love ML, Full Stack Dev, and Hackathons! Check out my projects in Finder. 🚀", time: 'Now' },
     ]);
     const [inputValue, setInputValue] = useState('');
