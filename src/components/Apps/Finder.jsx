@@ -43,7 +43,7 @@ export default function Finder() {
         },
         bobalabs: {
             title: 'Boba Labs',
-            description: 'Building the future of consumer AI apps. Focused on creating intuitive and fun AI experiences.',
+            description: 'Building careers for the 22nd century.',
             link: 'http://bobalabs.tech/',
             linkText: 'Visit Boba Labs'
         }
