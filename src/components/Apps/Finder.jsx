@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Folder, FileText, Download, ExternalLink } from 'lucide-react';
+import { Folder, FileText, Download, ExternalLink, Activity, Type, Flashlight, Bot } from 'lucide-react';
 import { useWindowContext } from '../../context/WindowContext';
 
 const ProjectContent = ({ title, description, link, linkText }) => (
@@ -51,12 +51,12 @@ export default function Finder() {
 
     const folders = {
         hackathons: [
-            { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
-            { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
-            { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
+            { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <Activity className="w-16 h-16 text-red-500" /> },
+            { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <Type className="w-16 h-16 text-blue-500" /> },
+            { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Flashlight className="w-16 h-16 text-orange-500" /> },
         ],
         startups: [
-            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Folder className="w-16 h-16 text-purple-500 fill-purple-500" /> },
+            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Bot className="w-16 h-16 text-purple-500" /> },
         ],
         resume: [
             { id: 'resume', title: 'Resume.pdf', type: 'file', icon: <FileText className="w-16 h-16 text-gray-400" /> },
