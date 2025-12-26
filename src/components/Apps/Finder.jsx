@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Folder, FileText, Download, ExternalLink } from 'lucide-react';
 import { useWindowContext } from '../../context/WindowContext';
 
@@ -20,6 +20,7 @@ const ProjectContent = ({ title, description, link, linkText }) => (
 
 export default function Finder() {
     const { openWindow } = useWindowContext();
+    const [activeFolder, setActiveFolder] = useState('hackathons');
 
     const projectData = {
         diagnoseme: {
@@ -39,15 +40,28 @@ export default function Finder() {
             description: 'A Swift-based iOS application designed to provide essential Morse code communication tools. Using advanced computer vision technology and state-of-the-art language processing, our app allows users to seamlessly communicate in Morse code. Whether you need to transmit messages in challenging situations or simply want to explore the world of Morse code, MorseTorch has you covered.',
             link: 'https://cpjoseph18.wixsite.com/morsetorch',
             linkText: 'My First Hackathon!'
+        },
+        bobalabs: {
+            title: 'Boba Labs',
+            description: 'Building the future of consumer AI apps. Focused on creating intuitive and fun AI experiences.',
+            link: 'http://bobalabs.tech/',
+            linkText: 'Visit Boba Labs'
         }
     };
 
-    const projects = [
-        { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
-        { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
-        { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
-        { id: 'resume', title: 'Resume.pdf', type: 'file', icon: <FileText className="w-16 h-16 text-gray-400" /> },
-    ];
+    const folders = {
+        hackathons: [
+            { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
+            { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
+            { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Folder className="w-16 h-16 text-blue-500 fill-blue-500" /> },
+        ],
+        startups: [
+            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Folder className="w-16 h-16 text-purple-500 fill-purple-500" /> },
+        ],
+        resume: [
+            { id: 'resume', title: 'Resume.pdf', type: 'file', icon: <FileText className="w-16 h-16 text-gray-400" /> },
+        ]
+    };
 
     const handleOpen = (item) => {
         if (item.type === 'folder') {
@@ -63,43 +77,53 @@ export default function Finder() {
                 />
             );
         } else {
-            window.open('/Website/Namkhang_Le_Resume.pdf', '_blank');
+            window.open('/Namkhang_Le_Resume.pdf', '_blank');
         }
     };
+
+    const getSidebarItemClass = (id) => `
+        flex items-center gap-2 px-2 py-1 rounded cursor-pointer transition-colors group
+        ${activeFolder === id ? 'bg-blue-500/10 text-blue-600' : 'hover:bg-gray-200'}
+    `;
 
     return (
         <div className="flex h-full bg-white text-black">
             {/* Sidebar */}
             <div className="w-48 bg-gray-100/90 backdrop-blur border-r border-gray-200 p-2 space-y-1 text-sm font-medium">
-                <div className="px-2 py-1 text-gray-500 text-xs font-bold">Favorites</div>
-                <div className="flex items-center gap-2 px-2 py-1 bg-blue-500/10 text-blue-600 rounded cursor-pointer">
-                    <Download className="w-4 h-4" /> Desktop
+                <div className="px-2 py-1 text-gray-500 text-xs font-bold uppercase tracking-wider">Favorites</div>
+                <div onClick={() => setActiveFolder('hackathons')} className={getSidebarItemClass('hackathons')}>
+                    <Folder className="w-4 h-4 group-hover:text-blue-600" /> Hackathons
                 </div>
-                <div className="flex items-center gap-2 px-2 py-1 hover:bg-gray-200 rounded cursor-pointer">
-                    <Download className="w-4 h-4" /> Downloads
+                <div onClick={() => setActiveFolder('startups')} className={getSidebarItemClass('startups')}>
+                    <Folder className="w-4 h-4 group-hover:text-blue-600" /> Startups
                 </div>
-                <div className="flex items-center gap-2 px-2 py-1 hover:bg-gray-200 rounded cursor-pointer">
-                    <Folder className="w-4 h-4" /> Applications
-                </div>
-                <div className="px-2 py-1 text-gray-500 text-xs font-bold mt-4">iCloud</div>
-                <div className="flex items-center gap-2 px-2 py-1 hover:bg-gray-200 rounded cursor-pointer">
-                    <Folder className="w-4 h-4" /> Documents
+
+                <div className="px-2 py-1 text-gray-500 text-xs font-bold mt-4 uppercase tracking-wider">iCloud</div>
+                <div onClick={() => setActiveFolder('resume')} className={getSidebarItemClass('resume')}>
+                    <Download className="w-4 h-4 group-hover:text-blue-600" /> Resume
                 </div>
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 bg-white p-4">
+            <div className="flex-1 bg-white p-4 overflow-y-auto">
                 <div className="grid grid-cols-4 gap-4">
-                    {projects.map((item) => (
+                    {folders[activeFolder].map((item) => (
                         <div
                             key={item.id}
                             onClick={() => handleOpen(item)}
                             className="flex flex-col items-center gap-2 p-2 hover:bg-blue-50 rounded-lg cursor-pointer group"
                         >
-                            {item.icon}
-                            <span className="text-sm text-center group-hover:text-blue-600">{item.title}</span>
+                            <div className="transform transition-transform group-hover:scale-110">
+                                {item.icon}
+                            </div>
+                            <span className="text-sm text-center group-hover:text-blue-600 font-medium">{item.title}</span>
                         </div>
                     ))}
+                    {folders[activeFolder].length === 0 && (
+                        <div className="col-span-4 flex items-center justify-center h-64 text-gray-400 italic">
+                            Empty folder
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
