@@ -66,9 +66,6 @@ export default function Finder() {
         ],
         projects: [
             { id: 'hemodynamics', title: 'Emory Hemodynamics Calculator', type: 'folder', icon: <Stethoscope className="w-16 h-16 text-emerald-500" strokeWidth={2.5} /> },
-        ],
-        resume: [
-            { id: 'resume', title: 'Resume.pdf', type: 'file', icon: <FileText className="w-16 h-16 text-gray-400" /> },
         ]
     };
 
@@ -111,8 +108,8 @@ export default function Finder() {
                 </div>
 
                 <div className="px-2 py-1 text-gray-500 text-xs font-bold mt-4 uppercase tracking-wider">iCloud</div>
-                <div onClick={() => setActiveFolder('resume')} className={getSidebarItemClass('resume')}>
-                    <Download className="w-4 h-4 group-hover:text-blue-600" /> Resume
+                <div onClick={() => window.open('/Namkhang_Le_Resume.pdf', '_blank')} className={getSidebarItemClass('resume')}>
+                    <FileText className="w-4 h-4 group-hover:text-blue-600" /> Resume
                 </div>
             </div>
 
