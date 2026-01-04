@@ -17,9 +17,9 @@ const experienceData = [
     },
     {
         id: 'aws',
-        company: 'Amazon Web Services',
+        company: 'AWS',
         url: 'https://aws.amazon.com/',
-        title: 'Software Development Engineer Intern',
+        title: 'SDE Intern',
         period: 'May 2024 - Aug 2024',
         location: 'Arlington, VA',
         points: [
@@ -32,7 +32,7 @@ const experienceData = [
         id: 'citi',
         company: 'Citigroup',
         url: 'https://www.citigroup.com/',
-        title: 'Software Engineer Intern',
+        title: 'SWE Intern',
         period: 'June 2023 - Aug 2023',
         location: 'Tampa, FL',
         points: [
@@ -44,9 +44,9 @@ const experienceData = [
     },
     {
         id: 'lockheed',
-        company: 'Lockheed Martin',
+        company: 'Lockheed',
         url: 'https://www.lockheedmartin.com/',
-        title: 'Software Engineer Intern',
+        title: 'SWE Intern',
         period: 'May 2022 - Aug 2022',
         location: 'Manassas, VA',
         points: [
@@ -148,17 +148,16 @@ export default function Notes() {
             <div className="flex-1 flex flex-col bg-white overflow-hidden shadow-inner relative">
                 {/* Content Header */}
                 <div className="px-10 py-8 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
-                    <h1 className="text-3xl font-black text-gray-900 leading-tight flex items-baseline justify-between w-full flex-wrap gap-4">
-                        <div className="flex-1">
+                    <h1 className="text-2xl font-black text-gray-900 leading-tight flex items-center justify-between w-full gap-x-6">
+                        <div className="flex-shrink-0 whitespace-nowrap overflow-hidden text-ellipsis">
                             {selectedRole.title} at{' '}
                             <a
                                 href={selectedRole.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#3478F6] hover:underline inline-flex items-center gap-1.5"
+                                className="text-[#3478F6] hover:underline"
                             >
                                 {selectedRole.company}
-                                <ExternalLink className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
                             </a>
                         </div>
                         <div className="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest shadow-sm leading-none flex-shrink-0">
