@@ -9,7 +9,7 @@ const experienceData = [
         title: 'Software Engineer',
         period: 'Aug 2025 - Present',
         location: 'Menlo Park, CA',
-        skills: ['PyTorch', 'C++', 'Generative AI', 'LLMs', 'Distributed Systems'],
+        skills: ['PyTorch', 'Generative AI', 'LLMs', 'Distributed Systems'],
         points: [
             'Developing and optimizing Large Language Models (LLMs) and Generative AI infrastructure.',
             'Architecting scalable backend services to support high-throughput AI inference and deployment.',
@@ -23,7 +23,7 @@ const experienceData = [
         title: 'SDE Intern',
         period: 'May 2024 - Aug 2024',
         location: 'Arlington, VA',
-        skills: ['Java', 'Spring Boot', 'AWS SWF', 'SNS', 'SQS', 'Amazon Bedrock'],
+        skills: ['Java', 'Spring Boot', 'SWF', 'SNS', 'SQS', 'Bedrock'],
         points: [
             'Engineered a Java and Spring-based customer-facing communication service to automate the delivery of 10+ Government Cloud request email notifications per day by enabling seamless integration with 3 native AWS packages.',
             'Redesigned a 13-year-old email system into a scalable, end-to-end microservices architecture using AWS SWF, SNS, and SQS achieving a processing rate of over 5 transactions per second (TPS), ensuring redundancy and autoscaling across the application.',
@@ -37,7 +37,7 @@ const experienceData = [
         title: 'SWE Intern',
         period: 'June 2023 - Aug 2023',
         location: 'Tampa, FL',
-        skills: ['Angular', 'Oracle DB', 'Java', 'Spring Boot', 'Python', 'Pandas'],
+        skills: ['Angular', 'Oracle DB', 'Java', 'Spring Boot', 'Python'],
         points: [
             'Spearheaded Event Master Central, a full stack application for real-time corporate action event monitoring of financial assets in Angular & Oracle Database increasing engineering awareness of deployment failures by 18%.',
             'Revamped authentication logic, fortifying API token validation for REST API calls, contributing an 85% uptime to production.',
@@ -52,7 +52,7 @@ const experienceData = [
         title: 'SWE Intern',
         period: 'May 2022 - Aug 2022',
         location: 'Manassas, VA',
-        skills: ['Python', 'Kubeflow', 'PyTorch', 'TensorFlow', 'Spring', 'Log4J'],
+        skills: ['Python', 'Kubeflow', 'PyTorch', 'TensorFlow', 'Spring'],
         points: [
             'Trained a wildfire-based infrastructure identification AI model through Kubeflow, Pytorch, & Tensorflow, with 98% accuracy.',
             'Implemented a real-time data monitoring interface in Spring, driving a 20% increase in operator awareness & object tracking.',
