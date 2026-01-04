@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Folder, FileText, Download, ExternalLink, Activity, Type, Flashlight, Bot } from 'lucide-react';
+import { Folder, FileText, Download, ExternalLink, Activity, Type, Flashlight, Bot, Stethoscope } from 'lucide-react';
 import { useWindowContext } from '../../context/WindowContext';
 
 const ProjectContent = ({ title, description, link, linkText }) => (
@@ -46,17 +46,26 @@ export default function Finder() {
             description: 'Building careers for the 22nd century.',
             link: 'http://bobalabs.tech/',
             linkText: 'Visit Boba Labs'
+        },
+        hemodynamics: {
+            title: 'Emory Hemodynamics Calculator',
+            description: 'In partnership with Emory School of Medicine, providing a user-friendly interface to calculate hemodynamic values for the ICU.',
+            link: 'https://hemodynamics.vercel.app/',
+            linkText: 'View Project'
         }
     };
 
     const folders = {
+        startups: [
+            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Bot className="w-16 h-16 text-purple-500" /> },
+        ],
         hackathons: [
             { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <Activity className="w-16 h-16 text-red-500" /> },
             { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <Type className="w-16 h-16 text-blue-500" /> },
             { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Flashlight className="w-16 h-16 text-orange-500" /> },
         ],
-        startups: [
-            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Bot className="w-16 h-16 text-purple-500" /> },
+        projects: [
+            { id: 'hemodynamics', title: 'Emory Hemodynamics Calculator', type: 'folder', icon: <Stethoscope className="w-16 h-16 text-emerald-500" /> },
         ],
         resume: [
             { id: 'resume', title: 'Resume.pdf', type: 'file', icon: <FileText className="w-16 h-16 text-gray-400" /> },
@@ -91,11 +100,14 @@ export default function Finder() {
             {/* Sidebar */}
             <div className="w-48 bg-gray-100/90 backdrop-blur border-r border-gray-200 p-2 space-y-1 text-sm font-medium">
                 <div className="px-2 py-1 text-gray-500 text-xs font-bold uppercase tracking-wider">Favorites</div>
+                <div onClick={() => setActiveFolder('startups')} className={getSidebarItemClass('startups')}>
+                    <Folder className="w-4 h-4 group-hover:text-blue-600" /> Startups
+                </div>
                 <div onClick={() => setActiveFolder('hackathons')} className={getSidebarItemClass('hackathons')}>
                     <Folder className="w-4 h-4 group-hover:text-blue-600" /> Hackathons
                 </div>
-                <div onClick={() => setActiveFolder('startups')} className={getSidebarItemClass('startups')}>
-                    <Folder className="w-4 h-4 group-hover:text-blue-600" /> Startups
+                <div onClick={() => setActiveFolder('projects')} className={getSidebarItemClass('projects')}>
+                    <Folder className="w-4 h-4 group-hover:text-blue-600" /> Projects
                 </div>
 
                 <div className="px-2 py-1 text-gray-500 text-xs font-bold mt-4 uppercase tracking-wider">iCloud</div>
