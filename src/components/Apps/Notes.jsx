@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ChevronRight, FileText, Calendar, ExternalLink } from 'lucide-react';
+import { Search, ChevronRight, FileText, Calendar } from 'lucide-react';
 
 const experienceData = [
     {
@@ -109,15 +109,14 @@ export default function Notes() {
                             <span className="text-[12px] font-medium tracking-wide uppercase">{selectedRole.period}</span>
                         </div>
                         <h1 className="text-2xl font-black text-gray-900 leading-tight">
-                            {selectedRole.title} at {' '}
+                            {selectedRole.title} at{' '}
                             <a
                                 href={selectedRole.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#3478F6] hover:underline inline-flex items-center gap-1.5"
+                                className="text-[#3478F6] hover:underline"
                             >
                                 {selectedRole.company}
-                                <ExternalLink className="w-4 h-4" />
                             </a>
                         </h1>
                     </div>
