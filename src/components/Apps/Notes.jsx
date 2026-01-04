@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, ChevronRight, FileText, Calendar } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Search, ChevronRight, FileText, Calendar, ExternalLink, X } from 'lucide-react';
 
 const experienceData = [
     {
@@ -59,86 +59,133 @@ const experienceData = [
 ];
 
 export default function Notes() {
-    const [selectedRole, setSelectedRole] = useState(experienceData[0]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedRoleId, setSelectedRoleId] = useState(experienceData[0].id);
+
+    const filteredExperience = useMemo(() => {
+        if (!searchTerm) return experienceData;
+        const term = searchTerm.toLowerCase();
+        return experienceData.filter(role =>
+            role.company.toLowerCase().includes(term) ||
+            role.title.toLowerCase().includes(term) ||
+            role.points.some(p => p.toLowerCase().includes(term))
+        );
+    }, [searchTerm]);
+
+    const selectedRole = experienceData.find(r => r.id === selectedRoleId) || filteredExperience[0] || experienceData[0];
 
     return (
-        <div className="flex h-full bg-[#FCFCFD] text-gray-800 font-sans select-none">
+        <div className="flex h-full bg-[#FCFCFD] text-gray-800 font-sans select-none overflow-hidden">
             {/* Sidebar */}
-            <div className="w-64 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/50 backdrop-blur-xl">
-                <div className="p-4 space-y-4">
-                    <div className="flex items-center justify-between text-[#8E8E93] text-xs font-semibold uppercase tracking-wider px-2">
-                        <span>Notes</span>
-                        <Search className="w-3.5 h-3.5 cursor-pointer hover:text-gray-600 transition-colors" />
+            <div className="w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl">
+                {/* Search Bar */}
+                <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between text-[#8E8E93] text-[10px] font-bold uppercase tracking-widest px-1">
+                        <span>All Notes</span>
+                        <FileText className="w-3 h-3" />
                     </div>
-                    <div className="space-y-0.5">
-                        {experienceData.map((role) => (
+                    <div className="relative group">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8E8E93] group-focus-within:text-[#3478F6] transition-colors" />
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            placeholder="Search"
+                            className="w-full bg-[#E3E3E8] border-none rounded-md py-1.5 pl-9 pr-8 text-[13px] focus:ring-2 focus:ring-[#3478F6]/20 outline-none transition-all placeholder-[#8E8E93]"
+                        />
+                        {searchTerm && (
+                            <button
+                                onClick={() => setSearchTerm('')}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-400/20 rounded-full transition-colors"
+                            >
+                                <X className="w-3 h-3 text-[#8E8E93]" />
+                            </button>
+                        )}
+                    </div>
+                </div>
+
+                <div className="flex-1 overflow-y-auto px-2 pb-4 space-y-0.5 custom-scrollbar">
+                    {filteredExperience.length > 0 ? (
+                        filteredExperience.map((role) => (
                             <div
                                 key={role.id}
-                                onClick={() => setSelectedRole(role)}
+                                onClick={() => setSelectedRoleId(role.id)}
                                 className={`
-                                    group flex flex-col p-2.5 rounded-lg cursor-pointer transition-all
-                                    ${selectedRole.id === role.id
-                                        ? 'bg-[#EBCB8B]/40 shadow-sm border border-[#EBCB8B]/20'
+                                    group flex flex-col p-3 rounded-lg cursor-pointer transition-all relative
+                                    ${selectedRoleId === role.id
+                                        ? 'bg-[#EBCB8B] shadow-sm'
                                         : 'hover:bg-gray-200/50'}
                                 `}
                             >
-                                <div className="flex items-center justify-between gap-2 overflow-hidden">
-                                    <span className={`text-[13px] font-bold truncate ${selectedRole.id === role.id ? 'text-gray-900' : 'text-gray-700'}`}>
+                                <div className="flex items-center justify-between gap-2 overflow-hidden mb-0.5">
+                                    <span className={`text-[13px] font-bold truncate ${selectedRoleId === role.id ? 'text-gray-900' : 'text-gray-800'}`}>
                                         {role.company}
                                     </span>
-                                    <span className="text-[10px] text-[#A1A1A1] whitespace-nowrap">
-                                        {role.period.split('-')[0].trim()}
+                                    <span className={`text-[10px] whitespace-nowrap ${selectedRoleId === role.id ? 'text-gray-700' : 'text-[#A1A1A1]'}`}>
+                                        {role.id === 'meta' ? "Aug 2025" : role.period.split('-')[1].trim()}
                                     </span>
                                 </div>
-                                <div className="text-[11px] text-[#8E8E93] truncate group-hover:text-[#636366] transition-colors leading-tight">
+                                <div className={`text-[11px] truncate leading-tight ${selectedRoleId === role.id ? 'text-gray-800' : 'text-[#8E8E93]'}`}>
                                     {role.title}
                                 </div>
+                                <div className={`text-[11px] truncate mt-1 ${selectedRoleId === role.id ? 'text-gray-700' : 'text-[#B0B0B0]'}`}>
+                                    {role.points[0]}
+                                </div>
                             </div>
-                        ))}
-                    </div>
+                        ))
+                    ) : (
+                        <div className="flex flex-col items-center justify-center py-10 text-center px-4">
+                            <Search className="w-8 h-8 text-[#E5E5E5] mb-2" />
+                            <p className="text-[13px] font-medium text-[#8E8E93]">No Results for "{searchTerm}"</p>
+                            <p className="text-[11px] text-[#A1A1A1] mt-1">Try a different company or skill.</p>
+                        </div>
+                    )}
                 </div>
             </div>
 
             {/* Content area */}
-            <div className="flex-1 flex flex-col bg-white overflow-hidden shadow-inner">
+            <div className="flex-1 flex flex-col bg-white overflow-hidden shadow-inner relative">
                 {/* Content Header */}
-                <div className="px-8 py-6 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
+                <div className="px-10 py-8 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
                     <div>
-                        <div className="flex items-center gap-2 mb-1.5 text-[#EBCB8B]">
-                            <Calendar className="w-4 h-4" />
-                            <span className="text-[12px] font-medium tracking-wide uppercase">{selectedRole.period}</span>
+                        <div className="flex items-center gap-2 mb-2 text-[#8E8E93] font-medium">
+                            <Calendar className="w-3.5 h-3.5" />
+                            <span className="text-[11px] tracking-widest uppercase">{selectedRole.period}</span>
                         </div>
-                        <h1 className="text-2xl font-black text-gray-900 leading-tight">
+                        <h1 className="text-3xl font-black text-gray-900 leading-tight">
                             {selectedRole.title} at{' '}
                             <a
                                 href={selectedRole.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#3478F6] hover:underline"
+                                className="text-[#3478F6] hover:underline inline-flex items-center gap-1.5"
                             >
                                 {selectedRole.company}
+                                <ExternalLink className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
                             </a>
                         </h1>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <div className="px-3 py-1 bg-gray-100 rounded-md text-[11px] font-bold text-gray-500 uppercase tracking-tight">
-                            {selectedRole.location}
-                        </div>
+                    <div className="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest shadow-sm">
+                        {selectedRole.location}
                     </div>
                 </div>
 
                 {/* Main Text Area */}
-                <div className="flex-1 overflow-y-auto px-8 py-8 custom-scrollbar">
-                    <div className="max-w-2xl space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-150">
+                <div className="flex-1 overflow-y-auto px-10 py-10 custom-scrollbar">
+                    <div className="max-w-3xl space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-150">
                         <div className="space-y-6">
-                            <h2 className="text-[13px] font-black uppercase tracking-[0.1em] text-[#8E8E93] border-b border-gray-100 pb-2">
-                                Role Description
-                            </h2>
-                            <ul className="space-y-4">
+                            <div className="flex items-center gap-3">
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                                <h2 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C1C1C1]">
+                                    Professional Impact
+                                </h2>
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                            </div>
+                            <ul className="space-y-5">
                                 {selectedRole.points.map((point, i) => (
-                                    <li key={i} className="flex gap-4 group">
-                                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-[#3478F6] flex-shrink-0 group-hover:scale-125 transition-transform" />
-                                        <span className="text-[15px] leading-relaxed text-[#3C3C43] font-medium">
+                                    <li key={i} className="flex gap-5 group">
+                                        <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-[#3478F6] flex-shrink-0 group-hover:scale-125 transition-transform shadow-sm shadow-blue-200" />
+                                        <span className="text-[16px] leading-relaxed text-[#3C3C43] font-medium tracking-tight">
                                             {point}
                                         </span>
                                     </li>

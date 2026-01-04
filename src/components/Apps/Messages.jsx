@@ -25,8 +25,8 @@ export default function Messages() {
             sender: 'Namkhang',
             content: (
                 <span>
-                    I am currently a Software Engineer at <CompanyLink href="https://about.meta.com/">Meta</CompanyLink>,
-                    where I work on LLMs and Generative AI.
+                    I will be joining <CompanyLink href="https://about.meta.com/">Meta</CompanyLink> in August 2025
+                    as a Software Engineer, focusing on LLMs and Generative AI.
                 </span>
             ),
             time: 'Now'
