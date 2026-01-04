@@ -54,9 +54,9 @@ export default function Messages() {
                         <li className="flex items-center gap-1">▹ Python</li>
                         <li className="flex items-center gap-1">▹ TypeScript</li>
                         <li className="flex items-center gap-1">▹ React.js</li>
-                        <li className="flex items-center gap-1">▹ LLMs / GenAI</li>
+                        <li className="flex items-center gap-1">▹ Artificial Intelligence </li>
                         <li className="flex items-center gap-1">▹ Node.js</li>
-                        <li className="flex items-center gap-1">▹ C++</li>
+                        <li className="flex items-center gap-1">▹ Java</li>
                     </ul>
                 </div>
             ),
