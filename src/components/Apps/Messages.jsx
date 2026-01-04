@@ -122,7 +122,20 @@ export default function Messages() {
                 <div className="p-4 border-b border-gray-200 font-bold text-lg">Messages</div>
                 <div className="p-2">
                     <div className="flex items-center gap-3 p-3 bg-blue-500/10 rounded-lg cursor-pointer">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold">NL</div>
+                        <div className="relative w-10 h-10 flex-shrink-0">
+                            <img
+                                src="/pfp.png"
+                                alt="Namkhang Le"
+                                className="w-full h-full rounded-full object-cover border border-gray-200"
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    e.target.nextSibling.style.display = 'flex';
+                                }}
+                            />
+                            <div className="hidden w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-purple-500 items-center justify-center text-white font-bold text-sm">
+                                NL
+                            </div>
+                        </div>
                         <div>
                             <div className="font-semibold text-sm">Namkhang Le</div>
                             <div className="text-[10px] text-gray-500">
