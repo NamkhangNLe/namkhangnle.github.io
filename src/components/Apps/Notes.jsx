@@ -122,11 +122,12 @@ export default function Notes() {
                                         {role.company}
                                     </span>
                                     <span className={`text-[10px] whitespace-nowrap ${selectedRoleId === role.id ? 'text-gray-700' : 'text-[#A1A1A1]'}`}>
-                                        {role.id === 'meta' ? "Aug 2025" : role.period.split('-')[1].trim()}
+                                        {role.id === 'meta' ? "Present" : role.period.split('-')[1].trim()}
                                     </span>
                                 </div>
-                                <div className={`text-[11px] truncate leading-tight ${selectedRoleId === role.id ? 'text-gray-800' : 'text-[#8E8E93]'}`}>
-                                    {role.title}
+                                <div className={`text-[11px] truncate leading-tight ${selectedRoleId === role.id ? 'text-gray-800' : 'text-[#8E8E93]'} flex justify-between gap-2`}>
+                                    <span className="truncate">{role.title}</span>
+                                    <span className="opacity-50 text-[10px] flex-shrink-0">{role.location}</span>
                                 </div>
                                 <div className={`text-[11px] truncate mt-1 ${selectedRoleId === role.id ? 'text-gray-700' : 'text-[#B0B0B0]'}`}>
                                     {role.points[0]}
@@ -147,12 +148,8 @@ export default function Notes() {
             <div className="flex-1 flex flex-col bg-white overflow-hidden shadow-inner relative">
                 {/* Content Header */}
                 <div className="px-10 py-8 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2 text-[#8E8E93] font-medium">
-                            <Calendar className="w-3.5 h-3.5" />
-                            <span className="text-[11px] tracking-widest uppercase">{selectedRole.period}</span>
-                        </div>
-                        <h1 className="text-3xl font-black text-gray-900 leading-tight">
+                    <h1 className="text-3xl font-black text-gray-900 leading-tight flex items-baseline justify-between w-full flex-wrap gap-4">
+                        <div className="flex-1">
                             {selectedRole.title} at{' '}
                             <a
                                 href={selectedRole.url}
@@ -163,11 +160,11 @@ export default function Notes() {
                                 {selectedRole.company}
                                 <ExternalLink className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
                             </a>
-                        </h1>
-                    </div>
-                    <div className="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest shadow-sm">
-                        {selectedRole.location}
-                    </div>
+                        </div>
+                        <div className="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest shadow-sm leading-none flex-shrink-0">
+                            {selectedRole.location}
+                        </div>
+                    </h1>
                 </div>
 
                 {/* Main Text Area */}
@@ -211,6 +208,6 @@ export default function Notes() {
                     background: #D1D1D6;
                 }
             `}</style>
-        </div>
+        </div >
     );
 }
