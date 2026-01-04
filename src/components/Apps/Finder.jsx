@@ -24,34 +24,32 @@ export default function Finder() {
 
     const projectData = {
         diagnoseme: {
-            title: 'DiagnoseMe',
-            description: 'An interactive GPT4 Electron.js application designed to simulate patient interactions. It leverages the power of AI to generate responses based on a variety of medical conditions, providing a user-friendly React interface for medical students to practice their diagnostic skills.',
-            link: 'https://devfolio.co/projects/diagnoseme-1992',
-            linkText: 'View on Devfolio'
+            title: "DiagnoseMe",
+            description: "Constructed a ChatGPT powered ElectronJS application for disease diagnosis supporting medical students and doctors in training. Streamlined user experience by creating 120 unique prompt-engineered scenarios through Pandas DataFrame consolidation. Achieved a 15% reduction in development time through REST APIs for seamless data exchange via JSON between React & Flask.",
+            link: "https://devfolio.co/projects/diagnoseme-1992",
+            linkText: "View on Devfolio",
+            date: "Feb 2024"
         },
         scribbletex: {
-            title: 'ScribbleTex',
-            description: 'A web application that leverages custom machine learning to convert handwritten text to LaTeX code. This application utilizes a React frontend with a Flask backend, integrating a machine learning model hosted on Google Cloud\'s Vertex AI for handwriting recognition.',
-            link: 'https://namkhangnle.github.io/ScribbleTex/',
-            linkText: 'AI ATL Github Winners!'
+            title: "ScribbleTex",
+            description: "Developed a decision tree classifier and a convolutional neural network (CNN) using Keras achieving 97% translation accuracy. Preprocessed 3 datasets comprising over 200,000 samples. Implemented a React-based frontend built using HTML, CSS, and JavaScript connected to a Python Flask backend with REST API endpoints for optimized communication with the CNN model hosted on GCP Vertex AI.",
+            link: "https://namkhangle.github.io/ScribbleTex/",
+            linkText: "AI ATL Github Winners!",
+            date: "Nov 2023"
         },
         morsetorch: {
-            title: 'MorseTorch',
-            description: 'A Swift-based iOS application designed to provide essential Morse code communication tools. Using advanced computer vision technology and state-of-the-art language processing, our app allows users to seamlessly communicate in Morse code. Whether you need to transmit messages in challenging situations or simply want to explore the world of Morse code, MorseTorch has you covered.',
-            link: 'https://cpjoseph18.wixsite.com/morsetorch',
-            linkText: 'My First Hackathon!'
-        },
-        bobalabs: {
-            title: 'Boba Labs',
-            description: 'Building careers for the 22nd century.',
-            link: 'http://bobalabs.tech/',
-            linkText: 'Visit Boba Labs'
+            title: "MorseTorch",
+            description: "Employed Swift-based iOS application for Morse code translation, integrating Torch and Carthage binary framework. Executed K-means clustering algorithm using CoreML enabling real-time translation of optical signals with a 75% accuracy rate. Using advanced computer vision technology, our app allows users to seamlessly communicate in Morse code.",
+            link: "https://cpjoseph18.wixsite.com/morsetorch",
+            linkText: "HackGT Hackathon",
+            date: "Oct 2023"
         },
         hemodynamics: {
-            title: 'Emory Hemodynamics Calculator',
-            description: 'In partnership with Emory School of Medicine, providing a user-friendly interface to calculate hemodynamic values for the ICU.',
-            link: 'https://hemodynamics.vercel.app/',
-            linkText: 'View Project'
+            title: "Hemodynamics Calculator",
+            description: "Developed a full-stack application for the Emory University School of Medicine to be used by 10 clinicians to reduce measurement error daily, impacting over 1,000 patients within the ICU. Leveraged ReactJS, Express, and MongoDB to develop interactive visualizations of trends in patient data, reducing data-related errors by 34%.",
+            link: "https://github.com/namkhangle/Emory-Hemodynamics",
+            linkText: "GT CS Capstone",
+            date: "2023-2024"
         }
     };
 

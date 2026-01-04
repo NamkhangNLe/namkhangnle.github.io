@@ -1,9 +1,10 @@
 import React from 'react';
-import { AppWindow, MessageSquare, Folder, Github, Globe, Linkedin } from 'lucide-react';
+import { AppWindow, MessageSquare, Folder, Github, Globe, Linkedin, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useWindowContext } from '../../context/WindowContext';
 import Messages from '../Apps/Messages';
 import Finder from '../Apps/Finder';
+import Notes from '../Apps/Notes';
 
 export default function Dock() {
     const { openWindow } = useWindowContext();
@@ -11,7 +12,10 @@ export default function Dock() {
     const handleAppClick = (id) => {
         switch (id) {
             case 'finder':
-                openWindow('finder', 'Finder', <Finder />, { w: 800, h: 500 });
+                openWindow('finder', 'Finder', <Finder />, { w: 800, h: 450 });
+                break;
+            case 'notes':
+                openWindow('notes', 'Notes', <Notes />, { w: 850, h: 550 });
                 break;
             case 'messages':
                 openWindow('messages', 'Messages', <Messages />, { w: 800, h: 550 });
@@ -29,6 +33,7 @@ export default function Dock() {
 
     const apps = [
         { id: 'finder', icon: <Folder className="w-8 h-8 text-blue-500 fill-blue-500" />, label: 'Finder' },
+        { id: 'notes', icon: <FileText className="w-8 h-8 text-orange-400 fill-orange-400" />, label: 'Notes' },
         { id: 'messages', icon: <MessageSquare className="w-8 h-8 text-green-500 fill-green-500" />, label: 'Messages' },
         { id: 'linkedin', icon: <Linkedin className="w-8 h-8 text-blue-600 fill-blue-600" />, label: 'LinkedIn' },
         { id: 'github', icon: <Github className="w-8 h-8 text-white fill-black" />, label: 'GitHub' },

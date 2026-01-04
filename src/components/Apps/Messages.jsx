@@ -139,7 +139,7 @@ export default function Messages() {
                         <div>
                             <div className="font-semibold text-sm">Namkhang Le</div>
                             <div className="text-[10px] text-gray-500">
-                                <a href="https://www.gatech.edu/" target="_blank" rel="noopener noreferrer" className="hover:underline">Georgia Tech Grad</a>, Meta SWE
+                                <a href="https://www.gatech.edu/" target="_blank" rel="noopener noreferrer" className="hover:underline">Georgia Tech Grad</a>, <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Meta</a> SWE
                             </div>
                         </div>
                     </div>
