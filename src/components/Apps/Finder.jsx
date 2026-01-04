@@ -164,10 +164,6 @@ export default function Finder() {
 
                             <div className="w-full space-y-4 py-6 border-t border-gray-100 mt-2">
                                 <div className="flex justify-between items-center text-[10px]">
-                                    <span className="text-[#A1A1A1] font-bold uppercase tracking-wider">Size</span>
-                                    <span className="text-gray-900 font-black">--</span>
-                                </div>
-                                <div className="flex justify-between items-center text-[10px]">
                                     <span className="text-[#A1A1A1] font-bold uppercase tracking-wider">Created</span>
                                     <span className="text-gray-900 font-black italic">{projectData[selectedItem.id]?.date || 'Today'}</span>
                                 </div>

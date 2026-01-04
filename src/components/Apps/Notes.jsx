@@ -185,11 +185,6 @@ export default function Notes() {
 
                 {/* Main Text Area */}
                 <div className="flex-1 overflow-y-auto px-10 py-6 custom-scrollbar">
-                    <div className="flex justify-center mb-8">
-                        <span className="text-[11px] font-medium text-[#A1A1A1]">
-                            January 3, 2026 at 5:58 PM
-                        </span>
-                    </div>
                     <div className="max-w-3xl space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-150">
                         <div className="space-y-6">
                             <div className="flex items-center gap-3">
@@ -220,11 +215,11 @@ export default function Notes() {
                                 </h2>
                                 <div className="h-[1px] flex-1 bg-gray-100" />
                             </div>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-nowrap overflow-x-auto gap-2 pb-2 custom-scrollbar-h">
                                 {selectedRole.skills.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1.5 bg-gray-50/50 border border-gray-100 rounded-lg text-[11px] font-bold text-gray-500 hover:border-[#3478F6]/30 hover:bg-white hover:text-[#3478F6] transition-all cursor-default shadow-sm hover:shadow-md"
+                                        className="px-3 py-1.5 bg-gray-50/50 border border-gray-100 rounded-lg text-[11px] font-bold text-gray-500 hover:border-[#3478F6]/30 hover:bg-white hover:text-[#3478F6] transition-all cursor-default shadow-sm hover:shadow-md whitespace-nowrap"
                                     >
                                         {skill}
                                     </span>
@@ -248,6 +243,19 @@ export default function Notes() {
                 }
                 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
                     background: #D1D1D6;
+                }
+                .custom-scrollbar-h::-webkit-scrollbar {
+                    height: 4px;
+                }
+                .custom-scrollbar-h::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                .custom-scrollbar-h::-webkit-scrollbar-thumb {
+                    background: #F0F0F0;
+                    border-radius: 10px;
+                }
+                .custom-scrollbar-h::-webkit-scrollbar-thumb:hover {
+                    background: #E5E5E5;
                 }
             `}</style>
         </div >

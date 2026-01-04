@@ -29,7 +29,7 @@ export default function MenuBar() {
                 onClick={(e) => { e.stopPropagation(); setActiveMenu(activeMenu === label ? null : label); }}
                 className={`px-3 py-1 rounded-md cursor-default flex items-center transition-colors ${activeMenu === label ? 'bg-white/20' : 'hover:bg-white/10'}`}
             >
-                {isApple ? <Apple className="w-4 h-4 fill-white" /> : <span className={label === 'Finder' ? 'font-bold' : ''}>{label}</span>}
+                {isApple ? <span className="text-lg leading-none">🧋</span> : <span className={label === 'Finder' ? 'font-bold' : ''}>{label}</span>}
             </div>
             {activeMenu === label && (
                 <div className="absolute top-8 left-0 w-56 bg-[#1A1A1A]/80 backdrop-blur-2xl border border-white/10 rounded-lg shadow-2xl p-1 z-50 animate-in fade-in zoom-in-95 duration-100 flex flex-col">
