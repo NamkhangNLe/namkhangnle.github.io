@@ -37,7 +37,7 @@ export default function Desktop() {
             <div className="absolute top-12 right-4 flex flex-col gap-4 items-end z-10">
                 <DesktopIcon
                     icon={<FileText className="w-8 h-8 text-blue-400 drop-shadow-md" strokeWidth={2.5} />}
-                    label="Namkhang's Resume"
+                    label="Resume"
                     onClick={() => window.open('/Namkhang_Le_Resume.pdf', '_blank')}
                 />
                 <DesktopIcon

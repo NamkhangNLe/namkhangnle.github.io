@@ -125,13 +125,15 @@ export default function Finder() {
                 {/* Main Content Area */}
                 <div className="flex-1 flex overflow-hidden">
                     {/* Main Grid */}
-                    <div className={`p-4 overflow-y-auto custom-scrollbar flex-1 transition-all duration-300`}>
-                        <div className={`grid ${selectedItem ? 'grid-cols-2' : 'grid-cols-4'} gap-4`}>
+                    <div className="p-4 overflow-y-auto custom-scrollbar flex-1">
+                        <div className="grid grid-cols-4 gap-4">
                             {folders[activeFolder].map((item) => (
                                 <div
                                     key={item.id}
-                                    onClick={() => setSelectedId(item.id)}
-                                    onDoubleClick={() => handleOpen(item)}
+                                    onClick={() => {
+                                        setSelectedId(item.id);
+                                        handleOpen(item);
+                                    }}
                                     className={`
                                         flex flex-col items-center gap-2 p-3 rounded-lg cursor-pointer group transition-all
                                         ${selectedId === item.id ? 'bg-blue-100/60 ring-1 ring-blue-500/20' : 'hover:bg-blue-50/50'}
@@ -153,34 +155,7 @@ export default function Finder() {
                         </div>
                     </div>
 
-                    {/* Quick Look Panel */}
-                    {selectedItem && (
-                        <div className="w-[300px] border-l border-gray-100 bg-gray-50/50 p-6 flex flex-col items-center animate-in slide-in-from-right-4 duration-300">
-                            <div className="w-24 h-24 mb-6 shadow-sm">
-                                {selectedItem.icon}
-                            </div>
-                            <h3 className="text-[15px] font-black text-center text-gray-900 leading-tight mb-1">{selectedItem.title}</h3>
-                            <p className="text-[9px] text-[#A1A1A1] uppercase tracking-[0.2em] font-black mb-6">Folder</p>
 
-                            <div className="w-full space-y-4 py-6 border-t border-gray-100 mt-2">
-                                <div className="flex justify-between items-center text-[10px]">
-                                    <span className="text-[#A1A1A1] font-bold uppercase tracking-wider">Created</span>
-                                    <span className="text-gray-900 font-black italic">{projectData[selectedItem.id]?.date || 'Today'}</span>
-                                </div>
-                                <div className="flex justify-between items-center text-[10px]">
-                                    <span className="text-[#A1A1A1] font-bold uppercase tracking-wider">Kind</span>
-                                    <span className="text-gray-900 font-black">Mac Folder</span>
-                                </div>
-                            </div>
-
-                            <button
-                                onClick={() => handleOpen(selectedItem)}
-                                className="mt-auto w-full py-2.5 bg-[#3478F6] hover:bg-blue-600 text-white rounded-lg font-black text-[11px] transition-all shadow-sm active:scale-[0.98]"
-                            >
-                                Open Project
-                            </button>
-                        </div>
-                    )}
                 </div>
             </div>
 
