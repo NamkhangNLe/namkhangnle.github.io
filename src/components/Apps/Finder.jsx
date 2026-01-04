@@ -57,15 +57,15 @@ export default function Finder() {
 
     const folders = {
         startups: [
-            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Bot className="w-16 h-16 text-purple-500" /> },
+            { id: 'bobalabs', title: 'Boba Labs', type: 'folder', icon: <Bot className="w-16 h-16 text-purple-500" strokeWidth={2.5} /> },
         ],
         hackathons: [
-            { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <HeartPulse className="w-16 h-16 text-red-500" /> },
-            { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <PencilLine className="w-16 h-16 text-blue-500" /> },
-            { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Flashlight className="w-16 h-16 text-orange-500" /> },
+            { id: 'diagnoseme', title: 'DiagnoseMe', type: 'folder', icon: <HeartPulse className="w-16 h-16 text-red-500" strokeWidth={2.5} /> },
+            { id: 'scribbletex', title: 'ScribbleTex', type: 'folder', icon: <PencilLine className="w-16 h-16 text-blue-500" strokeWidth={2.5} /> },
+            { id: 'morsetorch', title: 'MorseTorch', type: 'folder', icon: <Flashlight className="w-16 h-16 text-orange-500" strokeWidth={2.5} /> },
         ],
         projects: [
-            { id: 'hemodynamics', title: 'Emory Hemodynamics Calculator', type: 'folder', icon: <Stethoscope className="w-16 h-16 text-emerald-500" /> },
+            { id: 'hemodynamics', title: 'Emory Hemodynamics Calculator', type: 'folder', icon: <Stethoscope className="w-16 h-16 text-emerald-500" strokeWidth={2.5} /> },
         ],
         resume: [
             { id: 'resume', title: 'Resume.pdf', type: 'file', icon: <FileText className="w-16 h-16 text-gray-400" /> },
