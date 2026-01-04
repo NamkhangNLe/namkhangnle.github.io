@@ -9,6 +9,7 @@ const experienceData = [
         title: 'Software Engineer',
         period: 'Aug 2025 - Present',
         location: 'Menlo Park, CA',
+        skills: ['PyTorch', 'C++', 'Generative AI', 'LLMs', 'Distributed Systems'],
         points: [
             'Developing and optimizing Large Language Models (LLMs) and Generative AI infrastructure.',
             'Architecting scalable backend services to support high-throughput AI inference and deployment.',
@@ -22,6 +23,7 @@ const experienceData = [
         title: 'SDE Intern',
         period: 'May 2024 - Aug 2024',
         location: 'Arlington, VA',
+        skills: ['Java', 'Spring Boot', 'AWS SWF', 'SNS', 'SQS', 'Amazon Bedrock'],
         points: [
             'Engineered a Java and Spring-based customer-facing communication service to automate the delivery of 10+ Government Cloud request email notifications per day by enabling seamless integration with 3 native AWS packages.',
             'Redesigned a 13-year-old email system into a scalable, end-to-end microservices architecture using AWS SWF, SNS, and SQS achieving a processing rate of over 5 transactions per second (TPS), ensuring redundancy and autoscaling across the application.',
@@ -35,6 +37,7 @@ const experienceData = [
         title: 'SWE Intern',
         period: 'June 2023 - Aug 2023',
         location: 'Tampa, FL',
+        skills: ['Angular', 'Oracle DB', 'Java', 'Spring Boot', 'Python', 'Pandas'],
         points: [
             'Spearheaded Event Master Central, a full stack application for real-time corporate action event monitoring of financial assets in Angular & Oracle Database increasing engineering awareness of deployment failures by 18%.',
             'Revamped authentication logic, fortifying API token validation for REST API calls, contributing an 85% uptime to production.',
@@ -49,6 +52,7 @@ const experienceData = [
         title: 'SWE Intern',
         period: 'May 2022 - Aug 2022',
         location: 'Manassas, VA',
+        skills: ['Python', 'Kubeflow', 'PyTorch', 'TensorFlow', 'Spring', 'Log4J'],
         points: [
             'Trained a wildfire-based infrastructure identification AI model through Kubeflow, Pytorch, & Tensorflow, with 98% accuracy.',
             'Implemented a real-time data monitoring interface in Spring, driving a 20% increase in operator awareness & object tracking.',
@@ -80,9 +84,15 @@ export default function Notes() {
             <div className="w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl">
                 {/* Search Bar */}
                 <div className="p-4 space-y-3">
-                    <div className="flex items-center justify-between text-[#8E8E93] text-[10px] font-bold uppercase tracking-widest px-1">
-                        <span>All Notes</span>
-                        <FileText className="w-3 h-3" />
+                    <div className="flex items-center justify-between text-[#8E8E93] text-[10px] font-black uppercase tracking-[0.15em] px-1">
+                        <div className="flex items-center gap-1.5">
+                            <FileText className="w-3 h-3" />
+                            <span>All Notes</span>
+                        </div>
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#8E8E93] hover:text-[#3478F6] cursor-pointer transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
                     </div>
                     <div className="relative group">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8E8E93] group-focus-within:text-[#3478F6] transition-colors" />
@@ -104,7 +114,7 @@ export default function Notes() {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto px-2 pb-4 space-y-0.5 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto px-2 space-y-0.5 custom-scrollbar">
                     {filteredExperience.length > 0 ? (
                         filteredExperience.map((role) => (
                             <div
@@ -142,6 +152,13 @@ export default function Notes() {
                         </div>
                     )}
                 </div>
+
+                {/* Sidebar Footer */}
+                <div className="p-3 border-t border-[#E5E5E5] text-center bg-[#F6F6F6]/50">
+                    <span className="text-[10px] font-medium text-[#8E8E93] uppercase tracking-wider">
+                        {filteredExperience.length} {filteredExperience.length === 1 ? 'Note' : 'Notes'}
+                    </span>
+                </div>
             </div>
 
             {/* Content area */}
@@ -167,7 +184,12 @@ export default function Notes() {
                 </div>
 
                 {/* Main Text Area */}
-                <div className="flex-1 overflow-y-auto px-10 py-10 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto px-10 py-6 custom-scrollbar">
+                    <div className="flex justify-center mb-8">
+                        <span className="text-[11px] font-medium text-[#A1A1A1]">
+                            January 3, 2026 at 5:58 PM
+                        </span>
+                    </div>
                     <div className="max-w-3xl space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-150">
                         <div className="space-y-6">
                             <div className="flex items-center gap-3">
@@ -187,6 +209,27 @@ export default function Notes() {
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+
+                        {/* Tech Stack Footer */}
+                        <div className="pt-10 border-t border-gray-100/60 pb-10">
+                            <div className="flex items-center gap-3 mb-5">
+                                <div className="h-[1px] w-12 bg-gray-100" />
+                                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C1C1C1]">
+                                    Tech Stack
+                                </h2>
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {selectedRole.skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="px-3 py-1.5 bg-gray-50/50 border border-gray-100 rounded-lg text-[11px] font-bold text-gray-500 hover:border-[#3478F6]/30 hover:bg-white hover:text-[#3478F6] transition-all cursor-default shadow-sm hover:shadow-md"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

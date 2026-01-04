@@ -77,6 +77,7 @@ export default function Messages() {
 
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
 
     useEffect(() => {
         const timers = [];
@@ -84,13 +85,20 @@ export default function Messages() {
         setMessages([]);
 
         fullMessages.forEach((msg, index) => {
+            // Show typing indicator before each message
+            const typingStart = setTimeout(() => {
+                if (msg.sender === 'Namkhang') setIsTyping(true);
+            }, (index + 1) * 800 - 450);
+
             const timer = setTimeout(() => {
+                setIsTyping(false);
                 setMessages(prev => {
                     if (prev.find(m => m.id === msg.id)) return prev;
                     return [...prev, msg];
                 });
             }, (index + 1) * 800);
-            timers.push(timer);
+
+            timers.push(typingStart, timer);
         });
 
         return () => timers.forEach(clearTimeout);
@@ -105,14 +113,18 @@ export default function Messages() {
         setInputValue('');
 
         setTimeout(() => {
-            window.location.href = `mailto:NamkhangNLe@hotmail.com?subject=Hello from Portfolio&body=${inputValue}`;
-            setMessages(prev => [...prev, {
-                id: Date.now() + 1,
-                sender: 'Namkhang',
-                content: "Thanks for the message! I've opened your email client to send it properly. 📧",
-                time: 'Just now'
-            }]);
-        }, 1000);
+            setIsTyping(true);
+            setTimeout(() => {
+                setIsTyping(false);
+                window.location.href = `mailto:NamkhangNLe@hotmail.com?subject=Hello from Portfolio&body=${inputValue}`;
+                setMessages(prev => [...prev, {
+                    id: Date.now() + 1,
+                    sender: 'Namkhang',
+                    content: "Thanks for the message! I've opened your email client to send it properly. 📧",
+                    time: 'Just now'
+                }]);
+            }, 1500);
+        }, 800);
     };
 
     return (
@@ -148,14 +160,28 @@ export default function Messages() {
 
             {/* Chat Area */}
             <div className="flex-1 flex flex-col bg-white overflow-hidden">
-                <div className="flex-1 p-4 overflow-y-auto space-y-4 flex flex-col">
-                    {messages.map((msg) => (
-                        <div key={msg.id} className={`flex ${msg.sender === 'You' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-                            <div className={`max-w-[85%] p-3 rounded-2xl ${msg.sender === 'You' ? 'bg-blue-500 text-white rounded-br-none' : 'bg-gray-200 text-gray-800 rounded-bl-none'}`}>
+                <div className="flex-1 p-4 overflow-y-auto space-y-4 flex flex-col custom-scrollbar">
+                    {messages.map((msg, index) => (
+                        <div key={msg.id} className={`flex flex-col ${msg.sender === 'You' ? 'items-end' : 'items-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+                            <div className={`max-w-[85%] p-3 rounded-2xl ${msg.sender === 'You' ? 'bg-[#3478F6] text-white rounded-br-none' : 'bg-[#E9E9EB] text-gray-800 rounded-bl-none'}`}>
                                 <div className="text-[13px] leading-relaxed">{msg.content}</div>
                             </div>
+                            {index === messages.length - 1 && msg.sender === 'Namkhang' && (
+                                <div className="text-[10px] text-gray-400 ml-1 mt-1 font-medium animate-in fade-in duration-1000">Delivered</div>
+                            )}
                         </div>
                     ))}
+                    {isTyping && (
+                        <div className="flex animate-in fade-in duration-300">
+                            <div className="bg-[#E9E9EB] p-3 rounded-2xl rounded-bl-none">
+                                <div className="flex gap-1">
+                                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" />
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 {/* Input */}
