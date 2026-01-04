@@ -8,7 +8,7 @@ export const WindowProvider = ({ children }) => {
     const [windows, setWindows] = useState([]);
     const [activeWindowId, setActiveWindowId] = useState(null);
 
-    const openWindow = (id, title, content, initSize = { w: 600, h: 400 }) => {
+    const openWindow = (id, title, content, initSize = { w: 600, h: 400 }, initPosition = null) => {
         setWindows((prev) => {
             const existing = prev.find((w) => w.id === id);
             if (existing) {
@@ -23,7 +23,7 @@ export const WindowProvider = ({ children }) => {
                 title,
                 content,
                 size: initSize,
-                position: { x: 100 + prev.length * 20, y: 50 + prev.length * 20 },
+                position: initPosition || { x: 100 + prev.length * 20, y: 50 + prev.length * 20 },
                 isMinimized: false,
                 zIndex: getNextZIndex(prev)
             }];
