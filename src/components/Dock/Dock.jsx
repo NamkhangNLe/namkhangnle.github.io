@@ -14,7 +14,7 @@ export default function Dock() {
                 openWindow('finder', 'Finder', <Finder />, { w: 800, h: 500 });
                 break;
             case 'messages':
-                openWindow('messages', 'Messages', <Messages />, { w: 800, h: 600 });
+                openWindow('messages', 'Messages', <Messages />, { w: 800, h: 550 });
                 break;
             case 'linkedin':
                 window.open('https://linkedin.com/in/namkhangnle', '_blank');
