@@ -27,7 +27,7 @@ export default function Finder() {
         bobalabs: {
             title: "Boba Labs",
             description: "Co-founding a referral-based networking platform connecting recruiters with vetted talent through trusted peer networks. Streamlining the hiring process by leveraging social proof and professional recommendations.",
-            link: "https://github.com/namkhangle",
+            link: "https://bobalabs.tech/",
             linkText: "Founder & CEO",
             date: "Jan 2024"
         },
@@ -41,7 +41,7 @@ export default function Finder() {
         scribbletex: {
             title: "ScribbleTex",
             description: "Developed a decision tree classifier and a convolutional neural network (CNN) using Keras achieving 97% translation accuracy. Preprocessed 3 datasets comprising over 200,000 samples. Implemented a React-based frontend built using HTML, CSS, and JavaScript connected to a Python Flask backend with REST API endpoints for optimized communication with the CNN model hosted on GCP Vertex AI.",
-            link: "https://namkhangle.github.io/ScribbleTex/",
+            link: "https://devpost.com/software/scribbletex",
             linkText: "AI ATL Github Winners!",
             date: "Nov 2023"
         },
@@ -55,7 +55,7 @@ export default function Finder() {
         hemodynamics: {
             title: "Hemodynamics Calculator",
             description: "Developed a full-stack application for the Emory University School of Medicine to be used by 10 clinicians to reduce measurement error daily, impacting over 1,000 patients within the ICU. Leveraged ReactJS, Express, and MongoDB to develop interactive visualizations of trends in patient data, reducing data-related errors by 34%.",
-            link: "https://github.com/namkhangle/Emory-Hemodynamics",
+            link: "https://hemodynamics.vercel.app/",
             linkText: "GT CS Capstone",
             date: "2023-2024"
         }
