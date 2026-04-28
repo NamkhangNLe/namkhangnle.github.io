@@ -48,7 +48,7 @@ export default function Desktop() {
                 <DesktopIcon
                     icon={<Github className="w-8 h-8 text-white drop-shadow-md" strokeWidth={2.5} />}
                     label="GitHub"
-                    onClick={() => window.open('https://github.com/namkhangle', '_blank')}
+                    onClick={() => window.open('https://github.com/NamkhangNLe', '_blank')}
                 />
             </div>
 
