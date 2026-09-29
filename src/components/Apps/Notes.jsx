@@ -1,1 +1,235 @@
-aW1wb3J0IFJlYWN0LCB7IHVzZVN0YXRlLCB1c2VNZW1vIH0gZnJvbSAncmVhY3QnOwppbXBvcnQgeyBTZWFyY2gsIENoZXZyb25SaWdodCwgRmlsZVRleHQsIENhbGVuZGFyLCBFeHRlcm5hbExpbmssIFggfSBmcm9tICdsdWNpZGUtcmVhY3QnOwoKY29uc3QgZXhwZXJpZW5jZURhdGEgPSBbCiAgICB7CiAgICAgICAgaWQ6ICdtZXRhJywKICAgICAgICBjb21wYW55OiAnTWV0YScsCiAgICAgICAgdXJsOiAnaHR0cHM6Ly9hYm91dC5tZXRhLmNvbS8nLAogICAgICAgIHRpdGxlOiAnU29mdHdhcmUgRW5naW5lZXIgSUknLAogICAgICAgIHBlcmlvZDogJ0F1ZyAyMDI1IC0gUHJlc2VudCcsCiAgICAgICAgbG9jYXRpb246ICdTYW4gRnJhbmNpc2NvIEJheSBBcmVhJywKICAgICAgICBza2lsbHM6IFsnQWdlbnRpYyBBSScsICdMTE0gZXZhbHMnLCAnUHlUb3JjaCcsICdEaXN0cmlidXRlZCBTeXN0ZW1zJ10sCiAgICAgICAgcG9pbnRzOiBbCiAgICAgICAgICAgICdCdWlsZCBpbmZyYXN0cnVjdHVyZSBmb3IgYWdlbnRpYyBBSSBzeXN0ZW1zIGF0IE1ldGEg4oCUIHRoZSBwbGF0Zm9ybSBwb3dlcmluZyBBSSBhc3Npc3RhbnRzIHVzZWQgYWNyb3NzIHRoZSBjb21wYW55LicsCiAgICAgICAgICAgICdXb3JrIGFjcm9zcyB0aGUgYWdlbnQgc3RhY2s6IHRvb2wgdXNlLCBjb250ZXh0IG1hbmFnZW1lbnQsIGFuZCBldmFsdWF0aW9uLicsCiAgICAgICAgICAgICdTdGFuZGFyZGl6ZSBMTE0gZXZhbHVhdGlvbiBwaXBlbGluZXMgdG8gYmVuY2htYXJrIEdlbkFJIGZlYXR1cmVzLCBhbmQgc2hpcCBBSS1wb3dlcmVkIGZlYXR1cmVzIHRvIHByb2R1Y3Rpb24gc3VyZmFjZXMuJwogICAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICAgaWQ6ICdhd3MnLAogICAgICAgIGNvbXBhbnk6ICdBV1MnLAogICAgICAgIHVybDogJ2h0dHBzOi8vYXdzLmFtYXpvbi5jb20vJywKICAgICAgICB0aXRsZTogJ1NERSBJbnRlcm4nLAogICAgICAgIHBlcmlvZDogJ01heSAyMDI0IC0gQXVnIDIwMjQnLAogICAgICAgIGxvY2F0aW9uOiAnQXJsaW5ndG9uLCBWQScsCiAgICAgICAgc2tpbGxzOiBbJ0phdmEnLCAnU3ByaW5nIEJvb3QnLCAnU1dGJywgJ1NOUycsICdTUVMnLCAnQmVkcm9jayddLAogICAgICAgIHBvaW50czogWwogICAgICAgICAgICAnRW5naW5lZXJlZCBhIEphdmEgYW5kIFNwcmluZy1iYXNlZCBjdXN0b21lci1mYWNpbmcgY29tbXVuaWNhdGlvbiBzZXJ2aWNlIHRvIGF1dG9tYXRlIHRoZSBkZWxpdmVyeSBvZiAxMCsgR292ZXJubWVudCBDbG91ZCByZXF1ZXN0IGVtYWlsIG5vdGlmaWNhdGlvbnMgcGVyIGRheSBieSBlbmFibGluZyBzZWFtbGVzcyBpbnRlZ3JhdGlvbiB3aXRoIDMgbmF0aXZlIEFXUyBwYWNrYWdlcy4nLAogICAgICAgICAgICAnUmVkZXNpZ25lZCBhIDEzLXllYXItb2xkIGVtYWlsIHN5c3RlbSBpbnRvIGEgc2NhbGFibGUsIGVuZC10by1lbmQgbWljcm9zZXJ2aWNlcyBhcmNoaXRlY3R1cmUgdXNpbmcgQVdTIFNXRiwgU05TLCBhbmQgU1FTIGFjaGlldmluZyBhIHByb2Nlc3NpbmcgcmF0ZSBvZiBvdmVyIDUgdHJhbnNhY3Rpb25zIHBlciBzZWNvbmQgKFRQUyksIGVuc3VyaW5nIHJlZHVuZGFuY3kgYW5kIGF1dG9zY2FsaW5nIGFjcm9zcyB0aGUgYXBwbGljYXRpb24uJywKICAgICAgICAgICAgJ0FyY2hpdGVjdGVkIGEgMXN0IHBsYWNlLXdpbm5pbmcgQW1hem9uIEJlZHJvY2stcG93ZXJlZCBBSSBvbmJvYXJkaW5nIGJ1ZGR5LCBmaW5lLXR1bmVkIG9uIGludGVybmFsIGRvY3VtZW50YXRpb24sIHRvIHNpZ25pZmljYW50bHkgcmVkdWNlIHJhbXAtdXAgbGFnIHRpbWUgZm9yIG5ldyBzb2Z0d2FyZSBlbmdpbmVlcnMgY29tcGFueS13aWRlIGFuZCByZWR1Y2luZyBxdWVzdGlvbiByZXNwb25zZSB0aW1lLicKICAgICAgICBdCiAgICB9LAogICAgewogICAgICAgIGlkOiAnY2l0aScsCiAgICAgICAgY29tcGFueTogJ0NpdGlncm91cCcsCiAgICAgICAgdXJsOiAnaHR0cHM6Ly93d3cuY2l0aWdyb3VwLmNvbS8nLAogICAgICAgIHRpdGxlOiAnU1dFIEludGVybicsCiAgICAgICAgcGVyaW9kOiAnSnVuZSAyMDIzIC0gQXVnIDIwMjMnLAogICAgICAgIGxvY2F0aW9uOiAnVGFtcGEsIEZMJywKICAgICAgICBza2lsbHM6IFsnQW5ndWxhcicsICdPcmFjbGUgREInLCAnSmF2YScsICdTcHJpbmcgQm9vdCcsICdQeXRob24nXSwKICAgICAgICBwb2ludHM6IFsKICAgICAgICAgICAgJ1NwZWFyaGVhZGVkIEV2ZW50IE1hc3RlciBDZW50cmFsLCBhIGZ1bGwgc3RhY2sgYXBwbGljYXRpb24gZm9yIHJlYWwtdGltZSBjb3Jwb3JhdGUgYWN0aW9uIGV2ZW50IG1vbml0b3Jpbmcgb2YgZmluYW5jaWFsIGFzc2V0cyBpbiBBbmd1bGFyICYgT3JhY2xlIERhdGFiYXNlIGluY3JlYXNpbmcgZW5naW5lZXJpbmcgYXdhcmVuZXNzIG9mIGRlcGxveW1lbnQgZmFpbHVyZXMgYnkgMTglLicsCiAgICAgICAgICAgICdSZXZhbXBlZCBhdXRoZW50aWNhdGlvbiBsb2dpYywgZm9ydGlmeWluZyBBUEkgdG9rZW4gdmFsaWRhdGlvbiBmb3IgUkVTVCBBUEkgY2FsbHMsIGNvbnRyaWJ1dGluZyBhbiA4NSUgdXB0aW1lIHRvIHByb2R1Y3Rpb24uJywKICAgICAgICAgICAgJ09yY2hlc3RyYXRlZCBzZWFtbGVzcyBpbnRlZ3JhdGlvbiB3aXRoIEluc3RpdHV0aW9uYWwgU2VydmljZXMgR3JvdXDigJlzIENsb3VkIHNlcnZpY2VzIHVzaW5nIFNwcmluZyBCb290LCBvcHRpbWl6aW5nIHBlcmZvcm1hbmNlIHRocm91Z2ggSlNPTi1iYXNlZCBIVFRQIHJlcXVlc3RzLCBhbmQgZW5oYW5jaW5nIG92ZXJhbGwgZWZmaWNpZW5jeSBieSAxNSUgYWNyb3NzIHRoZSBhcHBsaWNhdGlvbi4nLAogICAgICAgICAgICAnTGV2ZXJhZ2VkIFB5dGhvbuKAmXMgUGFuZGFzIERhdGFGcmFtZSB0byBhbmFseXplIHN1cmZhY2UgdGVtcGVyYXR1cmVzIHZzIGdsb2JhbCBkb21lc3RpYyBwcm9kdWN0LCByZXN1bHRpbmcgaW4gYSAwLjggcG9zaXRpdmUgY29ycmVsYXRpb24gd2l0aGluIFRhYmxldSBpbiBzdXBwb3J0IG9mIENpdGnigJlzIDEgdHJpbGxpb24gZG9sbGFyIGNvbW1pdG1lbnQgdG8gc3VzdGFpbmFibGUgZmluYW5jZS4nCiAgICAgICAgXQogICAgfSwKICAgIHsKICAgICAgICBpZDogJ2xvY2toZWVkJywKICAgICAgICBjb21wYW55OiAnTG9ja2hlZWQnLAogICAgICAgIHVybDogJ2h0dHBzOi8vd3d3LmxvY2toZWVkbWFydGluLmNvbS8nLAogICAgICAgIHRpdGxlOiAnU1dFIEludGVybicsCiAgICAgICAgcGVyaW9kOiAnTWF5IDIwMjIgLSBBdWcgMjAyMicsCiAgICAgICAgbG9jYXRpb246ICdNYW5hc3NhcywgVkEnLAogICAgICAgIHNraWxsczogWydQeXRob24nLCAnS3ViZWZsb3cnLCAnUHlUb3JjaCcsICdUZW5zb3JGbG93JywgJ1NwcmluZyddLAogICAgICAgIHBvaW50czogWwogICAgICAgICAgICAnVHJhaW5lZCBhIHdpbGRmaXJlLWJhc2VkIGluZnJhc3RydWN0dXJlIGlkZW50aWZpY2F0aW9uIEFJIG1vZGVsIHRocm91Z2ggS3ViZWZsb3csIFB5dG9yY2gsICYgVGVuc29yZmxvdywgd2l0aCA5OCUgYWNjdXJhY3kuJywKICAgICAgICAgICAgJ0ltcGxlbWVudGVkIGEgcmVhbC10aW1lIGRhdGEgbW9uaXRvcmluZyBpbnRlcmZhY2UgaW4gU3ByaW5nLCBkcml2aW5nIGEgMjAlIGluY3JlYXNlIGluIG9wZXJhdG9yIGF3YXJlbmVzcyAmIG9iamVjdCB0cmFja2luZy4nLAogICAgICAgICAgICAnVHJhbnNmb3JtZWQgY29kZWJhc2UgbWFpbnRhaW5hYmlsaXR5IGJ5IGNvbnZlcnRpbmcgbG9nZ2luZyBsZXZlbHMgZnJvbSBBcGFjaGUgTG9nNEogdG8gU0xGNEosIGFjaGlldmluZyA4MCUgY29kZSBjb3ZlcmFnZS4nLAogICAgICAgICAgICAnQ29sbGFib3JhdGVkIHdpdGggcXVhbGl0eSBhbmFseXNpcyB0ZWFtIHRvIGV4ZWN1dGUgY29tcHJlaGVuc2l2ZSB0ZXN0aW5nLCByZXN1bHRpbmcgaW4gYSAxMiUgcmVkdWN0aW9uIGluIGxvZ2dpbmcgaW5lZmZpY2llbmNpZXMuJwogICAgICAgIF0KICAgIH0KXTsKCmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE5vdGVzKCkgewogICAgY29uc3QgW3NlYXJjaFRlcm0sIHNldFNlYXJjaFRlcm1dID0gdXNlU3RhdGUoJycpOwogICAgY29uc3QgW3NlbGVjdGVkUm9sZUlkLCBzZXRTZWxlY3RlZFJvbGVJZF0gPSB1c2VTdGF0ZShleHBlcmllbmNlRGF0YVswXS5pZCk7CgogICAgY29uc3QgZmlsdGVyZWRFeHBlcmllbmNlID0gdXNlTWVtbygoKSA9PiB7CiAgICAgICAgaWYgKCFzZWFyY2hUZXJtKSByZXR1cm4gZXhwZXJpZW5jZURhdGE7CiAgICAgICAgY29uc3QgdGVybSA9IHNlYXJjaFRlcm0udG9Mb3dlckNhc2UoKTsKICAgICAgICByZXR1cm4gZXhwZXJpZW5jZURhdGEuZmlsdGVyKHJvbGUgPT4KICAgICAgICAgICAgcm9sZS5jb21wYW55LnRvTG93ZXJDYXNlKCkuaW5jbHVkZXModGVybSkgfHwKICAgICAgICAgICAgcm9sZS50aXRsZS50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHRlcm0pIHx8CiAgICAgICAgICAgIHJvbGUucG9pbnRzLnNvbWUocCA9PiBwLnRvTG93ZXJDYXNlKCkuaW5jbHVkZXModGVybSkpCiAgICAgICAgKTsKICAgIH0sIFtzZWFyY2hUZXJtXSk7CgogICAgY29uc3Qgc2VsZWN0ZWRSb2xlID0gZXhwZXJpZW5jZURhdGEuZmluZChyID0+IHIuaWQgPT09IHNlbGVjdGVkUm9sZUlkKSB8fCBmaWx0ZXJlZEV4cGVyaWVuY2VbMF0gfHwgZXhwZXJpZW5jZURhdGFbMF07CgogICAgcmV0dXJuICgKICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBoLWZ1bGwgYmctWyNGQ0ZDRkRdIHRleHQtZ3JheS04MDAgZm9udC1zYW5zIHNlbGVjdC1ub25lIG92ZXJmbG93LWhpZGRlbiI+CiAgICAgICAgICAgIHsvKiBTaWRlYmFyICovfQogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0idy03MiBib3JkZXItciBib3JkZXItWyNFNUU1RTVdIGZsZXggZmxleC1jb2wgYmctWyNGNkY2RjZdLzkwIGJhY2tkcm9wLWJsdXIteGwiPgogICAgICAgICAgICAgICAgey8qIFNlYXJjaCBCYXIgKi99CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icC00IHNwYWNlLXktMyI+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiB0ZXh0LVsjOEU4RTkzXSB0ZXh0LVsxMHB4XSBmb250LWJsYWNrIHVwcGVyY2FzZSB0cmFja2luZy1bMC4xNWVtXSBweC0xIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0xLjUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPEZpbGVUZXh0IGNsYXNzTmFtZT0idy0zIGgtMyIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPkFsbCBOb3Rlczwvc3Bhbj4KICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDxzdmcgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzc05hbWU9InctNCBoLTQgdGV4dC1bIzhFOEU5M10gaG92ZXI6dGV4dC1bIzM0NzhGNl0gY3Vyc29yLXBvaW50ZXIgdHJhbnNpdGlvbi1jb2xvcnMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2VXaWR0aD0iMi41Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMSA0SDRhMiAyIDAgMCAwLTIgMnYxNGEyIDIgMCAwIDAgMiAyaDE0YTIgMiAwIDAgMCAyLTJ2LTciIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTguNSAyLjVhMi4xMjEgMi4xMjEgMCAwIDEgMyAzTDEyIDE1bC00IDEgMS00IDkuNS05LjV6IiAvPgogICAgICAgICAgICAgICAgICAgICAgICA8L3N2Zz4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icmVsYXRpdmUgZ3JvdXAiPgogICAgICAgICAgICAgICAgICAgICAgICA8U2VhcmNoIGNsYXNzTmFtZT0iYWJzb2x1dGUgbGVmdC0zIHRvcC0xLzIgLXRyYW5zbGF0ZS15LTEvMiB3LTMuNSBoLTMuNSB0ZXh0LVsjOEU4RTkzXSBncm91cC1mb2N1cy13aXRoaW46dGV4dC1bIzM0NzhGNl0gdHJhbnNpdGlvbi1jb2xvcnMiIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxpbnB1dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT0idGV4dCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXtzZWFyY2hUZXJtfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRTZWFyY2hUZXJtKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJTZWFyY2giCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9InctZnVsbCBiZy1bI0UzRTNFOF0gYm9yZGVyLW5vbmUgcm91bmRlZC1tZCBweS0xLjUgcGwtOSBwci04IHRleHQtWzEzcHhdIGZvY3VzOnJpbmctMiBmb2N1czpyaW5nLVsjMzQ3OEY2XS8yMCBvdXRsaW5lLW5vbmUgdHJhbnNpdGlvbi1hbGwgcGxhY2Vob2xkZXItWyM4RThFOTNdIgogICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICB7c2VhcmNoVGVybSAmJiAoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2VhcmNoVGVybSgnJyl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJhYnNvbHV0ZSByaWdodC0yIHRvcC0xLzIgLXRyYW5zbGF0ZS15LTEvMiBwLTEgaG92ZXI6YmctZ3JheS00MDAvMjAgcm91bmRlZC1mdWxsIHRyYW5zaXRpb24tY29sb3JzIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT0idy0zIGgtMyB0ZXh0LVsjOEU4RTkzXSIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICApfQogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CgogICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXgtMSBvdmVyZmxvdy15LWF1dG8gcHgtMiBzcGFjZS15LTAuNSBjdXN0b20tc2Nyb2xsYmFyIj4KICAgICAgICAgICAgICAgICAgICB7ZmlsdGVyZWRFeHBlcmllbmNlLmxlbmd0aCA+IDAgPyAoCiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcmVkRXhwZXJpZW5jZS5tYXAoKHJvbGUpID0+ICgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZXk9e3JvbGUuaWR9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2VsZWN0ZWRSb2xlSWQocm9sZS5pZCl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwIGZsZXggZmxleC1jb2wgcC0zIHJvdW5kZWQtbGcgY3Vyc29yLXBvaW50ZXIgdHJhbnNpdGlvbi1hbGwgcmVsYXRpdmUKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJHtzZWxlY3RlZFJvbGVJZCA9PT0gcm9sZS5pZAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPyAnYmctWyNFQkNCOEJdIHNoYWRvdy1zbScKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogJ2hvdmVyOmJnLWdyYXktMjAwLzUwJ30KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gZ2FwLTIgb3ZlcmZsb3ctaGlkZGVuIG1iLTAuNSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17YHRleHQtWzEzcHhdIGZvbnQtYm9sZCB0cnVuY2F0ZSAke3NlbGVjdGVkUm9sZUlkID09PSByb2xlLmlkID8gJ3RleHQtZ3JheS05MDAnIDogJ3RleHQtZ3JheS04MDAnfWB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3JvbGUuY29tcGFueX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9e2B0ZXh0LVsxMHB4XSB3aGl0ZXNwYWNlLW5vd3JhcCAke3NlbGVjdGVkUm9sZUlkID09PSByb2xlLmlkID8gJ3RleHQtZ3JheS03MDAnIDogJ3RleHQtWyNBMUExQTFdJ31gfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtyb2xlLmlkID09PSAnbWV0YScgPyAiUHJlc2VudCIgOiByb2xlLnBlcmlvZC5zcGxpdCgnLScpWzFdLnRyaW0oKX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgdGV4dC1bMTFweF0gdHJ1bmNhdGUgbGVhZGluZy10aWdodCAke3NlbGVjdGVkUm9sZUlkID09PSByb2xlLmlkID8gJ3RleHQtZ3JheS04MDAnIDogJ3RleHQtWyM4RThFOTNdJ30gZmxleCBqdXN0aWZ5LWJldHdlZW4gZ2FwLTJgfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJ0cnVuY2F0ZSI+e3JvbGUudGl0bGV9PC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9Im9wYWNpdHktNTAgdGV4dC1bMTBweF0gZmxleC1zaHJpbmstMCI+e3JvbGUubG9jYXRpb259PC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgdGV4dC1bMTFweF0gdHJ1bmNhdGUgbXQtMSAke3NlbGVjdGVkUm9sZUlkID09PSByb2xlLmlkID8gJ3RleHQtZ3JheS03MDAnIDogJ3RleHQtWyNCMEIwQjBdJ31gfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3JvbGUucG9pbnRzWzBdfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgICkpCiAgICAgICAgICAgICAgICAgICAgKSA6ICgKICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggZmxleC1jb2wgaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHB5LTEwIHRleHQtY2VudGVyIHB4LTQiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFNlYXJjaCBjbGFzc05hbWU9InctOCBoLTggdGV4dC1bI0U1RTVFNV0gbWItMiIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0idGV4dC1bMTNweF0gZm9udC1tZWRpdW0gdGV4dC1bIzhFOEU5M10iPk5vIFJlc3VsdHMgZm9yICJ7c2VhcmNoVGVybX0iPC9wPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJ0ZXh0LVsxMXB4XSB0ZXh0LVsjQTFBMUExXSBtdC0xIj5UcnkgYSBkaWZmZXJlbnQgY29tcGFueSBvciBza2lsbC48L3A+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICl9CiAgICAgICAgICAgICAgICA8L2Rpdj4KCiAgICAgICAgICAgICAgICB7LyogU2lkZWJhciBGb290ZXIgKi99CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icC0zIGJvcmRlci10IGJvcmRlci1bI0U1RTVFNV0gdGV4dC1jZW50ZXIgYmctWyNGNkY2RjZdLzUwIj4KICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9InRleHQtWzEwcHhdIGZvbnQtbWVkaXVtIHRleHQtWyM4RThFOTNdIHVwcGVyY2FzZSB0cmFja2luZy13aWRlciI+CiAgICAgICAgICAgICAgICAgICAgICAgIHtmaWx0ZXJlZEV4cGVyaWVuY2UubGVuZ3RofSB7ZmlsdGVyZWRFeHBlcmllbmNlLmxlbmd0aCA9PT0gMSA/ICdOb3RlJyA6ICdOb3Rlcyd9CiAgICAgICAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgey8qIENvbnRlbnQgYXJlYSAqL30KICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXgtMSBmbGV4IGZsZXgtY29sIGJnLXdoaXRlIG92ZXJmbG93LWhpZGRlbiBzaGFkb3ctaW5uZXIgcmVsYXRpdmUiPgogICAgICAgICAgICAgICAgey8qIENvbnRlbnQgSGVhZGVyICovfQogICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9InB4LTEwIHB5LTggYm9yZGVyLWIgYm9yZGVyLVsjRjJGMkYyXSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gYmctd2hpdGUvODAgYmFja2Ryb3AtYmx1ciBzdGlja3kgdG9wLTAgei0xMCI+CiAgICAgICAgICAgICAgICAgICAgPGgxIGNsYXNzTmFtZT0idGV4dC0yeGwgZm9udC1ibGFjayB0ZXh0LWdyYXktOTAwIGxlYWRpbmctdGlnaHQgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHctZnVsbCBnYXAteC02Ij4KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXgtc2hyaW5rLTAgd2hpdGVzcGFjZS1ub3dyYXAgb3ZlcmZsb3ctaGlkZGVuIHRleHQtZWxsaXBzaXMiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAge3NlbGVjdGVkUm9sZS50aXRsZX0gYXR7JyAnfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBocmVmPXtzZWxlY3RlZFJvbGUudXJsfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlbD0ibm9vcGVuZXIgbm9yZWZlcnJlciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9InRleHQtWyMzNDc4RjZdIGhvdmVyOnVuZGVybGluZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgID4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7c2VsZWN0ZWRSb2xlLmNvbXBhbnl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icHgtNCBweS0xLjUgYmctZ3JheS01MCBib3JkZXIgYm9yZGVyLWdyYXktMTAwIHJvdW5kZWQtZnVsbCB0ZXh0LVsxMHB4XSBmb250LWJsYWNrIHRleHQtZ3JheS00MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCBzaGFkb3ctc20gbGVhZGluZy1ub25lIGZsZXgtc2hyaW5rLTAiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAge3NlbGVjdGVkUm9sZS5sb2NhdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPC9oMT4KICAgICAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgICAgIHsvKiBNYWluIFRleHQgQXJlYSAqL30KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4LTEgb3ZlcmZsb3cteS1hdXRvIHB4LTEwIHB5LTYgY3VzdG9tLXNjcm9sbGJhciI+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im1heC13LTN4bCBzcGFjZS15LTEwIGR1cmF0aW9uLTUwMCBkZWxheS0xNTAiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ic3BhY2UteS02Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImgtWzFweF0gZmxleC0xIGJnLWdyYXktMTAwIiAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxoMiBjbGFzc05hbWU9InRleHQtWzExcHhdIGZvbnQtYmxhY2sgdXBwZXJjYXNlIHRyYWNraW5nLVswLjJlbV0gdGV4dC1bI0MxQzFDMV0iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQcm9mZXNzaW9uYWwgSW1wYWN0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9oMj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iaC1bMXB4XSBmbGV4LTEgYmctZ3JheS0xMDAiIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx1bCBjbGFzc05hbWU9InNwYWNlLXktNSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3NlbGVjdGVkUm9sZS5wb2ludHMubWFwKChwb2ludCwgaSkgPT4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGkga2V5PXtpfSBjbGFzc05hbWU9ImZsZXggZ2FwLTUgZ3JvdXAiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im10LTIuNSB3LTEuNSBoLTEuNSByb3VuZGVkLWZ1bGwgYmctWyMzNDc4RjZdIGZsZXgtc2hyaW5rLTAgZ3JvdXAtaG92ZXI6c2NhbGUtMTI1IHRyYW5zaXRpb24tdHJhbnNmb3JtIHNoYWRvdy1zbSBzaGFkb3ctYmx1ZS0yMDAiIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9InRleHQtWzE2cHhdIGxlYWRpbmctcmVsYXhlZCB0ZXh0LVsjM0MzQzQzXSBmb250LW1lZGl1bSB0cmFja2luZy10aWdodCI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3BvaW50fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2xpPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICkpfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC91bD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CgogICAgICAgICAgICAgICAgICAgICAgICB7LyogVGVjaCBTdGFjayBGb290ZXIgKi99CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJwdC0xMCBib3JkZXItdCBib3JkZXItZ3JheS0xMDAvNjAgcGItMTAiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIG1iLTUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJoLVsxcHhdIHctMTIgYmctZ3JheS0xMDAiIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT0idGV4dC1bMTBweF0gZm9udC1ibGFjayB1cHBlcmNhc2UgdHJhY2tpbmctWzAuMmVtXSB0ZXh0LVsjQzFDMUMxXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRlY2ggU3RhY2sKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2gyPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJoLVsxcHhdIGZsZXgtMSBiZy1ncmF5LTEwMCIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggZmxleC1ub3dyYXAgb3ZlcmZsb3cteC1hdXRvIGdhcC0yIHBiLTIgY3VzdG9tLXNjcm9sbGJhci1oIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7c2VsZWN0ZWRSb2xlLnNraWxscy5tYXAoKHNraWxsKSA9PiAoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZXk9e3NraWxsfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJweC0zIHB5LTEuNSBiZy1ncmF5LTUwLzUwIGJvcmRlciBib3JkZXItZ3JheS0xMDAgcm91bmRlZC1sZyB0ZXh0LVsxMXB4XSBmb250LWJvbGQgdGV4dC1ncmF5LTUwMCBob3Zlcjpib3JkZXItWyMzNDc4RjZdLzMwIGhvdmVyOmJnLXdoaXRlIGhvdmVyOnRleHQtWyMzNDc4RjZdIHRyYW5zaXRpb24tYWxsIGN1cnNvci1kZWZhdWx0IHNoYWRvdy1zbSBob3ZlcjpzaGFkb3ctbWQgd2hpdGVzcGFjZS1ub3dyYXAiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtza2lsbH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICkpfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICA8L2RpdiA+CiAgICApOwp9Cg==
+import React, { useState, useMemo } from 'react';
+import { Search, ChevronRight, FileText, Calendar, ExternalLink, X } from 'lucide-react';
+
+const experienceData = [
+    {
+        id: 'meta',
+        company: 'Meta',
+        url: 'https://about.meta.com/',
+        title: 'Software Engineer II',
+        period: 'Aug 2025 - Present',
+        location: 'San Francisco Bay Area',
+        skills: ['Agentic AI', 'LLM evals', 'PyTorch', 'Distributed Systems'],
+        points: [
+            'Build infrastructure for agentic AI systems at Meta — the platform powering AI assistants used across the company.',
+            'Work across the agent stack: tool use, context management, and evaluation.',
+            'Standardize LLM evaluation pipelines to benchmark GenAI features, and ship AI-powered features to production surfaces.'
+        ]
+    },
+    {
+        id: 'aws',
+        company: 'AWS',
+        url: 'https://aws.amazon.com/',
+        title: 'SDE Intern',
+        period: 'May 2024 - Aug 2024',
+        location: 'Arlington, VA',
+        skills: ['Java', 'Spring Boot', 'SWF', 'SNS', 'SQS', 'Bedrock'],
+        points: [
+            'Engineered a Java and Spring-based customer-facing communication service to automate the delivery of 10+ Government Cloud request email notifications per day by enabling seamless integration with 3 native AWS packages.',
+            'Redesigned a 13-year-old email system into a scalable, end-to-end microservices architecture using AWS SWF, SNS, and SQS achieving a processing rate of over 5 transactions per second (TPS), ensuring redundancy and autoscaling across the application.',
+            'Architected a 1st place-winning Amazon Bedrock-powered AI onboarding buddy, fine-tuned on internal documentation, to significantly reduce ramp-up lag time for new software engineers company-wide and reducing question response time.'
+        ]
+    },
+    {
+        id: 'citi',
+        company: 'Citigroup',
+        url: 'https://www.citigroup.com/',
+        title: 'SWE Intern',
+        period: 'June 2023 - Aug 2023',
+        location: 'Tampa, FL',
+        skills: ['Angular', 'Oracle DB', 'Java', 'Spring Boot', 'Python'],
+        points: [
+            'Spearheaded Event Master Central, a full stack application for real-time corporate action event monitoring of financial assets in Angular & Oracle Database increasing engineering awareness of deployment failures by 18%.',
+            'Revamped authentication logic, fortifying API token validation for REST API calls, contributing an 85% uptime to production.',
+            'Orchestrated seamless integration with Institutional Services Group’s Cloud services using Spring Boot, optimizing performance through JSON-based HTTP requests, and enhancing overall efficiency by 15% across the application.',
+            'Leveraged Python’s Pandas DataFrame to analyze surface temperatures vs global domestic product, resulting in a 0.8 positive correlation within Tableu in support of Citi’s 1 trillion dollar commitment to sustainable finance.'
+        ]
+    },
+    {
+        id: 'lockheed',
+        company: 'Lockheed',
+        url: 'https://www.lockheedmartin.com/',
+        title: 'SWE Intern',
+        period: 'May 2022 - Aug 2022',
+        location: 'Manassas, VA',
+        skills: ['Python', 'Kubeflow', 'PyTorch', 'TensorFlow', 'Spring'],
+        points: [
+            'Trained a wildfire-based infrastructure identification AI model through Kubeflow, Pytorch, & Tensorflow, with 98% accuracy.',
+            'Implemented a real-time data monitoring interface in Spring, driving a 20% increase in operator awareness & object tracking.',
+            'Transformed codebase maintainability by converting logging levels from Apache Log4J to SLF4J, achieving 80% code coverage.',
+            'Collaborated with quality analysis team to execute comprehensive testing, resulting in a 12% reduction in logging inefficiencies.'
+        ]
+    }
+];
+
+export default function Notes() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedRoleId, setSelectedRoleId] = useState(experienceData[0].id);
+
+    const filteredExperience = useMemo(() => {
+        if (!searchTerm) return experienceData;
+        const term = searchTerm.toLowerCase();
+        return experienceData.filter(role =>
+            role.company.toLowerCase().includes(term) ||
+            role.title.toLowerCase().includes(term) ||
+            role.points.some(p => p.toLowerCase().includes(term))
+        );
+    }, [searchTerm]);
+
+    const selectedRole = experienceData.find(r => r.id === selectedRoleId) || filteredExperience[0] || experienceData[0];
+
+    return (
+        <div className="flex h-full bg-[#FCFCFD] text-gray-800 font-sans select-none overflow-hidden">
+            {/* Sidebar */}
+            <div className="w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl">
+                {/* Search Bar */}
+                <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between text-[#8E8E93] text-[10px] font-black uppercase tracking-[0.15em] px-1">
+                        <div className="flex items-center gap-1.5">
+                            <FileText className="w-3 h-3" />
+                            <span>All Notes</span>
+                        </div>
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#8E8E93] hover:text-[#3478F6] cursor-pointer transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                    </div>
+                    <div className="relative group">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8E8E93] group-focus-within:text-[#3478F6] transition-colors" />
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            placeholder="Search"
+                            className="w-full bg-[#E3E3E8] border-none rounded-md py-1.5 pl-9 pr-8 text-[13px] focus:ring-2 focus:ring-[#3478F6]/20 outline-none transition-all placeholder-[#8E8E93]"
+                        />
+                        {searchTerm && (
+                            <button
+                                onClick={() => setSearchTerm('')}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-400/20 rounded-full transition-colors"
+                            >
+                                <X className="w-3 h-3 text-[#8E8E93]" />
+                            </button>
+                        )}
+                    </div>
+                </div>
+
+                <div className="flex-1 overflow-y-auto px-2 space-y-0.5 custom-scrollbar">
+                    {filteredExperience.length > 0 ? (
+                        filteredExperience.map((role) => (
+                            <div
+                                key={role.id}
+                                onClick={() => setSelectedRoleId(role.id)}
+                                className={`
+                                    group flex flex-col p-3 rounded-lg cursor-pointer transition-all relative
+                                    ${selectedRoleId === role.id
+                                        ? 'bg-[#EBCB8B] shadow-sm'
+                                        : 'hover:bg-gray-200/50'}
+                                `}
+                            >
+                                <div className="flex items-center justify-between gap-2 overflow-hidden mb-0.5">
+                                    <span className={`text-[13px] font-bold truncate ${selectedRoleId === role.id ? 'text-gray-900' : 'text-gray-800'}`}>
+                                        {role.company}
+                                    </span>
+                                    <span className={`text-[10px] whitespace-nowrap ${selectedRoleId === role.id ? 'text-gray-700' : 'text-[#A1A1A1]'}`}>
+                                        {role.id === 'meta' ? "Present" : role.period.split('-')[1].trim()}
+                                    </span>
+                                </div>
+                                <div className={`text-[11px] truncate leading-tight ${selectedRoleId === role.id ? 'text-gray-800' : 'text-[#8E8E93]'} flex justify-between gap-2`}>
+                                    <span className="truncate">{role.title}</span>
+                                    <span className="opacity-50 text-[10px] flex-shrink-0">{role.location}</span>
+                                </div>
+                                <div className={`text-[11px] truncate mt-1 ${selectedRoleId === role.id ? 'text-gray-700' : 'text-[#B0B0B0]'}`}>
+                                    {role.points[0]}
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="flex flex-col items-center justify-center py-10 text-center px-4">
+                            <Search className="w-8 h-8 text-[#E5E5E5] mb-2" />
+                            <p className="text-[13px] font-medium text-[#8E8E93]">No Results for "{searchTerm}"</p>
+                            <p className="text-[11px] text-[#A1A1A1] mt-1">Try a different company or skill.</p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Sidebar Footer */}
+                <div className="p-3 border-t border-[#E5E5E5] text-center bg-[#F6F6F6]/50">
+                    <span className="text-[10px] font-medium text-[#8E8E93] uppercase tracking-wider">
+                        {filteredExperience.length} {filteredExperience.length === 1 ? 'Note' : 'Notes'}
+                    </span>
+                </div>
+            </div>
+
+            {/* Content area */}
+            <div className="flex-1 flex flex-col bg-white overflow-hidden shadow-inner relative">
+                {/* Content Header */}
+                <div className="px-10 py-8 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
+                    <h1 className="text-2xl font-black text-gray-900 leading-tight flex items-center justify-between w-full gap-x-6">
+                        <div className="flex-shrink-0 whitespace-nowrap overflow-hidden text-ellipsis">
+                            {selectedRole.title} at{' '}
+                            <a
+                                href={selectedRole.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#3478F6] hover:underline"
+                            >
+                                {selectedRole.company}
+                            </a>
+                        </div>
+                        <div className="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest shadow-sm leading-none flex-shrink-0">
+                            {selectedRole.location}
+                        </div>
+                    </h1>
+                </div>
+
+                {/* Main Text Area */}
+                <div className="flex-1 overflow-y-auto px-10 py-6 custom-scrollbar">
+                    <div className="max-w-3xl space-y-10 duration-500 delay-150">
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-3">
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                                <h2 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C1C1C1]">
+                                    Professional Impact
+                                </h2>
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                            </div>
+                            <ul className="space-y-5">
+                                {selectedRole.points.map((point, i) => (
+                                    <li key={i} className="flex gap-5 group">
+                                        <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-[#3478F6] flex-shrink-0 group-hover:scale-125 transition-transform shadow-sm shadow-blue-200" />
+                                        <span className="text-[16px] leading-relaxed text-[#3C3C43] font-medium tracking-tight">
+                                            {point}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Tech Stack Footer */}
+                        <div className="pt-10 border-t border-gray-100/60 pb-10">
+                            <div className="flex items-center gap-3 mb-5">
+                                <div className="h-[1px] w-12 bg-gray-100" />
+                                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C1C1C1]">
+                                    Tech Stack
+                                </h2>
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                            </div>
+                            <div className="flex flex-nowrap overflow-x-auto gap-2 pb-2 custom-scrollbar-h">
+                                {selectedRole.skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="px-3 py-1.5 bg-gray-50/50 border border-gray-100 rounded-lg text-[11px] font-bold text-gray-500 hover:border-[#3478F6]/30 hover:bg-white hover:text-[#3478F6] transition-all cursor-default shadow-sm hover:shadow-md whitespace-nowrap"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div >
+    );
+}

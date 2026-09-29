@@ -1,1 +1,37 @@
-QGltcG9ydCAidGFpbHdpbmRjc3MiOwoKaHRtbCwKYm9keSwKI3Jvb3QgewogIGhlaWdodDogMTAwJTsKICBvdmVyZmxvdzogaGlkZGVuOwp9CgovKiBDdXN0b20gc2Nyb2xsYmFycyAobW92ZWQgZnJvbSBOb3Rlcy5qc3ggPHN0eWxlIGpzeD4g4oCUIHN0eWxlZC1qc3ggaXNuJ3QKICAgaW5zdGFsbGVkLCBzbyB0aGF0IGJsb2NrIHJlbmRlcmVkIGFzIGFuIGFjY2lkZW50YWwgZ2xvYmFsIDxzdHlsZT4gdGFnKS4gKi8KLmN1c3RvbS1zY3JvbGxiYXI6Oi13ZWJraXQtc2Nyb2xsYmFyIHsKICB3aWR0aDogNnB4Owp9Ci5jdXN0b20tc2Nyb2xsYmFyOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7CiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7Cn0KLmN1c3RvbS1zY3JvbGxiYXI6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHsKICBiYWNrZ3JvdW5kOiAjRTVFNUU1OwogIGJvcmRlci1yYWRpdXM6IDEwcHg7Cn0KLmN1c3RvbS1zY3JvbGxiYXI6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHsKICBiYWNrZ3JvdW5kOiAjRDFEMUQ2Owp9Ci5jdXN0b20tc2Nyb2xsYmFyLWg6Oi13ZWJraXQtc2Nyb2xsYmFyIHsKICBoZWlnaHQ6IDRweDsKfQouY3VzdG9tLXNjcm9sbGJhci1oOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7CiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7Cn0KLmN1c3RvbS1zY3JvbGxiYXItaDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIgewogIGJhY2tncm91bmQ6ICNGMEYwRjA7CiAgYm9yZGVyLXJhZGl1czogMTBweDsKfQouY3VzdG9tLXNjcm9sbGJhci1oOjotd2Via2l0LXNjcm9sbGJhci10aHVtYjpob3ZlciB7CiAgYmFja2dyb3VuZDogI0U1RTVFNTsKfQ==
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Custom scrollbars (moved from Notes.jsx <style jsx> — styled-jsx isn't
+   installed, so that block rendered as an accidental global <style> tag). */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E5E5E5;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #D1D1D6;
+}
+.custom-scrollbar-h::-webkit-scrollbar {
+  height: 4px;
+}
+.custom-scrollbar-h::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar-h::-webkit-scrollbar-thumb {
+  background: #F0F0F0;
+  border-radius: 10px;
+}
+.custom-scrollbar-h::-webkit-scrollbar-thumb:hover {
+  background: #E5E5E5;
+}
