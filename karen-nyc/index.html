@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A calm, easy trip to New York</title>
+<style>
+  :root {
+    --paper: #faf4e8;
+    --card: #fffdf7;
+    --ink: #22301f;
+    --ink-soft: #5c6656;
+    --line: #e6dcc6;
+    --green: #2f5d46;
+    --green-deep: #24473a;
+    --gold: #b97f24;
+    --gold-soft: #f6e8c8;
+    --rose: #a44a32;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* Header */
+  header { text-align: center; padding: 44px 0 8px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 40px; line-height: 1.12;
+    margin: 14px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .rule { width: 56px; height: 3px; background: var(--gold); margin: 0 auto 16px; border-radius: 2px; }
+  .lede { color: var(--ink-soft); font-size: 17px; max-width: 480px; margin: 0 auto; }
+  .lede strong { color: var(--ink); }
+
+  /* Section labels */
+  section { margin-top: 40px; }
+  .kicker {
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green); font-weight: 700;
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .kicker .num { color: var(--gold); }
+  .kicker::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(34, 48, 31, 0.05);
+  }
+  .card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px; line-height: 1.25; margin-bottom: 4px;
+  }
+  .card p { color: var(--ink-soft); font-size: 16px; }
+  .card p + p { margin-top: 6px; }
+  .card p strong { color: var(--ink); }
+  .price { color: var(--ink); font-weight: 700; }
+  .fine { font-size: 14px; color: var(--ink-soft); }
+  .fine + .fine { margin-top: 4px; }
+  .alert { color: var(--rose); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--gold-soft); color: #7a5410;
+    border-radius: 999px; padding: 4px 10px; margin-bottom: 8px;
+  }
+  .badge.green { background: #dceadf; color: var(--green-deep); }
+
+  /* Buttons */
+  .btn {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--green); color: #fff;
+    font-weight: 700; font-size: 16px;
+    border-radius: 12px; padding: 14px 18px; margin-top: 14px;
+    min-height: 48px;
+  }
+  .btn:active { background: var(--green-deep); }
+  .btn.ghost {
+    background: transparent; color: var(--green);
+    border: 1.5px solid var(--green);
+  }
+  .btn-row { display: flex; gap: 10px; margin-top: 14px; }
+  .btn-row .btn { flex: 1; margin-top: 0; }
+
+  /* Picks */
+  .pick { border-top: 4px solid var(--gold); }
+  .pick h3 { font-size: 20px; }
+  .pick .big { font-family: Georgia, "Times New Roman", serif; font-size: 19px; color: var(--ink); }
+
+  /* Timeline */
+  .day { margin-bottom: 18px; }
+  .day h4 {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .steps { list-style: none; border-left: 2px solid var(--line); margin-left: 6px; padding-left: 0; }
+  .steps li {
+    position: relative; padding: 0 0 10px 22px;
+    font-size: 16px; color: var(--ink-soft);
+  }
+  .steps li::before {
+    content: ""; position: absolute; left: -6px; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--gold);
+  }
+  .steps li strong { color: var(--ink); }
+  .steps li:last-child { padding-bottom: 2px; }
+
+  .note {
+    font-size: 14px; color: var(--ink-soft);
+    border-top: 1px dashed var(--line);
+    padding-top: 12px; margin-top: 4px;
+  }
+
+  footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 14px; color: var(--ink-soft); text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">New York City &middot; Nov 15 to 16, 2026</div>
+    <h1>A calm, easy trip to New York</h1>
+    <div class="rule"></div>
+    <p class="lede">For Ms. Karen and Mr. Mohaymen. Mr. Mohaymen&rsquo;s CT scan at <strong>NYU Langone, 550 1st Ave, Monday 1:00 PM</strong>. Please arrive by <strong>12:30 PM</strong>.</p>
+  </header>
+
+  <section>
+    <div class="kicker"><span class="num">01</span> The picks</div>
+
+    <div class="card pick">
+      <span class="badge">Train there</span>
+      <h3>Acela 2252, Sunday</h3>
+      <p class="big">10:55 AM to 1:51 PM &middot; <span class="price">$720 for two</span></p>
+      <p>Fastest way in. Washington Union Station to Penn Station.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+
+    <div class="card pick">
+      <span class="badge">Hotel</span>
+      <h3>Westin New York Grand Central</h3>
+      <p class="big">212 E 42nd St &middot; <span class="price">Sunday night $434</span></p>
+      <p>Top pick. Deluxe King, about $502 total. Free cancellation before Nov 12.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://www.booking.com">Booking.com</a>
+        <a class="btn ghost" href="https://www.marriott.com">Marriott.com</a>
+      </div>
+    </div>
+
+    <div class="card pick">
+      <span class="badge">Train home</span>
+      <h3>Acela 2155, Tuesday</h3>
+      <p class="big">11:06 AM to 2:02 PM &middot; <span class="price">$326 for two</span></p>
+      <p>The most relaxed way home. A slow morning, daylight arrival.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">02</span> The day, at a glance</div>
+
+    <div class="day">
+      <h4>Sunday, Nov 15</h4>
+      <ul class="steps">
+        <li><strong>Train to New York.</strong> Acela 2252, 10:55 AM to 1:51 PM.</li>
+        <li><strong>Check in at the hotel.</strong> Westin Grand Central, 212 E 42nd St.</li>
+        <li><strong>Dinner, 6:30 PM.</strong> Hyderabadi Zaiqa, 184 Lexington Ave.</li>
+      </ul>
+    </div>
+
+    <div class="day">
+      <h4>Monday, Nov 16</h4>
+      <ul class="steps">
+        <li><strong>Namkhang lands at JFK, 8:30 AM.</strong></li>
+        <li><strong>Breakfast together, 10:30 AM.</strong> Russ &amp; Daughters Cafe.</li>
+        <li><strong>At Langone by 12:30 PM.</strong> Scan at 1:00 PM.</li>
+        <li><strong>Done about 2:00 to 2:30 PM.</strong></li>
+        <li><strong>Meal about 3:00 PM,</strong> ends about 4:30 to 5:00 PM.</li>
+        <li><strong>Optional stop at The Nash.</strong></li>
+        <li><strong>Return train home.</strong> Monday evening, or Tuesday morning.</li>
+        <li><strong>Namkhang leaves for JFK about 7:45 to 8:00 PM.</strong> His Lima flight is 10:50 PM.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">03</span> Trains there, Sunday</div>
+
+    <div class="card">
+      <span class="badge">Recommended</span>
+      <h3>Acela 2252</h3>
+      <p>10:55 AM to 1:51 PM &middot; <span class="price">$720 for two</span></p>
+      <p>Fastest. Washington Union Station to Penn Station.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+
+    <div class="card">
+      <h3>Acela 2216</h3>
+      <p>1:55 PM to 4:54 PM &middot; <span class="price">$720 for two</span></p>
+      <p>A later start, same price.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+
+    <div class="card">
+      <h3>Northeast Regional 118</h3>
+      <p>10:00 AM to 1:30 PM &middot; <span class="price">$426 for two</span></p>
+      <p>Value pick. A little slower, much less.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+
+    <p class="note">Fares from Wanderu, Nov 9. Recheck on Amtrak.com before buying. Wanderu adds a $12.99 fee per order.</p>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">04</span> Hotel</div>
+
+    <div class="card">
+      <span class="badge">Top pick</span>
+      <h3>Westin New York Grand Central</h3>
+      <p>212 E 42nd St &middot; Deluxe King &middot; <span class="price">$434, about $502 total</span></p>
+      <p>Free cancellation before Nov 12. Closest to The Nash, a 7 minute walk.</p>
+      <p class="fine"><strong>Please note:</strong> Monday night is from $779. The $434 rate is Sunday only.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://www.booking.com">Booking.com</a>
+        <a class="btn ghost" href="https://www.marriott.com">Marriott.com</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Millennium Hilton One UN Plaza</h3>
+      <p>E 44th St at 1st Ave &middot; Deluxe King &middot; <span class="price">$341, about $395 total</span></p>
+      <p>Free cancellation before Nov 13. Closest to Langone, a 15 minute walk.</p>
+      <a class="btn" href="https://www.booking.com">Book on Booking.com</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">05</span> Trains home</div>
+
+    <div class="card">
+      <h3>Acela 2127, Monday night</h3>
+      <p>6:05 PM to 9:07 PM &middot; <span class="price">$720 for two</span></p>
+      <p>Home the same night, after the meal.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+
+    <div class="card">
+      <span class="badge">Recommended</span>
+      <h3>Acela 2155, Tuesday</h3>
+      <p>11:06 AM to 2:02 PM &middot; <span class="price">$326 for two</span></p>
+      <p>The most relaxed way home. Sleep in, then a quiet midday train.</p>
+      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+    </div>
+
+    <p class="note">Tuesday costs about $385 more with the extra hotel night. Namkhang flies to Lima Monday at 10:50 PM and is in Lima Tuesday, so you travel home on your own either way. Fares from Wanderu, Nov 9. Acela numbers are the new Nov 16 and 17 numbering. Reconfirm at booking.</p>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">06</span> Food</div>
+
+    <div class="card">
+      <span class="badge">Sunday dinner, 6:30 PM</span>
+      <h3>Hyderabadi Zaiqa</h3>
+      <p>184 Lexington Ave &middot; Halal &middot; <span class="price">About $40 to $60 for two</span></p>
+      <p>Goat biryani, haleem, chicken 65. Call ahead for a quiet table.</p>
+      <a class="btn ghost" href="tel:+16464540033">Call (646) 454-0033</a>
+      <p class="fine">Also good: Avra Madison, 14 E 60th St. Greek seafood, calmest room. Fish and vegetarian only, not halal-certified. About $90 to $140 for two.</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Monday breakfast, 10:30 AM</span>
+      <h3>Russ &amp; Daughters Cafe</h3>
+      <p>127 Orchard St &middot; Walk-in only &middot; <span class="price">About $95 to $135 for three</span></p>
+      <p>Daughters Platter $95 or Russ Platter $120 to share, plus a Bagel Basket $12. Leave by 11:45 AM to noon.</p>
+      <p class="fine">Not halal-certified. The spread is fish and dairy, with no pork on the menu. Ask the server about the Whitefish and Baked Salmon Salad first. It may contain mayo.</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Monday lunch, optional</span>
+      <h3>Penelope</h3>
+      <p>159 Lexington Ave &middot; <span class="price">About $20 to $30 a person</span></p>
+      <p>About a 10 minute walk from Langone. Light orders, like chopped salad or tomato soup.</p>
+      <p class="fine">Tight after breakfast, so only if you are hungry. Check Langone&rsquo;s fasting or contrast instructions first. Those take priority.</p>
+      <p class="fine">Also: Pera, 303 Madison Ave, 11:45 AM, meze to share.</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Monday meal, about 3:00 PM</span>
+      <h3>La Grande Boucherie</h3>
+      <p>145 W 53rd St &middot; French brasserie &middot; <span class="price">About $70 to $90 a person</span></p>
+      <p><span class="alert">Not a halal-certified restaurant.</span> The restaurant itself says these dishes are halal: steak frites, bavette, carpaccio, tartare, lamb, chasseur, poulet filet chicken. Order only those dishes for halal.</p>
+      <p class="fine">Egg and nut safe for Namkhang: steak frites, bavette, French onion soup, escargot, moules frites. Skip tartare and the egg desserts. Sorbet is safe.</p>
+      <a class="btn" href="https://www.opentable.com">Book on OpenTable</a>
+      <p class="fine">Fully certified instead: Zou Zou&rsquo;s, 385 9th Ave Suite 85. Halal certified, all meats. Dinner 5 to 10 PM. Chef&rsquo;s menu $79 a person.</p>
+    </div>
+  </section>
+
+  <footer>
+    Rates and hours checked Nov 9, for Nov 15 to 16. Recheck before booking.
+  </footer>
+
+</div>
+</body>
+</html>
