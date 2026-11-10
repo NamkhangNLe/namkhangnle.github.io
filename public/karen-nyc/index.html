@@ -136,6 +136,31 @@
     border-top: 1px solid var(--line);
     font-size: 14px; color: var(--ink-soft); text-align: center;
   }
+
+  /* Photos */
+  .photo-wrap { margin: 0 0 14px; }
+  .photo-wrap img {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 16 / 10; object-fit: cover;
+    border-radius: 12px;
+  }
+  .photo-wrap figcaption { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+  /* Small screens */
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    header { padding-top: 32px; }
+    h1 { font-size: 32px; }
+    .card { padding: 16px 16px 14px; border-radius: 14px; }
+    .card h3 { font-size: 20px; }
+    .btn-row { flex-direction: column; }
+    .photo-wrap img { aspect-ratio: 4 / 3; }
+  }
+  @media (max-width: 360px) {
+    .wrap { padding: 0 16px 48px; }
+    h1 { font-size: 28px; }
+    .card p { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -212,6 +237,10 @@
     <div class="card">
       <span class="badge">Recommended</span>
       <h3>Acela 2252</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://images.foxtv.com/static.fox5ny.com/www.fox5ny.com/content/uploads/2019/09/1280/720/AMTRAK_ACELA_TRAIN_PENN_STATION_072519_1564081593118_7548733_ver1.0.jpg" alt="An Amtrak Acela train at Penn Station" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Fox 5 NY</figcaption>
+      </figure>
       <p>10:55 AM to 1:51 PM &middot; <span class="price">$720 for two</span></p>
       <p>Fastest. Washington Union Station to Penn Station.</p>
       <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
@@ -240,6 +269,10 @@
     <div class="card">
       <span class="badge">Top pick</span>
       <h3>Westin New York Grand Central</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://images.trvl-media.com/lodging/6000000/5450000/5445500/5445478/5a6dad37.jpg?impolicy=fcrop&amp;w=614&amp;h=346" alt="The Westin New York Grand Central" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Expedia</figcaption>
+      </figure>
       <p>212 E 42nd St &middot; Deluxe King &middot; <span class="price">$434, about $502 total</span></p>
       <p>Free cancellation before Nov 12. Closest to The Nash, a 7 minute walk.</p>
       <p class="fine"><strong>Please note:</strong> Monday night is from $779. The $434 rate is Sunday only.</p>
@@ -284,16 +317,34 @@
     <div class="card">
       <span class="badge">Sunday dinner, 6:30 PM &middot; Our pick</span>
       <h3>Hyderabadi Zaiqa</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://eatthisny.com/wp-content/uploads/2024/08/IMG_8663-800x750.jpg" alt="Gongura chicken biryani at Hyderabadi Zaiqa" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Eat This NY</figcaption>
+      </figure>
       <p>184 Lexington Ave &middot; Fully halal &middot; <span class="price">About $20 to $25 a person</span></p>
       <p>Hyderabadi Goat Dum Biryani $20.49, served under a bread seal the server cuts open, Chicken 65 $13.49, or Chicken 65 Biryani $18.49. Infatuation 8.0, NYT 100 Best Restaurants 2024, Michelin 2025. No alcohol served. Open Sunday 11:30 AM to 9:30 PM.</p>
       <p class="fine">A casual, food-first room, not a white-tablecloth room. The food wins by a clear margin. Call ahead for a quiet table. Reservations on Resy.</p>
       <a class="btn ghost" href="tel:+16464540033">Call (646) 454-0033</a>
-      <p class="fine">Also: Zou Zou&rsquo;s, 385 9th Ave, certified halal meats, the most beautiful room of the Sunday options, about $60 to $80 a person. Five-dip tower $39, Manti, Moroccan fried chicken. Lunch 11 AM to 3 PM, dinner 5 to 10 PM. Reservations essential.</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Sunday dinner alternate</span>
+      <h3>Zou Zou&rsquo;s</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://visoinc.com/wp-content/uploads/sol-1-ZouZous-GarrettRowland_39.jpg" alt="The dining room at Zou Zou's" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Viso Inc</figcaption>
+      </figure>
+      <p>385 9th Ave &middot; Certified halal meats &middot; <span class="price">About $60 to $80 a person</span></p>
+      <p>Five-dip tower $39, Manti, Moroccan fried chicken. The most beautiful room of the Sunday options. Lunch 11 AM to 3 PM, dinner 5 to 10 PM. Reservations essential.</p>
     </div>
 
     <div class="card">
       <span class="badge">Monday breakfast, 10:30 AM</span>
       <h3>Russ &amp; Daughters Cafe</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2026/04/23/503f526f9b0144f4b9e0788fddb4afa3_best-of-nyc.jpg" alt="Bagel and lox board at Russ and Daughters Cafe" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Michelin Guide</figcaption>
+      </figure>
       <p>127 Orchard St &middot; Walk-in only &middot; <span class="price">About $24 to $30 a person</span></p>
       <p>Bagel and lox $24, Super Heebster $25, chocolate babka French toast $18. Or the Daughters Platter $95 to share. Monday 10:30 AM is the sweet spot, walk straight in. About a 20 minute cab from the Westin. Leave by 11:45 AM to noon.</p>
       <p class="fine">Not halal-certified. Pork-free by concept: smoked fish, bagels, and dairy, with no pork on the menu. Ask the server about the Whitefish and Baked Salmon Salad first. It may contain mayo.</p>
@@ -302,6 +353,10 @@
     <div class="card">
       <span class="badge">Monday lunch, optional</span>
       <h3>Joy Curry &amp; Tandoor</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://api.nearif.com/file-upload/5a89f242200c349176f05ed86d25c14b.jpg" alt="The Joy Curry and Tandoor storefront at 148 East 46th Street" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Nearif</figcaption>
+      </figure>
       <p>148 E 46th St &middot; Fully halal &middot; <span class="price">About $20 to $25 a person</span></p>
       <p>Five minutes from the Westin. Opens 11 AM Monday, casual upstairs seating, quick and homestyle. Chicken tikka masala, lamb curry, garlic naan, palak paneer.</p>
       <p class="fine">Best fit for a light lunch before the scan. Tight after breakfast, so only if you are hungry. Check Langone&rsquo;s fasting or contrast instructions first. Those take priority.</p>
@@ -310,11 +365,26 @@
     <div class="card">
       <span class="badge">Monday meal, about 3:00 PM &middot; Our pick</span>
       <h3>Turkuaz Midtown West</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://www.turkuazrestaurant.com/hero/dining-room.jpg" alt="The dining room at Turkuaz" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Turkuaz</figcaption>
+      </figure>
       <p>310 W 53rd St &middot; Fully halal &middot; <span class="price">About $40 to $55 a person</span></p>
       <p>Lamb Adana $36.50, Turkuaz Grill mixed grill $53, hummus $14. Lunch prix fixe $30, daily 12 to 3:30 PM, so a 3 PM seating works. Romantic room, Turkish lamps and brick walls. Reservations on OpenTable. Call (212) 265-5500.</p>
       <p class="fine">Egg and nut safe for Namkhang: kebabs and hummus. Baklava and k&uuml;nefe contain pistachio, and the stuffed grape leaves contain pine nuts.</p>
       <a class="btn" href="https://www.opentable.com">Book on OpenTable</a>
-      <p class="fine">Best room instead: La Grande Boucherie, 145 W 53rd St, Belle Epoque, 40 foot glass skylight, about $60 to $80 a person. <span class="alert">Not a halal-certified restaurant.</span> The restaurant itself says these dishes are halal: steak frites, bavette, carpaccio, tartare, lamb, chasseur, poulet filet chicken. That is a dish-level claim, not a certification, and the kitchen serves pork elsewhere. Order only those dishes for halal. Egg and nut safe for Namkhang: steak frites and bavette. Skip tartare and the egg desserts. Sorbet is safe.</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Monday meal alternate &middot; Best room</span>
+      <h3>La Grande Boucherie</h3>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://restaurantandbardesignawards.com/_next/image?url=https%3A%2F%2Fd41cusswgf7lq.cloudfront.net%2Fstore%2F2021%2Fla-grande-boucherie%2Fimage%2F13248%2Ffile%2Fxlarge-d8f4e8557945be30ddefebd912431d59.jpg&amp;w=1080&amp;q=75" alt="The dining room at La Grande Boucherie" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Restaurant and Bar Design Awards</figcaption>
+      </figure>
+      <p>145 W 53rd St &middot; Belle Epoque, 40 foot glass skylight &middot; <span class="price">About $60 to $80 a person</span></p>
+      <p><span class="alert">Not a halal-certified restaurant.</span> The restaurant itself says these dishes are halal: steak frites, bavette, carpaccio, tartare, lamb, chasseur, poulet filet chicken. That is a dish-level claim, not a certification, and the kitchen serves pork elsewhere. Order only those dishes for halal.</p>
+      <p class="fine">Egg and nut safe for Namkhang: steak frites and bavette. Skip tartare and the egg desserts. Sorbet is safe.</p>
     </div>
   </section>
 
