@@ -198,10 +198,6 @@
   }
   .total-box strong { color: var(--ink); }
 
-  /* Choice-driven visibility */
-  body[data-choice="monday"] .only-tuesday { display: none; }
-  body[data-choice="tuesday"] .only-monday { display: none; }
-
   /* Small screens */
   @media (max-width: 480px) {
     body { font-size: 16px; }
@@ -224,7 +220,7 @@
 <div class="wrap">
 
   <header>
-    <div class="eyebrow">New York City &middot; Nov 15 to 17, 2026</div>
+    <div class="eyebrow">New York City &middot; Nov 15 to 16, 2026</div>
     <h1>A calm, easy trip to New York</h1>
     <div class="rule"></div>
     <p class="lede">For Ms. Karen and Mr. Mohaymen. Mr. Mohaymen&rsquo;s CT scan at <strong>NYU Langone, 550 1st Ave, Monday 1:00 PM</strong>. Please arrive by <strong>12:30 PM</strong>.</p>
@@ -234,33 +230,27 @@
     <div class="kicker"><span class="num">00</span> What is booked</div>
     <div class="card">
       <ul class="status-list">
-        <li><strong>Nothing is booked yet.</strong></li>
-        <li><strong>You book:</strong> the Sunday train, the Sunday hotel night, and Sunday dinner. The buttons below go straight to the right page for each one.</li>
-        <li><strong>Namkhang books:</strong> the train home and the Monday hotel night, if you stay, once you choose below.</li>
+        <li><strong>Trains are booked.</strong> Acela 2252 there on Sunday, 10:55 AM to 1:51 PM. Acela 2131 home on Monday, 8:00 to 11:06 PM. Both First class, Car 1, seats 12C and 12D there, 8C and 8D home.</li>
+        <li><strong>Still to book:</strong> the Sunday hotel night and Sunday dinner. The buttons below go straight to the right page for each one.</li>
+        <li><strong>Namkhang books:</strong> the Monday meal, about 3:00 PM.</li>
       </ul>
     </div>
     <div class="weather-strip">
       <div class="weather-day"><strong>Sun, Nov 15</strong>Mostly sunny, high 53, low 41. No rain.</div>
       <div class="weather-day"><strong>Mon, Nov 16</strong>Partly cloudy, high 54, low 39. No rain.</div>
-      <div class="weather-day"><strong>Tue, Nov 17</strong>Partly cloudy, high 55, low 39. A small chance of rain.</div>
     </div>
     <p class="note">Weather checked Nov 10. Evenings are cold, so bring a warm layer. The forecast can shift, so check again before you travel.</p>
   </section>
 
   <section>
-    <div class="kicker"><span class="num">01</span> First, one choice</div>
+    <div class="kicker"><span class="num">01</span> Decided</div>
     <div class="card">
-      <h3>How would you like to come home?</h3>
-      <p>Everything else stays the same. Pick one, and the page will rearrange itself around your choice.</p>
-      <div class="choice-buttons">
-        <button type="button" class="choice-btn" id="btn-monday" aria-pressed="false" onclick="setChoice('monday')">Home Monday evening<span class="sub">Acela 2127, 6:05 PM, $720 for two</span></button>
-        <button type="button" class="choice-btn" id="btn-tuesday" aria-pressed="false" onclick="setChoice('tuesday')">Stay Monday night, home Tuesday<span class="sub">Acela 2155, 11:06 AM, $326 for two, plus a Monday hotel night from $779</span></button>
-      </div>
-      <div class="total-box" id="choice-total">About <strong>$1,942</strong> if you come home Monday, about <strong>$2,327</strong> if you stay till Tuesday. Trains and hotel only, meals are extra.</div>
-      <p class="fine" id="who-books-line" style="margin-top:10px;">Once you choose, Namkhang books the train home and the extra hotel night if you stay. You book the Sunday train, the Sunday hotel night, and Sunday dinner.</p>
-      <a class="btn" id="mailto-choice" href="#" style="display:none;">Tell Namkhang your choice</a>
-      <a class="mini-link" id="choice-reset" href="#" style="display:none;" onclick="setChoice(''); return false;">Changed your mind? Start over.</a>
-      <noscript><p class="fine">This page works best with JavaScript on. Without it, both ways home are shown below.</p></noscript>
+      <h3>Home Monday evening, booked</h3>
+      <p>You chose Monday evening, and the trains are booked. Acela 2131, 8:00 PM, First class, Car 1, seats 8C and 8D. The Tuesday option is off the table.</p>
+      <div class="total-box" id="choice-total">Trains are booked. The only thing left to book is the Sunday hotel night, about <strong>$502</strong> total.</div>
+      <p class="fine" id="who-books-line" style="margin-top:10px;">Trains are booked. You book the Sunday hotel night and Sunday dinner. Namkhang books the Monday meal.</p>
+      <a class="btn" id="mailto-choice" href="#">Tell Namkhang the trains are booked</a>
+      <noscript><p class="fine">Your trains are booked for Monday evening, Acela 2131, 8:00 to 11:06 PM.</p></noscript>
     </div>
   </section>
 
@@ -268,11 +258,14 @@
     <div class="kicker"><span class="num">02</span> The picks</div>
 
     <div class="card pick">
-      <span class="badge">Train there</span>
+      <span class="badge green">Train there &middot; Booked</span>
       <h3>Acela 2252, Sunday</h3>
-      <p class="big">10:55 AM to 1:51 PM &middot; <span class="price">$720 for two</span></p>
-      <p>Fastest way in. Washington Union Station to Penn Station.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+      <figure class="photo-wrap">
+        <img class="photo" src="https://images.foxtv.com/static.fox5ny.com/www.fox5ny.com/content/uploads/2019/09/1280/720/AMTRAK_ACELA_TRAIN_PENN_STATION_072519_1564081593118_7548733_ver1.0.jpg" alt="An Amtrak Acela train at Penn Station" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Photo: Fox 5 NY</figcaption>
+      </figure>
+      <p class="big">10:55 AM to 1:51 PM &middot; First class, Car 1, seats 12C and 12D</p>
+      <p>Booked. Washington Union Station to Moynihan Train Hall at Penn Station.</p>
     </div>
 
     <div class="card pick">
@@ -280,7 +273,7 @@
       <h3>Westin New York Grand Central</h3>
       <p class="big">212 E 42nd St &middot; <span class="price">Sunday night $434</span></p>
       <p>Top pick. Deluxe King, about $502 total. Free cancellation before Nov 12.</p>
-      <p class="fine" id="hotel-nights-line">1 night, Sunday Nov 15. Add Monday night, from $779, if you stay till Tuesday.</p>
+      <p class="fine" id="hotel-nights-line">1 night, Sunday Nov 15. You check out Monday.</p>
       <div class="btn-row">
         <a class="btn" href="https://www.marriott.com/en-us/hotels/nyczw-the-westin-new-york-grand-central/overview/">Marriott.com</a>
         <a class="btn ghost" href="https://www.booking.com">Booking.com</a>
@@ -291,11 +284,10 @@
     </div>
 
     <div class="card pick">
-      <span class="badge">Train home</span>
-      <h3 id="pick-home-title">Train home, your choice</h3>
-      <p class="big" id="pick-home-line">Monday 6:05 PM, $720 for two, or Tuesday 11:06 AM, $326 for two.</p>
-      <p id="pick-home-desc">Two good ways home. Pick one above and this card will follow your choice.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
+      <span class="badge green">Train home &middot; Booked</span>
+      <h3 id="pick-home-title">Acela 2131, Monday</h3>
+      <p class="big" id="pick-home-line">8:00 to 11:06 PM &middot; First class, Car 1, seats 8C and 8D</p>
+      <p id="pick-home-desc">Booked. Home Monday night, after the meal. You arrive in DC at 11:06 PM, so arrange a ride home from Union Station.</p>
     </div>
   </section>
 
@@ -305,7 +297,7 @@
     <div class="day">
       <h4>Sunday, Nov 15</h4>
       <ul class="steps">
-        <li><strong>Train to New York.</strong> Acela 2252, 10:55 AM to 1:51 PM.</li>
+        <li><strong>Train to New York.</strong> Acela 2252, 10:55 AM to 1:51 PM. First class, Car 1, seats 12C and 12D.</li>
         <li><strong>Check in at the hotel.</strong> Westin Grand Central, 212 E 42nd St.</li>
         <li><strong>Dinner, 6:30 PM.</strong> Hyderabadi Zaiqa, 184 Lexington Ave.</li>
       </ul>
@@ -320,55 +312,16 @@
         <li><strong>Done about 2:00 to 2:30 PM.</strong></li>
         <li><strong>Meal about 3:00 PM,</strong> ends about 4:30 to 5:00 PM.</li>
         <li><strong>Optional stop at The Nash.</strong></li>
-        <li id="return-step"><strong>Return train home.</strong> Monday evening, or Tuesday morning.</li>
+        <li id="return-step"><strong>Return train home, Monday evening.</strong> Acela 2131, 8:00 to 11:06 PM. First class, Car 1, seats 8C and 8D. Leave for Moynihan about 7:30 PM. You arrive in DC at 11:06 PM, so arrange a ride home from Union Station.</li>
         <li><strong>Namkhang leaves for JFK about 7:45 to 8:00 PM.</strong> His Lima flight is 10:50 PM.</li>
       </ul>
       <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=NYU+Langone+Health,+550+1st+Ave,+New+York,+NY&amp;travelmode=walking">Directions from the hotel to Langone</a>
     </div>
 
-    <div class="day only-tuesday">
-      <h4>Tuesday, Nov 17</h4>
-      <ul class="steps">
-        <li><strong>A slow morning.</strong> Check out by 11:00 AM.</li>
-        <li><strong>Train home.</strong> Acela 2155, 11:06 AM to 2:02 PM.</li>
-      </ul>
-    </div>
   </section>
 
   <section>
-    <div class="kicker"><span class="num">04</span> Trains there, Sunday</div>
-
-    <div class="card">
-      <span class="badge">Recommended</span>
-      <h3>Acela 2252</h3>
-      <figure class="photo-wrap">
-        <img class="photo" src="https://images.foxtv.com/static.fox5ny.com/www.fox5ny.com/content/uploads/2019/09/1280/720/AMTRAK_ACELA_TRAIN_PENN_STATION_072519_1564081593118_7548733_ver1.0.jpg" alt="An Amtrak Acela train at Penn Station" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
-        <figcaption>Photo: Fox 5 NY</figcaption>
-      </figure>
-      <p>10:55 AM to 1:51 PM &middot; <span class="price">$720 for two</span></p>
-      <p>Fastest. Washington Union Station to Penn Station.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
-    </div>
-
-    <div class="card">
-      <h3>Acela 2216</h3>
-      <p>1:55 PM to 4:54 PM &middot; <span class="price">$720 for two</span></p>
-      <p>A later start, same price.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
-    </div>
-
-    <div class="card">
-      <h3>Northeast Regional 118</h3>
-      <p>10:00 AM to 1:30 PM &middot; <span class="price">$426 for two</span></p>
-      <p>Value pick. A little slower, much less.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
-    </div>
-
-    <p class="note">Fares from Wanderu, Nov 9. Recheck on Amtrak.com before buying. Wanderu adds a $12.99 fee per order.</p>
-  </section>
-
-  <section>
-    <div class="kicker"><span class="num">05</span> Hotel</div>
+    <div class="kicker"><span class="num">04</span> Hotel</div>
 
     <div class="card">
       <span class="badge">Top pick</span>
@@ -379,7 +332,7 @@
       </figure>
       <p>212 E 42nd St &middot; Deluxe King &middot; <span class="price">$434, about $502 total</span></p>
       <p>Free cancellation before Nov 12. Closest to The Nash, a 7 minute walk.</p>
-      <p class="fine"><strong>Please note:</strong> Monday night is from $779. The $434 rate is Sunday only.</p>
+      <p class="fine"><strong>Please note:</strong> The $434 rate is Sunday only.</p>
       <div class="btn-row">
         <a class="btn" href="https://www.marriott.com/en-us/hotels/nyczw-the-westin-new-york-grand-central/overview/">Marriott.com</a>
         <a class="btn ghost" href="https://www.booking.com">Booking.com</a>
@@ -397,29 +350,8 @@
     </div>
   </section>
 
-  <section id="trains-home">
-    <div class="kicker"><span class="num">06</span> Trains home</div>
-
-    <div class="card only-monday">
-      <h3>Acela 2127, Monday night</h3>
-      <p>6:05 PM to 9:07 PM &middot; <span class="price">$720 for two</span></p>
-      <p>Home the same night, after the meal.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
-    </div>
-
-    <div class="card only-tuesday">
-      <span class="badge">Recommended</span>
-      <h3>Acela 2155, Tuesday</h3>
-      <p>11:06 AM to 2:02 PM &middot; <span class="price">$326 for two</span></p>
-      <p>The most relaxed way home. Sleep in, then a quiet midday train.</p>
-      <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
-    </div>
-
-    <p class="note">Tuesday costs about $385 more with the extra hotel night. Namkhang flies to Lima Monday at 10:50 PM and is in Lima Tuesday, so you travel home on your own either way. Fares from Wanderu, Nov 9. Acela numbers are the new Nov 16 and 17 numbering. Reconfirm at booking.</p>
-  </section>
-
   <section>
-    <div class="kicker"><span class="num">07</span> Food</div>
+    <div class="kicker"><span class="num">05</span> Food</div>
 
     <div class="card">
       <span class="badge">Sunday dinner, 6:30 PM &middot; Our pick</span>
@@ -511,7 +443,7 @@
   </section>
 
   <footer>
-    Rates and hours checked Nov 9, for Nov 15 to 16. Weather checked Nov 10. Recheck before booking.<br>
+    Trains booked Nov 10. Hotel rates checked Nov 9. Weather checked Nov 10.<br>
     On your phone? <a href="mobile.html">Open the phone version</a>.
   </footer>
 
@@ -520,36 +452,20 @@
 <script>
 var CHOICE = {
   monday: {
-    total: "Your plan: <strong>about $1,942</strong> for trains and hotel. Train there $720, hotel Sunday night $502, train home Monday $720.",
-    pickTitle: "Acela 2127, Monday",
-    pickLine: "6:05 to 9:07 PM \u00b7 $720 for two.",
-    pickDesc: "Home the same night, after the meal.",
+    total: "Trains are booked. The only thing left to book is the Sunday hotel night, about <strong>$502</strong> total.",
+    pickTitle: "Acela 2131, Monday",
+    pickLine: "8:00 to 11:06 PM \u00b7 First class, Car 1, seats 8C and 8D.",
+    pickDesc: "Booked. Home Monday night, after the meal. You arrive in DC at 11:06 PM, so arrange a ride home from Union Station.",
     hotelNights: "1 night, Sunday Nov 15. You check out Monday.",
-    returnStep: "<strong>Return train home, Monday evening.</strong> Acela 2127, 6:05 to 9:07 PM.",
-    whoBooks: "Namkhang will book the Monday 6:05 PM train home. You book the Sunday train, the Sunday hotel night, and Sunday dinner.",
-    subject: "We would like to come home Monday evening",
-    body: "Hi Namkhang,\n\nWe talked it over and we would like to come home Monday evening, on the 6:05 PM Acela after the meal. We will book the Sunday train, the hotel for Sunday night, and Sunday dinner ourselves.\n\nLove,\nKaren and Mohaymen"
-  },
-  tuesday: {
-    total: "Your plan: <strong>about $2,327</strong> for trains and hotel. Train there $720, hotel Sunday night $502, hotel Monday night from $779, train home Tuesday $326. The Monday night rate is before tax, so the total may run a little higher.",
-    pickTitle: "Acela 2155, Tuesday",
-    pickLine: "11:06 AM to 2:02 PM \u00b7 $326 for two.",
-    pickDesc: "The most relaxed way home. A slow morning, daylight arrival.",
-    hotelNights: "2 nights, Sunday Nov 15 and Monday Nov 16. The Monday night is from $779, before tax.",
-    returnStep: "<strong>Return train home, Tuesday morning.</strong> Acela 2155, 11:06 AM to 2:02 PM.",
-    whoBooks: "Namkhang will book the extra Monday hotel night and the Tuesday 11:06 AM train home. You book the Sunday train, the Sunday hotel night, and Sunday dinner.",
-    subject: "We would like to stay Monday night and come home Tuesday",
-    body: "Hi Namkhang,\n\nWe talked it over and we would like to stay Monday night and come home Tuesday morning, on the 11:06 AM Acela. We will book the Sunday train, the hotel for Sunday night, and Sunday dinner ourselves. Please book the extra Monday hotel night and the Tuesday train when you can.\n\nLove,\nKaren and Mohaymen"
+    returnStep: "<strong>Return train home, Monday evening.</strong> Acela 2131, 8:00 to 11:06 PM. First class, Car 1, seats 8C and 8D. Leave for Moynihan about 7:30 PM. You arrive in DC at 11:06 PM, so arrange a ride home from Union Station.",
+    whoBooks: "Trains are booked. You book the Sunday hotel night and Sunday dinner. Namkhang books the Monday meal.",
+    subject: "We booked the trains, home Monday evening",
+    body: "Hi Namkhang,\n\nWe booked our trains. Out Sunday on Acela 2252, 10:55 AM to 1:51 PM, First class, Car 1, seats 12C and 12D. Home Monday on Acela 2131, 8:00 PM to 11:06 PM, First class, Car 1, seats 8C and 8D. We still need to book the hotel for Sunday night.\n\nLove,\nKaren and Mohaymen"
   }
 };
 function setChoice(c) {
-  document.body.setAttribute("data-choice", c || "");
-  var btnM = document.getElementById("btn-monday");
-  var btnT = document.getElementById("btn-tuesday");
-  var mailto = document.getElementById("mailto-choice");
-  var reset = document.getElementById("choice-reset");
-  if (btnM) btnM.setAttribute("aria-pressed", c === "monday" ? "true" : "false");
-  if (btnT) btnT.setAttribute("aria-pressed", c === "tuesday" ? "true" : "false");
+  document.body.setAttribute("data-choice", "monday");
+  var d = CHOICE.monday;
   var total = document.getElementById("choice-total");
   var pickTitle = document.getElementById("pick-home-title");
   var pickLine = document.getElementById("pick-home-line");
@@ -557,44 +473,23 @@ function setChoice(c) {
   var hotelNights = document.getElementById("hotel-nights-line");
   var returnStep = document.getElementById("return-step");
   var whoBooks = document.getElementById("who-books-line");
-  if (c === "monday" || c === "tuesday") {
-    var d = CHOICE[c];
-    if (total) total.innerHTML = d.total;
-    if (pickTitle) pickTitle.textContent = d.pickTitle;
-    if (pickLine) pickLine.textContent = d.pickLine;
-    if (pickDesc) pickDesc.textContent = d.pickDesc;
-    if (hotelNights) hotelNights.textContent = d.hotelNights;
-    if (returnStep) returnStep.innerHTML = d.returnStep;
-    if (whoBooks) whoBooks.textContent = d.whoBooks;
-    if (mailto) {
-      mailto.href = "mailto:Namkhangnle@hotmail.com?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
-      mailto.style.display = "block";
-    }
-    if (reset) reset.style.display = "inline";
-  } else {
-    if (total) total.innerHTML = "About <strong>$1,942</strong> if you come home Monday, about <strong>$2,327</strong> if you stay till Tuesday. Trains and hotel only, meals are extra.";
-    if (pickTitle) pickTitle.textContent = "Train home, your choice";
-    if (pickLine) pickLine.textContent = "Monday 6:05 PM, $720 for two, or Tuesday 11:06 AM, $326 for two.";
-    if (pickDesc) pickDesc.textContent = "Two good ways home. Pick one above and this card will follow your choice.";
-    if (hotelNights) hotelNights.textContent = "1 night, Sunday Nov 15. Add Monday night, from $779, if you stay till Tuesday.";
-    if (returnStep) returnStep.innerHTML = "<strong>Return train home.</strong> Monday evening, or Tuesday morning.";
-    if (whoBooks) whoBooks.textContent = "Once you choose, Namkhang books the train home and the extra hotel night if you stay. You book the Sunday train, the Sunday hotel night, and Sunday dinner.";
-    if (mailto) mailto.style.display = "none";
-    if (reset) reset.style.display = "none";
+  var mailto = document.getElementById("mailto-choice");
+  if (total) total.innerHTML = d.total;
+  if (pickTitle) pickTitle.textContent = d.pickTitle;
+  if (pickLine) pickLine.textContent = d.pickLine;
+  if (pickDesc) pickDesc.textContent = d.pickDesc;
+  if (hotelNights) hotelNights.textContent = d.hotelNights;
+  if (returnStep) returnStep.innerHTML = d.returnStep;
+  if (whoBooks) whoBooks.textContent = d.whoBooks;
+  if (mailto) {
+    mailto.href = "mailto:Namkhangnle@hotmail.com?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+    mailto.style.display = "block";
   }
-  try {
-    if (c) { history.replaceState(null, "", "#" + c); }
-    else { history.replaceState(null, "", location.pathname + location.search); }
-  } catch (e) { /* hash stays as is */ }
+  try { history.replaceState(null, "", "#monday"); } catch (e) { /* hash stays as is */ }
 }
 (function initChoice() {
-  var h = (location.hash || "").replace("#", "").toLowerCase();
-  setChoice(h === "monday" || h === "tuesday" ? h : "");
+  setChoice("monday");
 })();
-window.addEventListener("hashchange", function () {
-  var h = (location.hash || "").replace("#", "").toLowerCase();
-  setChoice(h === "monday" || h === "tuesday" ? h : "");
-});
 </script>
 </body>
 </html>
