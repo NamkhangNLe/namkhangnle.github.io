@@ -26,6 +26,7 @@
     line-height: 1.55;
     -webkit-text-size-adjust: 100%;
   }
+  button { font-family: inherit; cursor: pointer; }
   .wrap { max-width: 620px; margin: 0 auto; padding: 0 20px 64px; }
 
   /* Header */
@@ -100,6 +101,11 @@
   }
   .btn-row { display: flex; gap: 10px; margin-top: 14px; }
   .btn-row .btn { flex: 1; margin-top: 0; }
+  .mini-link {
+    display: inline-block; font-size: 14px; font-weight: 700;
+    color: var(--green); margin-top: 12px;
+  }
+  .mini-link + .mini-link { margin-left: 16px; }
 
   /* Picks */
   .pick { border-top: 4px solid var(--gold); }
@@ -146,6 +152,56 @@
   }
   .photo-wrap figcaption { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
 
+  /* Status list */
+  .status-list { list-style: none; }
+  .status-list li {
+    position: relative; padding: 6px 0 6px 24px;
+    font-size: 16px; color: var(--ink-soft);
+  }
+  .status-list li::before {
+    content: ""; position: absolute; left: 6px; top: 15px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .status-list li strong { color: var(--ink); }
+
+  /* Weather */
+  .weather-strip { display: flex; gap: 10px; flex-wrap: wrap; }
+  .weather-day {
+    flex: 1; min-width: 150px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 10px 12px; font-size: 14px; color: var(--ink-soft);
+  }
+  .weather-day strong {
+    display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 2px;
+  }
+
+  /* Choice toggle */
+  .choice-buttons { display: flex; gap: 10px; margin-top: 14px; }
+  .choice-btn {
+    flex: 1; text-align: center;
+    background: var(--card); color: var(--green);
+    border: 1.5px solid var(--green); border-radius: 12px;
+    font-weight: 700; font-size: 16px; line-height: 1.35;
+    padding: 16px 14px; min-height: 64px;
+  }
+  .choice-btn .sub {
+    display: block; font-size: 14px; font-weight: 400;
+    color: var(--ink-soft); margin-top: 4px;
+  }
+  .choice-btn[aria-pressed="true"] { background: var(--green); color: #fff; border-color: var(--green); }
+  .choice-btn[aria-pressed="true"] .sub { color: #dceadf; }
+  .total-box {
+    background: var(--gold-soft); border-radius: 12px;
+    padding: 14px 16px; margin-top: 14px; font-size: 16px; color: var(--ink-soft);
+  }
+  .total-box strong { color: var(--ink); }
+
+  /* Choice-driven visibility */
+  body[data-choice="monday"] .only-tuesday { display: none; }
+  body[data-choice="tuesday"] .only-monday { display: none; }
+
   /* Small screens */
   @media (max-width: 480px) {
     body { font-size: 16px; }
@@ -154,6 +210,7 @@
     .card { padding: 16px 16px 14px; border-radius: 14px; }
     .card h3 { font-size: 20px; }
     .btn-row { flex-direction: column; }
+    .choice-buttons { flex-direction: column; }
     .photo-wrap img { aspect-ratio: 4 / 3; }
   }
   @media (max-width: 360px) {
@@ -163,18 +220,52 @@
   }
 </style>
 </head>
-<body>
+<body data-choice="">
 <div class="wrap">
 
   <header>
-    <div class="eyebrow">New York City &middot; Nov 15 to 16, 2026</div>
+    <div class="eyebrow">New York City &middot; Nov 15 to 17, 2026</div>
     <h1>A calm, easy trip to New York</h1>
     <div class="rule"></div>
     <p class="lede">For Ms. Karen and Mr. Mohaymen. Mr. Mohaymen&rsquo;s CT scan at <strong>NYU Langone, 550 1st Ave, Monday 1:00 PM</strong>. Please arrive by <strong>12:30 PM</strong>.</p>
   </header>
 
   <section>
-    <div class="kicker"><span class="num">01</span> The picks</div>
+    <div class="kicker"><span class="num">00</span> What is booked</div>
+    <div class="card">
+      <ul class="status-list">
+        <li><strong>Nothing is booked yet.</strong></li>
+        <li><strong>You book:</strong> the Sunday train, the Sunday hotel night, and Sunday dinner. The buttons below go straight to the right page for each one.</li>
+        <li><strong>Namkhang books:</strong> the train home and the Monday hotel night, if you stay, once you choose below.</li>
+      </ul>
+    </div>
+    <div class="weather-strip">
+      <div class="weather-day"><strong>Sun, Nov 15</strong>Mostly sunny, high 53, low 41. No rain.</div>
+      <div class="weather-day"><strong>Mon, Nov 16</strong>Partly cloudy, high 54, low 39. No rain.</div>
+      <div class="weather-day"><strong>Tue, Nov 17</strong>Partly cloudy, high 55, low 39. A small chance of rain.</div>
+    </div>
+    <p class="note">Weather checked Nov 10. Evenings are cold, so bring a warm layer. The forecast can shift, so check again before you travel.</p>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">01</span> First, one choice</div>
+    <div class="card">
+      <h3>How would you like to come home?</h3>
+      <p>Everything else stays the same. Pick one, and the page will rearrange itself around your choice.</p>
+      <div class="choice-buttons">
+        <button type="button" class="choice-btn" id="btn-monday" aria-pressed="false" onclick="setChoice('monday')">Home Monday evening<span class="sub">Acela 2127, 6:05 PM, $720 for two</span></button>
+        <button type="button" class="choice-btn" id="btn-tuesday" aria-pressed="false" onclick="setChoice('tuesday')">Stay Monday night, home Tuesday<span class="sub">Acela 2155, 11:06 AM, $326 for two, plus a Monday hotel night from $779</span></button>
+      </div>
+      <div class="total-box" id="choice-total">About <strong>$1,942</strong> if you come home Monday, about <strong>$2,327</strong> if you stay till Tuesday. Trains and hotel only, meals are extra.</div>
+      <p class="fine" id="who-books-line" style="margin-top:10px;">Once you choose, Namkhang books the train home and the extra hotel night if you stay. You book the Sunday train, the Sunday hotel night, and Sunday dinner.</p>
+      <a class="btn" id="mailto-choice" href="#" style="display:none;">Tell Namkhang your choice</a>
+      <a class="mini-link" id="choice-reset" href="#" style="display:none;" onclick="setChoice(''); return false;">Changed your mind? Start over.</a>
+      <noscript><p class="fine">This page works best with JavaScript on. Without it, both ways home are shown below.</p></noscript>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="num">02</span> The picks</div>
 
     <div class="card pick">
       <span class="badge">Train there</span>
@@ -189,23 +280,27 @@
       <h3>Westin New York Grand Central</h3>
       <p class="big">212 E 42nd St &middot; <span class="price">Sunday night $434</span></p>
       <p>Top pick. Deluxe King, about $502 total. Free cancellation before Nov 12.</p>
+      <p class="fine" id="hotel-nights-line">1 night, Sunday Nov 15. Add Monday night, from $779, if you stay till Tuesday.</p>
       <div class="btn-row">
-        <a class="btn" href="https://www.booking.com">Booking.com</a>
-        <a class="btn ghost" href="https://www.marriott.com">Marriott.com</a>
+        <a class="btn" href="https://www.marriott.com/en-us/hotels/nyczw-the-westin-new-york-grand-central/overview/">Marriott.com</a>
+        <a class="btn ghost" href="https://www.booking.com">Booking.com</a>
+        <a class="btn ghost" href="https://www.expedia.com/New-York-Hotels-The-Westin-New-York-Grand-Central.h5445478.Hotel-Information">Expedia</a>
       </div>
+      <a class="mini-link" href="tel:+12124908900">Call the hotel, (212) 490-8900</a>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Penn+Station,+New+York,+NY&amp;destination=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;travelmode=transit">Directions from Penn Station</a>
     </div>
 
     <div class="card pick">
       <span class="badge">Train home</span>
-      <h3>Acela 2155, Tuesday</h3>
-      <p class="big">11:06 AM to 2:02 PM &middot; <span class="price">$326 for two</span></p>
-      <p>The most relaxed way home. A slow morning, daylight arrival.</p>
+      <h3 id="pick-home-title">Train home, your choice</h3>
+      <p class="big" id="pick-home-line">Monday 6:05 PM, $720 for two, or Tuesday 11:06 AM, $326 for two.</p>
+      <p id="pick-home-desc">Two good ways home. Pick one above and this card will follow your choice.</p>
       <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
     </div>
   </section>
 
   <section>
-    <div class="kicker"><span class="num">02</span> The day, at a glance</div>
+    <div class="kicker"><span class="num">03</span> The day, at a glance</div>
 
     <div class="day">
       <h4>Sunday, Nov 15</h4>
@@ -225,14 +320,23 @@
         <li><strong>Done about 2:00 to 2:30 PM.</strong></li>
         <li><strong>Meal about 3:00 PM,</strong> ends about 4:30 to 5:00 PM.</li>
         <li><strong>Optional stop at The Nash.</strong></li>
-        <li><strong>Return train home.</strong> Monday evening, or Tuesday morning.</li>
+        <li id="return-step"><strong>Return train home.</strong> Monday evening, or Tuesday morning.</li>
         <li><strong>Namkhang leaves for JFK about 7:45 to 8:00 PM.</strong> His Lima flight is 10:50 PM.</li>
+      </ul>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=NYU+Langone+Health,+550+1st+Ave,+New+York,+NY&amp;travelmode=walking">Directions from the hotel to Langone</a>
+    </div>
+
+    <div class="day only-tuesday">
+      <h4>Tuesday, Nov 17</h4>
+      <ul class="steps">
+        <li><strong>A slow morning.</strong> Check out by 11:00 AM.</li>
+        <li><strong>Train home.</strong> Acela 2155, 11:06 AM to 2:02 PM.</li>
       </ul>
     </div>
   </section>
 
   <section>
-    <div class="kicker"><span class="num">03</span> Trains there, Sunday</div>
+    <div class="kicker"><span class="num">04</span> Trains there, Sunday</div>
 
     <div class="card">
       <span class="badge">Recommended</span>
@@ -264,7 +368,7 @@
   </section>
 
   <section>
-    <div class="kicker"><span class="num">04</span> Hotel</div>
+    <div class="kicker"><span class="num">05</span> Hotel</div>
 
     <div class="card">
       <span class="badge">Top pick</span>
@@ -277,9 +381,12 @@
       <p>Free cancellation before Nov 12. Closest to The Nash, a 7 minute walk.</p>
       <p class="fine"><strong>Please note:</strong> Monday night is from $779. The $434 rate is Sunday only.</p>
       <div class="btn-row">
-        <a class="btn" href="https://www.booking.com">Booking.com</a>
-        <a class="btn ghost" href="https://www.marriott.com">Marriott.com</a>
+        <a class="btn" href="https://www.marriott.com/en-us/hotels/nyczw-the-westin-new-york-grand-central/overview/">Marriott.com</a>
+        <a class="btn ghost" href="https://www.booking.com">Booking.com</a>
+        <a class="btn ghost" href="https://www.expedia.com/New-York-Hotels-The-Westin-New-York-Grand-Central.h5445478.Hotel-Information">Expedia</a>
       </div>
+      <a class="mini-link" href="tel:+12124908900">Call the hotel, (212) 490-8900</a>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Penn+Station,+New+York,+NY&amp;destination=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;travelmode=transit">Directions from Penn Station</a>
     </div>
 
     <div class="card">
@@ -290,17 +397,17 @@
     </div>
   </section>
 
-  <section>
-    <div class="kicker"><span class="num">05</span> Trains home</div>
+  <section id="trains-home">
+    <div class="kicker"><span class="num">06</span> Trains home</div>
 
-    <div class="card">
+    <div class="card only-monday">
       <h3>Acela 2127, Monday night</h3>
       <p>6:05 PM to 9:07 PM &middot; <span class="price">$720 for two</span></p>
       <p>Home the same night, after the meal.</p>
       <a class="btn" href="https://www.amtrak.com">Book on Amtrak</a>
     </div>
 
-    <div class="card">
+    <div class="card only-tuesday">
       <span class="badge">Recommended</span>
       <h3>Acela 2155, Tuesday</h3>
       <p>11:06 AM to 2:02 PM &middot; <span class="price">$326 for two</span></p>
@@ -312,7 +419,7 @@
   </section>
 
   <section>
-    <div class="kicker"><span class="num">06</span> Food</div>
+    <div class="kicker"><span class="num">07</span> Food</div>
 
     <div class="card">
       <span class="badge">Sunday dinner, 6:30 PM &middot; Our pick</span>
@@ -324,7 +431,11 @@
       <p>184 Lexington Ave &middot; Fully halal &middot; <span class="price">About $20 to $25 a person</span></p>
       <p>Hyderabadi Goat Dum Biryani $20.49, served under a bread seal the server cuts open, Chicken 65 $13.49, or Chicken 65 Biryani $18.49. Infatuation 8.0, NYT 100 Best Restaurants 2024, Michelin 2025. No alcohol served. Open Sunday 11:30 AM to 9:30 PM.</p>
       <p class="fine">A casual, food-first room, not a white-tablecloth room. The food wins by a clear margin. Call ahead for a quiet table. Reservations on Resy.</p>
-      <a class="btn ghost" href="tel:+16464540033">Call (646) 454-0033</a>
+      <div class="btn-row">
+        <a class="btn" href="https://resy.com/cities/new-york-ny/venues/hyderabadi-zaiqa">Book on Resy</a>
+        <a class="btn ghost" href="tel:+16464540033">Call (646) 454-0033</a>
+      </div>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=Hyderabadi+Zaiqa,+184+Lexington+Ave,+New+York,+NY&amp;travelmode=walking">Directions from the hotel</a>
     </div>
 
     <div class="card">
@@ -336,6 +447,7 @@
       </figure>
       <p>385 9th Ave &middot; Certified halal meats &middot; <span class="price">About $60 to $80 a person</span></p>
       <p>Five-dip tower $39, Manti, Moroccan fried chicken. The most beautiful room of the Sunday options. Lunch 11 AM to 3 PM, dinner 5 to 10 PM. Reservations essential.</p>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=Zou+Zou%27s,+385+9th+Ave,+New+York,+NY&amp;travelmode=transit">Directions from the hotel</a>
     </div>
 
     <div class="card">
@@ -348,6 +460,8 @@
       <p>127 Orchard St &middot; Walk-in only &middot; <span class="price">About $24 to $30 a person</span></p>
       <p>Bagel and lox $24, Super Heebster $25, chocolate babka French toast $18. Or the Daughters Platter $95 to share. Monday 10:30 AM is the sweet spot, walk straight in. About a 20 minute cab from the Westin. Leave by 11:45 AM to noon.</p>
       <p class="fine">Not halal-certified. Pork-free by concept: smoked fish, bagels, and dairy, with no pork on the menu. Ask the server about the Whitefish and Baked Salmon Salad first. It may contain mayo.</p>
+      <a class="btn ghost" href="tel:+12124754880">Call (212) 475-4880</a>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=Russ+%26+Daughters+Cafe,+127+Orchard+St,+New+York,+NY&amp;travelmode=driving">Directions from the hotel, about a 20 minute cab</a>
     </div>
 
     <div class="card">
@@ -360,6 +474,8 @@
       <p>148 E 46th St &middot; Fully halal &middot; <span class="price">About $20 to $25 a person</span></p>
       <p>Five minutes from the Westin. Opens 11 AM Monday, casual upstairs seating, quick and homestyle. Chicken tikka masala, lamb curry, garlic naan, palak paneer.</p>
       <p class="fine">Best fit for a light lunch before the scan. Tight after breakfast, so only if you are hungry. Check Langone&rsquo;s fasting or contrast instructions first. Those take priority.</p>
+      <a class="btn ghost" href="tel:+12124901277">Call (212) 490-1277</a>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=Joy+Curry+%26+Tandoor,+148+E+46th+St,+New+York,+NY&amp;travelmode=walking">Directions from the hotel</a>
     </div>
 
     <div class="card">
@@ -372,7 +488,11 @@
       <p>310 W 53rd St &middot; Fully halal &middot; <span class="price">About $40 to $55 a person</span></p>
       <p>Lamb Adana $36.50, Turkuaz Grill mixed grill $53, hummus $14. Lunch prix fixe $30, daily 12 to 3:30 PM, so a 3 PM seating works. Romantic room, Turkish lamps and brick walls. Reservations on OpenTable. Call (212) 265-5500.</p>
       <p class="fine">Egg and nut safe for Namkhang: kebabs and hummus. Baklava and k&uuml;nefe contain pistachio, and the stuffed grape leaves contain pine nuts.</p>
-      <a class="btn" href="https://www.opentable.com">Book on OpenTable</a>
+      <div class="btn-row">
+        <a class="btn" href="https://www.opentable.com/r/turkuaz-restaurant-new-york-2">Book on OpenTable</a>
+        <a class="btn ghost" href="tel:+12122655500">Call (212) 265-5500</a>
+      </div>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=Turkuaz+Restaurant,+310+W+53rd+St,+New+York,+NY&amp;travelmode=walking">Directions from the hotel</a>
     </div>
 
     <div class="card">
@@ -385,14 +505,92 @@
       <p>145 W 53rd St &middot; Belle Epoque, 40 foot glass skylight &middot; <span class="price">About $60 to $80 a person</span></p>
       <p><span class="alert">Not a halal-certified restaurant.</span> The restaurant itself says these dishes are halal: steak frites, bavette, carpaccio, tartare, lamb, chasseur, poulet filet chicken. That is a dish-level claim, not a certification, and the kitchen serves pork elsewhere. Order only those dishes for halal.</p>
       <p class="fine">Egg and nut safe for Namkhang: steak frites and bavette. Skip tartare and the egg desserts. Sorbet is safe.</p>
+      <a class="btn ghost" href="tel:+12125107714">Call (212) 510-7714</a>
+      <a class="mini-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=The+Westin+New+York+Grand+Central,+212+E+42nd+St,+New+York,+NY&amp;destination=La+Grande+Boucherie,+145+W+53rd+St,+New+York,+NY&amp;travelmode=walking">Directions from the hotel</a>
     </div>
   </section>
 
   <footer>
-    Rates and hours checked Nov 9, for Nov 15 to 16. Recheck before booking.
+    Rates and hours checked Nov 9, for Nov 15 to 16. Weather checked Nov 10. Recheck before booking.<br>
+    On your phone? <a href="mobile.html">Open the phone version</a>.
   </footer>
 
 </div>
 <!-- pages deploy retry 2026-11-09 -->
+<script>
+var CHOICE = {
+  monday: {
+    total: "Your plan: <strong>about $1,942</strong> for trains and hotel. Train there $720, hotel Sunday night $502, train home Monday $720.",
+    pickTitle: "Acela 2127, Monday",
+    pickLine: "6:05 to 9:07 PM \u00b7 $720 for two.",
+    pickDesc: "Home the same night, after the meal.",
+    hotelNights: "1 night, Sunday Nov 15. You check out Monday.",
+    returnStep: "<strong>Return train home, Monday evening.</strong> Acela 2127, 6:05 to 9:07 PM.",
+    whoBooks: "Namkhang will book the Monday 6:05 PM train home. You book the Sunday train, the Sunday hotel night, and Sunday dinner.",
+    subject: "We would like to come home Monday evening",
+    body: "Hi Namkhang,\n\nWe talked it over and we would like to come home Monday evening, on the 6:05 PM Acela after the meal. We will book the Sunday train, the hotel for Sunday night, and Sunday dinner ourselves.\n\nLove,\nKaren and Mohaymen"
+  },
+  tuesday: {
+    total: "Your plan: <strong>about $2,327</strong> for trains and hotel. Train there $720, hotel Sunday night $502, hotel Monday night from $779, train home Tuesday $326. The Monday night rate is before tax, so the total may run a little higher.",
+    pickTitle: "Acela 2155, Tuesday",
+    pickLine: "11:06 AM to 2:02 PM \u00b7 $326 for two.",
+    pickDesc: "The most relaxed way home. A slow morning, daylight arrival.",
+    hotelNights: "2 nights, Sunday Nov 15 and Monday Nov 16. The Monday night is from $779, before tax.",
+    returnStep: "<strong>Return train home, Tuesday morning.</strong> Acela 2155, 11:06 AM to 2:02 PM.",
+    whoBooks: "Namkhang will book the extra Monday hotel night and the Tuesday 11:06 AM train home. You book the Sunday train, the Sunday hotel night, and Sunday dinner.",
+    subject: "We would like to stay Monday night and come home Tuesday",
+    body: "Hi Namkhang,\n\nWe talked it over and we would like to stay Monday night and come home Tuesday morning, on the 11:06 AM Acela. We will book the Sunday train, the hotel for Sunday night, and Sunday dinner ourselves. Please book the extra Monday hotel night and the Tuesday train when you can.\n\nLove,\nKaren and Mohaymen"
+  }
+};
+function setChoice(c) {
+  document.body.setAttribute("data-choice", c || "");
+  var btnM = document.getElementById("btn-monday");
+  var btnT = document.getElementById("btn-tuesday");
+  var mailto = document.getElementById("mailto-choice");
+  var reset = document.getElementById("choice-reset");
+  if (btnM) btnM.setAttribute("aria-pressed", c === "monday" ? "true" : "false");
+  if (btnT) btnT.setAttribute("aria-pressed", c === "tuesday" ? "true" : "false");
+  var total = document.getElementById("choice-total");
+  var pickTitle = document.getElementById("pick-home-title");
+  var pickLine = document.getElementById("pick-home-line");
+  var pickDesc = document.getElementById("pick-home-desc");
+  var hotelNights = document.getElementById("hotel-nights-line");
+  var returnStep = document.getElementById("return-step");
+  var whoBooks = document.getElementById("who-books-line");
+  if (c === "monday" || c === "tuesday") {
+    var d = CHOICE[c];
+    if (total) total.innerHTML = d.total;
+    if (pickTitle) pickTitle.textContent = d.pickTitle;
+    if (pickLine) pickLine.textContent = d.pickLine;
+    if (pickDesc) pickDesc.textContent = d.pickDesc;
+    if (hotelNights) hotelNights.textContent = d.hotelNights;
+    if (returnStep) returnStep.innerHTML = d.returnStep;
+    if (whoBooks) whoBooks.textContent = d.whoBooks;
+    if (mailto) {
+      mailto.href = "mailto:Namkhangnle@hotmail.com?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+      mailto.style.display = "block";
+    }
+    if (reset) reset.style.display = "inline";
+  } else {
+    if (total) total.innerHTML = "About <strong>$1,942</strong> if you come home Monday, about <strong>$2,327</strong> if you stay till Tuesday. Trains and hotel only, meals are extra.";
+    if (pickTitle) pickTitle.textContent = "Train home, your choice";
+    if (pickLine) pickLine.textContent = "Monday 6:05 PM, $720 for two, or Tuesday 11:06 AM, $326 for two.";
+    if (pickDesc) pickDesc.textContent = "Two good ways home. Pick one above and this card will follow your choice.";
+    if (hotelNights) hotelNights.textContent = "1 night, Sunday Nov 15. Add Monday night, from $779, if you stay till Tuesday.";
+    if (returnStep) returnStep.innerHTML = "<strong>Return train home.</strong> Monday evening, or Tuesday morning.";
+    if (whoBooks) whoBooks.textContent = "Once you choose, Namkhang books the train home and the extra hotel night if you stay. You book the Sunday train, the Sunday hotel night, and Sunday dinner.";
+    if (mailto) mailto.style.display = "none";
+    if (reset) reset.style.display = "none";
+  }
+  try {
+    if (c) { history.replaceState(null, "", "#" + c); }
+    else { history.replaceState(null, "", location.pathname + location.search); }
+  } catch (e) { /* hash stays as is */ }
+}
+(function initChoice() {
+  var h = (location.hash || "").replace("#", "").toLowerCase();
+  setChoice(h === "monday" || h === "tuesday" ? h : "");
+})();
+</script>
 </body>
 </html>
