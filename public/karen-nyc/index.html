@@ -591,6 +591,10 @@ function setChoice(c) {
   var h = (location.hash || "").replace("#", "").toLowerCase();
   setChoice(h === "monday" || h === "tuesday" ? h : "");
 })();
+window.addEventListener("hashchange", function () {
+  var h = (location.hash || "").replace("#", "").toLowerCase();
+  setChoice(h === "monday" || h === "tuesday" ? h : "");
+});
 </script>
 </body>
 </html>
