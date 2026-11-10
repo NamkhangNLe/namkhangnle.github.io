@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refugee Dinner — Guest List | Zamarod, Nov 25</title>
+<style>
+  :root {
+    --cream: #faf5ec;
+    --card: #fffdf8;
+    --ink: #3a2e22;
+    --muted: #7a6a58;
+    --saffron: #c98a2b;
+    --saffron-deep: #a86f1d;
+    --green: #3f6b4f;
+    --green-soft: #e6efe8;
+    --rose: #b4552d;
+    --rose-soft: #f7e8e0;
+    --gold-soft: #f6ead2;
+    --line: #e8dcc8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
+
+  .preview {
+    background: var(--gold-soft);
+    border: 2px dashed var(--saffron);
+    border-radius: 14px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+  .preview strong { color: var(--saffron-deep); letter-spacing: .04em; }
+
+  h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 4px 0 6px;
+    text-align: center;
+    color: var(--green);
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 19px;
+    margin: 0 0 24px;
+    font-style: italic;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(58, 46, 34, .06);
+  }
+  .card h2 {
+    font-size: 21px;
+    margin: 0 0 14px;
+    color: var(--green);
+    border-bottom: 2px solid var(--gold-soft);
+    padding-bottom: 8px;
+  }
+  .detail { display: flex; gap: 10px; margin: 10px 0; }
+  .detail .label {
+    flex: 0 0 108px;
+    font-weight: bold;
+    color: var(--saffron-deep);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    padding-top: 2px;
+  }
+  .detail .value { flex: 1; }
+  .detail .value small { color: var(--muted); display: block; font-size: 15px; }
+
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .stat .num { font-size: 38px; line-height: 1; color: var(--green); font-weight: bold; }
+  .stat .cap { font-size: 15px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+  .stat.wide { grid-column: 1 / -1; background: var(--green); border-color: var(--green); }
+  .stat.wide .num, .stat.wide .cap { color: #fff; }
+  .stat.wide .num { font-size: 44px; }
+
+  table { width: 100%; border-collapse: separate; border-spacing: 0; }
+  thead th {
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--saffron-deep);
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--saffron);
+  }
+  tbody td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  .guest-name { font-weight: bold; font-size: 19px; }
+  .pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .pill.yes { background: var(--green-soft); color: var(--green); }
+  .pill.no { background: var(--rose-soft); color: var(--rose); }
+  .pill.waiting { background: var(--gold-soft); color: var(--saffron-deep); }
+  .example-tag {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--saffron-deep);
+    background: var(--gold-soft);
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .foot {
+    text-align: center;
+    color: var(--muted);
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    h1 { font-size: 29px; }
+    .detail { flex-direction: column; gap: 2px; }
+    .detail .label { flex: none; }
+    thead { display: none; }
+    table, tbody, tr, td { display: block; width: 100%; }
+    tbody tr {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      margin-bottom: 14px;
+      padding: 6px 14px;
+      background: var(--card);
+    }
+    tbody td { border-bottom: none; padding: 6px 0; }
+    tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--saffron-deep);
+      font-weight: bold;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="preview">
+    <strong>PREVIEW &mdash; SAMPLE DATA ONLY</strong><br>
+    The real guest list is not in yet. The three guests below are examples to show how the tracker will look.
+  </div>
+
+  <h1>Refugee Dinner</h1>
+  <p class="subtitle">Guest list &amp; headcount tracker</p>
+
+  <section class="card">
+    <h2>Dinner details</h2>
+    <div class="detail"><span class="label">Date</span><span class="value">Wednesday, November 25, 2026</span></div>
+    <div class="detail"><span class="label">Place</span><span class="value">Zamarod Restaurant<small>10123 Colvin Run Rd, Great Falls, VA</small></span></div>
+    <div class="detail"><span class="label">Format</span><span class="value">Whole restaurant buyout &mdash; large buffet-style dishes, shared family style</span></div>
+    <div class="detail"><span class="label">Time</span><span class="value">To be confirmed</span></div>
+    <div class="detail"><span class="label">Host</span><span class="value">Ms. Karen</span></div>
+    <div class="detail"><span class="label">Restaurant</span><span class="value">Mr. Mohaymen is arranging the restaurant</span></div>
+  </section>
+
+  <section>
+    <div class="summary">
+      <div class="stat"><div class="num">3</div><div class="cap">Invited</div></div>
+      <div class="stat"><div class="num">1</div><div class="cap">Replied yes</div></div>
+      <div class="stat"><div class="num">1</div><div class="cap">Replied no</div></div>
+      <div class="stat"><div class="num">1</div><div class="cap">No reply yet</div></div>
+      <div class="stat wide"><div class="num">2</div><div class="cap">Total confirmed headcount</div></div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top: 20px;">
+    <h2>Guests</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Contact</th>
+          <th>Invited</th>
+          <th>Reply</th>
+          <th>Party size</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name"><span class="guest-name">Example Guest 1</span><br><span class="example-tag">Example</span></td>
+          <td data-label="Contact">(555) 000-0001</td>
+          <td data-label="Invited">Yes</td>
+          <td data-label="Reply"><span class="pill yes">Yes</span></td>
+          <td data-label="Party size">2</td>
+          <td data-label="Notes">Example only</td>
+        </tr>
+        <tr>
+          <td data-label="Name"><span class="guest-name">Example Guest 2</span><br><span class="example-tag">Example</span></td>
+          <td data-label="Contact">(555) 000-0002</td>
+          <td data-label="Invited">Yes</td>
+          <td data-label="Reply"><span class="pill waiting">No reply yet</span></td>
+          <td data-label="Party size">&mdash;</td>
+          <td data-label="Notes">Example only</td>
+        </tr>
+        <tr>
+          <td data-label="Name"><span class="guest-name">Example Guest 3</span><br><span class="example-tag">Example</span></td>
+          <td data-label="Contact">(555) 000-0003</td>
+          <td data-label="Invited">Yes</td>
+          <td data-label="Reply"><span class="pill no">No</span></td>
+          <td data-label="Party size">&mdash;</td>
+          <td data-label="Notes">Example only</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <p class="foot">This page shows sample guests only. Real names will be added once the list is ready.</p>
+
+</div>
+</body>
+</html>
