@@ -20,10 +20,12 @@ export default function Header({ onHome }) {
         <span className="bar__dot" aria-hidden="true" />
         Namkhang Le
       </a>
-      {!onHome && (
+      {(
         <nav aria-label="Sections" className="bar__nav">
           {nav.map(([label, href]) => (
-            <a key={href} href={href}>{label}</a>
+            <a key={href} href={href} onClick={e => {
+              if (onHome) { e.preventDefault(); onHome(href) }
+            }}>{label}</a>
           ))}
         </nav>
       )}
