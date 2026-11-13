@@ -5,7 +5,7 @@ export const experience = [
         url: 'https://about.meta.com/',
         title: 'Software Engineer II',
         period: 'Aug 2025 - Present',
-        location: 'San Francisco Bay Area',
+        location: 'New York City',
         skills: ['Agentic AI', 'LLM evals', 'PyTorch', 'Distributed Systems'],
         points: [
             'Build infrastructure for agentic AI systems at Meta — the platform powering AI assistants used across the company.',
