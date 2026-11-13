@@ -27,16 +27,19 @@ export default function App() {
     document.title = post ? `${post.title} - Namkhang Le` : 'Namkhang Le'
   }, [postId])
 
-  const open = (id) => {
-    window.history.pushState(null, '', id ? `?post=${id}` : window.location.pathname)
+  const open = (id, hash = '') => {
+    window.history.pushState(null, '', id ? `?post=${id}` : window.location.pathname + hash)
     setPostId(id)
-    window.scrollTo(0, 0)
+    requestAnimationFrame(() => {
+      if (hash) document.querySelector(hash)?.scrollIntoView()
+      else window.scrollTo(0, 0)
+    })
   }
 
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-      <Header onHome={postId ? () => open(null) : null} />
+      <Header onHome={postId ? hash => open(null, hash) : null} />
       <main id="main">
         {postId ? (
           <Post id={postId} onBack={() => open(null)} onOpen={open} />
