@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__copy">
-        <p className="label">Software engineer / Bay Area</p>
+        <p className="label">Software engineer / NYC</p>
         <h1 id="hero-title">
           I build <em>agentic AI</em> systems and ship things at hackathons.
         </h1>
@@ -34,4 +34,4 @@ export default function Hero() {
       </aside>
     </section>
   )
-      }
+}
