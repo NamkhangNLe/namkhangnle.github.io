@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { projectData } from '../data/projects.js'
 import { categories } from '../data/meta.js'
 
-const items = Object.entries(projectData).map(([id, p]) => ({ id, ...p, category: categories[id] }))
+const items = Object.entries(projectData).map(([id, p], index) => ({ id, ...p, index: index + 1, category: categories[id] }))
 const filters = ['All', ...new Set(items.map((i) => i.category))]
 
 export default function Projects() {
@@ -22,10 +22,10 @@ export default function Projects() {
         </div>
       </header>
       <ul className="cards">
-        {shown.map((p, i) => (
+        {shown.map((p) => (
           <li key={p.id} className="card">
             <p className="label">
-              <span>{String(i + 1).padStart(2, '0')}</span> {p.category} / {p.date}
+              <span>{String(p.index).padStart(2, '0')}</span> {p.category} / {p.date}
             </p>
             <h3>{p.title}</h3>
             <p>{p.description}</p>
@@ -37,4 +37,4 @@ export default function Projects() {
       </ul>
     </section>
   )
-                                                                                               }
+}
