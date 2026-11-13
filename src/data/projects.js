@@ -29,7 +29,7 @@ export const projectData = {
     },
     hemodynamics: {
         title: "Hemodynamics Calculator",
-        description: "Developed a full-stack application for the Emory University School of Medicine to be used by 10 clinicians to reduce measurement error daily, impacting over 1,000 patients within the ICU. Leveraged ReactJS, Express, and MongoDB to develop interactive visualizations of trends in patient data, reducing data-related errors by 34%.",
+        description: "A computer science capstone prototype built with React, Express and MongoDB, with interactive visualizations of hemodynamic trends.",
         link: "https://hemodynamics.vercel.app/",
         linkText: "GT CS Capstone",
         date: "2023-2024"
