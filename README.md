@@ -1,43 +1,30 @@
-# Namkhang Le - Personal Portfolio
+# Namkhang's personal desktop
 
-A macOS-inspired personal portfolio website built with React and Vite.
+A React/Vite portfolio that keeps the original personal-computer idea: a desktop, overlapping windows, a Dock and a typed Messages introduction. The earlier notebook candidate is superseded by this desktop revision.
 
-## 🌐 Live Demo
-[namkhangnle.github.io](https://namkhangnle.github.io/)
+## Run
 
-## ✨ Features
+Use Node 22 or newer. `npm ci`, then `npm run dev`. `npm run build` creates production output; `npm run preview` serves it locally.
 
-- **macOS Desktop Interface** - Authentic macOS-style desktop with window management
-- **Interactive Dock** - Animated dock with app icons (Finder, Notes, Blog, Messages, LinkedIn, GitHub)
-- **Blog App** - Read posts with shareable `?post=<id>` deep links
-- **Notes App** - Browse work experience
-- **Messages App** - Learn about my background and experience
-- **Finder App** - Browse my projects (Boba Labs, DiagnoseMe, ScribbleTex, MorseTorch)
-- **Resume** - Download my resume directly
+## Apps and controls
 
-## 🛠️ Tech Stack
+- Messages: a clearly labeled prerecorded introduction and an email-draft composer. It opens your email client; it neither sends a message nor pretends Namkhang is online.
+- Finder: project folders and a quick-look preview using existing owner-maintained project data. The clinical-impact numbers have been removed with owner confirmation.
+- Work: the existing experience content, with the owner-confirmed NYC location.
+- Writing: search and the full reader. `?post=<id>` links open Writing directly; browser Back restores the prior reader state.
+- Desktop: drag a window's title button, or focus it and use arrow keys. Traffic-light controls close, minimize and maximize/restore. The Dock reopens minimized apps. Mobile shows the active app full-width, with the same Dock and controls.
+- Window positions/open state last only for the current page session. They are not saved to an account or restored after reload. Closing an app clears its local UI state.
 
-- React 19
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Lucide Icons
+The desktop wallpaper is authored CSS/SVG texture, not a fetched image. Fonts are bundled through the existing OFL-licensed Fontsource packages. Existing project descriptions are owner-maintained source, not new verification of performance or endorsements.
 
-## 🚀 Getting Started
+## Tests
 
-```bash
-# Install dependencies
-npm install
+First run `npm run test:setup` to install the isolated browser-test dependencies and Chromium. If you already have Chrome, use `CHROME_PATH=/path/to/chrome npm run test:e2e` instead. Linux may need the OS packages documented by Playwright.
 
-# Run locally
-npm run dev
+`npm run test:e2e` builds and serves the production app, then checks typed/reduced-motion introduction, project folders, pointer/keyboard movement, maximize/restore, minimize/reopen, close, direct post links/Back, mobile app switching and email-draft UI. Screenshots go under `tests/test-results/`.
 
-# Build for production
-npm run build
-```
+`npx eslint src` checks active source. Full repository lint still reports inherited `_legacy_backup/uikit*.js` errors. Existing dependency audit findings are not remediated here. Tests use Chrome, not physical phones, Safari, Firefox or screen readers. Email-client dispatch and external project/contact destinations are not exercised.
 
-## 📫 Contact
+## Deployment boundary
 
-- **LinkedIn**: [linkedin.com/in/namkhangnle](https://linkedin.com/in/namkhangnle)
-- **GitHub**: [github.com/namkhangnle](https://github.com/namkhangnle)
-- **Email**: NamkhangNLe@hotmail.com
+Merging the PR into main triggers the existing Pages workflow. This work only updates an unmerged PR branch: no merge, deployment, settings change or spending. The desktop revision restores the original hook; it is not proof of startup readiness, demand or a SOTA rating.

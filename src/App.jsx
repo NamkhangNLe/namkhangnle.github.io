@@ -1,13 +1,5 @@
-import React from 'react';
-import Desktop from './components/Desktop/Desktop';
-import { WindowProvider } from './context/WindowContext';
+import Desktop from './components/Desktop.jsx'
 
-function App() {
-  return (
-    <WindowProvider>
-      <Desktop />
-    </WindowProvider>
-  );
+export default function App() {
+  return <Desktop />
 }
-
-export default App;
