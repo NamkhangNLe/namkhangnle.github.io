@@ -1,35 +1,30 @@
-# Namkhang Le - Personal Portfolio
+# Namkhang's personal desktop
 
-A React/Vite portfolio redesigned as an engineering notebook: grid-paper canvas, cobalt accents, bundled typography and a readable single-page layout.
+A React/Vite portfolio that keeps the original personal-computer idea: a desktop, overlapping windows, a Dock and a typed Messages introduction. The earlier notebook candidate is superseded by this desktop revision.
 
-## Features
-- Work experience accordion with accessible expanded states.
-- Project category filters.
-- Searchable writing and full posts with shareable `?post=<id>` links and browser-back support.
-- Existing resume, LinkedIn, GitHub and email links.
+## Run
 
-Experience, project descriptions and posts are preserved from the existing owner source. The redesign does not independently verify those claims. Existing public assets and event pages are preserved.
+Use Node 22 or newer. `npm ci`, then `npm run dev`. `npm run build` creates production output; `npm run preview` serves it locally.
 
-## Run locally
-Use Node 20.19+ or 22.12+, as required by the Vite 7 toolchain.
+## Apps and controls
 
-```bash
-npm ci
-npm run dev
-npm run build
-npx eslint src
-```
+- Messages: a clearly labeled prerecorded introduction and an email-draft composer. It opens your email client; it neither sends a message nor pretends Namkhang is online.
+- Finder: project folders and a quick-look preview using existing owner-maintained project data. The clinical-impact numbers have been removed with owner confirmation.
+- Work: the existing experience content, with the owner-confirmed NYC location.
+- Writing: search and the full reader. `?post=<id>` links open Writing directly; browser Back restores the prior reader state.
+- Desktop: drag a window's title button, or focus it and use arrow keys. Traffic-light controls close, minimize and maximize/restore. The Dock reopens minimized apps. Mobile shows the active app full-width, with the same Dock and controls.
+- Window positions/open state last only for the current page session. They are not saved to an account or restored after reload. Closing an app clears its local UI state.
 
-Fonts are bundled through @fontsource-variable (Instrument Sans, JetBrains Mono and Space Grotesk), licensed OFL-1.1. No build-time Google Fonts request is needed.
+The desktop wallpaper is authored CSS/SVG texture, not a fetched image. Fonts are bundled through the existing OFL-licensed Fontsource packages. Existing project descriptions are owner-maintained source, not new verification of performance or endorsements.
 
-## Verification and limits
-Production build and redesigned-source lint pass. Headless Chrome checks at 1440px and 390px cover overflow after fonts load, experience accordion open/close, project filters, post search/empty state, post open/back and invalid deep-link fallback. Desktop/mobile screenshots and the detailed test plan are embedded in the redesign PR.
+## Tests
 
-Full `npm run lint` still finds inherited errors in unchanged `_legacy_backup/uikit*.js` (24 errors, 1 warning). Dependency audit findings are not fixed by this design change. Safari, real mobile devices and the deployed site after merge are not tested.
+First run `npm run test:setup` to install the isolated browser-test dependencies and Chromium. If you already have Chrome, use `CHROME_PATH=/path/to/chrome npm run test:e2e` instead. Linux may need the OS packages documented by Playwright.
 
-The existing `.github/workflows/deploy.yml` deploys on pushes to main. Opening this PR does not merge or deploy it; merging main would trigger that workflow. Review that consequence before merging.
+`npm run test:e2e` builds and serves the production app, then checks typed/reduced-motion introduction, project folders, pointer/keyboard movement, maximize/restore, minimize/reopen, close, direct post links/Back, mobile app switching and email-draft UI. Screenshots go under `tests/test-results/`.
 
-## Contact
-- [LinkedIn](https://linkedin.com/in/namkhangnle)
-- [GitHub](https://github.com/namkhangnle)
-- NamkhangNLe@hotmail.com
+`npx eslint src` checks active source. Full repository lint still reports inherited `_legacy_backup/uikit*.js` errors. Existing dependency audit findings are not remediated here. Tests use Chrome, not physical phones, Safari, Firefox or screen readers. Email-client dispatch and external project/contact destinations are not exercised.
+
+## Deployment boundary
+
+Merging the PR into main triggers the existing Pages workflow. This work only updates an unmerged PR branch: no merge, deployment, settings change or spending. The desktop revision restores the original hook; it is not proof of startup readiness, demand or a SOTA rating.
