@@ -744,6 +744,9 @@
       return cards[1].offsetLeft - cards[0].offsetLeft;
     }
     var current = 0;
+    var want = 0;
+    var retries = 0;
+    var userTookOver = false;
     function maxScroll(){
       return deck.scrollWidth - deck.clientWidth;
     }
@@ -762,14 +765,31 @@
       idx = Math.max(0, Math.min(n - 1, idx));
       current = idx;
       render();
-      deck.scrollTo({ left: Math.min(cards[idx].offsetLeft - 8, maxScroll()), behavior: "smooth" });
+      want = Math.min(cards[idx].offsetLeft - 8, maxScroll());
+      retries = 0;
+      userTookOver = false;
+      deck.scrollTo({ left: want, behavior: "smooth" });
     }
     var scrollTimer = null;
     deck.addEventListener("scroll", function(){
       if(scrollTimer) clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(function(){ current = currentIndex(); render(); }, 120);
+      scrollTimer = setTimeout(function(){
+        if(userTookOver){
+          userTookOver = false;
+          current = currentIndex();
+          render();
+        } else if(Math.abs(deck.scrollLeft - want) > 4 && retries < 2){
+          retries++;
+          deck.scrollTo({ left: want, behavior: "smooth" });
+        } else {
+          current = currentIndex();
+          render();
+        }
+      }, 120);
       if(hint && deck.scrollLeft > 40) hint.style.display = "none";
     }, { passive: true });
+    deck.addEventListener("pointerdown", function(){ userTookOver = true; });
+    deck.addEventListener("wheel", function(){ userTookOver = true; }, { passive: true });
     document.querySelectorAll('[data-prev="' + deckId + '"]').forEach(function(btn){
       btn.addEventListener("click", function(){ scrollToCard(current - 1); });
     });
