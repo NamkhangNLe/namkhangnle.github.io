@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bay, Love Nam</title>
+<meta name="description" content="You just landed in the Bay. These are my favorite spots, now they are yours. Fourteen restaurants and four day trips, in order.">
+<style>
+  :root{
+    --paper:#f6efe0;
+    --paper-2:#fffaf0;
+    --ink:#26221c;
+    --ink-soft:#5c5344;
+    --poppy:#e4572e;
+    --marigold:#f0a13a;
+    --teal:#1f6f6b;
+    --sky:#5b8db2;
+    --cream-tape:rgba(240,161,58,.55);
+    --teal-tape:rgba(31,111,107,.45);
+    --sky-tape:rgba(91,141,178,.45);
+    --poppy-tape:rgba(228,87,46,.45);
+    --display:"Trebuchet MS","Avenir Next","Segoe UI",Verdana,sans-serif;
+    --hand:"Bradley Hand","Segoe Print","Comic Sans MS","Chalkboard SE",cursive;
+    --body:"Avenir Next","Segoe UI",Verdana,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background-color:var(--paper);
+    background-image:radial-gradient(#e6d9bd 1.2px, transparent 1.2px);
+    background-size:22px 22px;
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:var(--teal)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 16px 64px}
+
+  /* ---------- top strip ---------- */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 4px 0;font-family:var(--hand);font-size:15px;color:var(--ink-soft);
+  }
+  .topbar .from{transform:rotate(-2deg)}
+  .topbar .from b{color:var(--poppy)}
+  .topbar .tag{
+    background:var(--teal);color:#fff;padding:3px 10px;border-radius:20px;
+    transform:rotate(2deg);font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.06em;
+  }
+
+  /* ---------- hero ---------- */
+  header.hero{text-align:center;padding:18px 0 8px;position:relative}
+  .hero h1{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(44px,11vw,96px);line-height:.95;letter-spacing:-.01em;
+    color:var(--ink);text-transform:uppercase;
+  }
+  .hero h1 .w1{display:inline-block;transform:rotate(-2.5deg);color:var(--poppy)}
+  .hero h1 .w2{display:inline-block;transform:rotate(1.5deg)}
+  .hero h1 .w3{display:inline-block;transform:rotate(-1deg);color:var(--teal)}
+  .hero h1 .w4{display:inline-block;transform:rotate(2deg);color:var(--marigold)}
+  .hero .love{
+    font-family:var(--hand);font-size:clamp(24px,6vw,34px);color:var(--poppy);
+    margin-top:6px;transform:rotate(-2deg);
+  }
+  .hero .sub{
+    font-family:var(--hand);font-size:clamp(19px,4.6vw,26px);color:var(--ink-soft);
+    margin-top:10px;transform:rotate(-1deg);
+  }
+  .hero .arrow{width:64px;margin:6px auto 0;transform:rotate(8deg)}
+  .hero-polaroid{
+    background:#fff;padding:12px 12px 8px;margin:22px auto 0;max-width:520px;
+    box-shadow:0 10px 24px rgba(38,34,28,.28);transform:rotate(-1.6deg);position:relative;
+  }
+  .hero-polaroid img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .hero-polaroid figcaption{
+    font-family:var(--hand);font-size:19px;padding:10px 4px 4px;color:var(--ink-soft);
+  }
+  .tape{
+    position:absolute;width:110px;height:30px;top:-14px;left:50%;margin-left:-55px;
+    background:var(--cream-tape);transform:rotate(-3deg);
+    border-left:1px dashed rgba(255,255,255,.7);border-right:1px dashed rgba(255,255,255,.7);
+    box-shadow:0 1px 3px rgba(38,34,28,.15);
+  }
+  .tape.teal{background:var(--teal-tape)}
+  .tape.sky{background:var(--sky-tape)}
+  .tape.poppy{background:var(--poppy-tape)}
+
+  /* ---------- handoff note ---------- */
+  .note{
+    background:var(--paper-2);border:2px solid var(--ink);
+    border-radius:4px;box-shadow:5px 6px 0 rgba(38,34,28,.9);
+    max-width:640px;margin:34px auto 0;padding:26px 24px 20px;position:relative;transform:rotate(.6deg);
+  }
+  .note::before{
+    content:"";position:absolute;top:-13px;right:34px;width:96px;height:26px;
+    background:var(--poppy-tape);transform:rotate(5deg);
+    border-left:1px dashed rgba(255,255,255,.7);border-right:1px dashed rgba(255,255,255,.7);
+  }
+  .note h2{font-family:var(--hand);font-size:24px;color:var(--poppy);margin-bottom:10px;transform:rotate(-1deg)}
+  .note p{font-size:16.5px;margin-bottom:12px}
+  .note p:last-child{margin-bottom:0}
+  .note .sign{font-family:var(--hand);font-size:21px;text-align:right;color:var(--teal)}
+  .howto{
+    text-align:center;font-family:var(--hand);font-size:17px;color:var(--ink-soft);
+    margin:26px auto 0;max-width:520px;transform:rotate(-.8deg);
+  }
+  .howto b{color:var(--poppy)}
+
+  /* ---------- section headers ---------- */
+  section{margin-top:56px}
+  .sec-head{text-align:center;position:relative;margin-bottom:6px}
+  .sec-head h2{
+    font-family:var(--display);font-weight:900;text-transform:uppercase;
+    font-size:clamp(30px,7vw,46px);line-height:1;display:inline-block;transform:rotate(-1.4deg);
+    background:var(--marigold);padding:6px 16px;box-shadow:4px 4px 0 rgba(38,34,28,.9);
+  }
+  .sec-head.trips h2{background:var(--teal);color:#fff}
+  .sec-head p{font-family:var(--hand);font-size:18px;color:var(--ink-soft);margin-top:12px}
+  .sec-head .squiggle{display:block;margin:4px auto 0;width:150px}
+
+  /* ---------- decks ---------- */
+  .deck-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px 0 10px}
+  .deck-nav button{
+    font-family:var(--display);font-weight:800;font-size:15px;cursor:pointer;
+    background:#fff;border:2px solid var(--ink);border-radius:24px;padding:7px 16px;
+    box-shadow:3px 3px 0 rgba(38,34,28,.9);transition:transform .12s ease;
+  }
+  .deck-nav button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(38,34,28,.9)}
+  .deck-nav .counter{font-family:var(--hand);font-size:18px;min-width:64px;text-align:center}
+  .dots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:2px 0 12px;padding:0 12px}
+  .dots button{
+    width:11px;height:11px;border-radius:50%;border:2px solid var(--ink);background:transparent;
+    cursor:pointer;padding:0;
+  }
+  .dots button.on{background:var(--poppy)}
+  .deck{
+    display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:18px 8px 26px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  }
+  .deck::-webkit-scrollbar{height:8px}
+  .deck::-webkit-scrollbar-thumb{background:var(--marigold);border-radius:4px}
+  .swipe-hint{
+    text-align:center;font-family:var(--hand);font-size:16px;color:var(--ink-soft);
+    animation:nudge 1.6s ease-in-out infinite;
+  }
+  @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+
+  /* ---------- cards ---------- */
+  .card{
+    flex:0 0 88%;max-width:460px;scroll-snap-align:center;
+    background:var(--paper-2);border:2px solid var(--ink);border-radius:6px;
+    box-shadow:6px 7px 0 rgba(38,34,28,.9);
+    display:flex;overflow:hidden;position:relative;
+  }
+  .card:nth-child(odd){transform:rotate(-.5deg)}
+  .card:nth-child(even){transform:rotate(.5deg)}
+  .rail{
+    flex:0 0 52px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+    padding:14px 0;color:#fff;
+  }
+  .rail.r-poppy{background:var(--poppy)}
+  .rail.r-teal{background:var(--teal)}
+  .rail.r-gold{background:var(--marigold)}
+  .rail.r-sky{background:var(--sky)}
+  .rail .rail-label{
+    font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.14em;
+    writing-mode:vertical-rl;transform:rotate(180deg);text-transform:uppercase;
+  }
+  .rail .rank{
+    font-family:var(--display);font-weight:900;font-size:26px;line-height:1;
+    background:#fff;color:var(--ink);border-radius:50%;width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 0 rgba(0,0,0,.25);
+  }
+  .rail .rail-note{
+    font-family:var(--hand);font-size:13px;writing-mode:vertical-rl;transform:rotate(180deg);
+  }
+  .card-body{flex:1;padding:16px 16px 18px;min-width:0;position:relative}
+  .polaroid{
+    background:#fff;padding:8px 8px 6px;box-shadow:0 5px 14px rgba(38,34,28,.25);
+    transform:rotate(-1.2deg);position:relative;margin:2px 4px 14px;
+  }
+  .polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .polaroid figcaption{font-family:var(--hand);font-size:15.5px;color:var(--ink-soft);padding:7px 2px 2px;text-align:center}
+  .polaroid .tape{width:84px;height:24px;top:-11px}
+  .photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .photo-duo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .photo-duo figure{margin:0}
+  .photo-duo figcaption{font-size:13.5px}
+  .photo-cluster{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .photo-cluster figure{margin:0}
+  .photo-cluster .big{grid-column:1 / -1}
+  .photo-cluster .big img{aspect-ratio:16/9}
+  .photo-cluster img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .photo-cluster figcaption{font-size:13.5px}
+  .card h3{
+    font-family:var(--display);font-weight:900;font-size:25px;line-height:1.1;margin-bottom:4px;
+  }
+  .card h3 .num{color:var(--poppy)}
+  .meta{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .chips span{
+    font-size:12.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:20px;
+    padding:3px 10px;background:#fff;
+  }
+  .chips span.hl{background:var(--marigold)}
+  .chips span.cool{background:#dcebf2}
+  .card p{font-size:15px;margin-bottom:10px}
+  .card p strong{color:var(--ink)}
+  .why{
+    background:#fdf3d7;border-left:4px solid var(--marigold);padding:9px 11px;border-radius:0 6px 6px 0;
+  }
+  .addr{font-size:14px;color:var(--ink-soft)}
+  .addr a{font-weight:700}
+  .sticker{
+    position:absolute;top:12px;right:12px;z-index:2;
+    font-family:var(--hand);font-size:14px;color:#fff;background:var(--poppy);
+    padding:4px 10px;border-radius:20px;transform:rotate(4deg);
+    box-shadow:0 2px 6px rgba(38,34,28,.3);
+  }
+  .sticker.teal{background:var(--teal)}
+  .sticker.gold{background:var(--marigold);color:var(--ink)}
+  .sticker.sky{background:var(--sky)}
+  .flag{
+    display:inline-block;font-family:var(--hand);font-size:14px;color:var(--poppy);
+    border:1.5px dashed var(--poppy);border-radius:6px;padding:2px 8px;margin-bottom:8px;transform:rotate(-1deg);
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:60px;text-align:center;position:relative;
+  }
+  footer .tape-note{
+    display:inline-block;background:var(--paper-2);border:2px solid var(--ink);border-radius:4px;
+    box-shadow:4px 5px 0 rgba(38,34,28,.9);padding:18px 22px;transform:rotate(-1deg);max-width:520px;
+  }
+  footer h2{font-family:var(--display);font-weight:900;font-size:22px;text-transform:uppercase;margin-bottom:6px}
+  footer p{font-size:14.5px;color:var(--ink-soft)}
+  footer .fine{font-family:var(--hand);font-size:14px;margin-top:18px;color:var(--ink-soft)}
+
+  @media (min-width:720px){
+    .card{flex-basis:420px}
+    .note{padding:30px 32px 24px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="from">a little gift, from <b>Namkhang</b></span>
+    <span class="tag">BAY AREA</span>
+  </div>
+
+  <header class="hero">
+    <h1><span class="w1">The</span> <span class="w3">Bay</span></h1>
+    <p class="love">love, Nam</p>
+    <p class="sub">you just landed here, and the good stuff is all yours now</p>
+    <svg class="arrow" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+      <path d="M4 4 C 20 26, 38 30, 56 12" stroke="#e4572e" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
+      <path d="M48 8 L 58 11 L 52 20" stroke="#e4572e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <figure class="hero-polaroid">
+      <span class="tape teal"></span>
+      <img src="images/hero.jpg" alt="The Golden Gate Bridge glowing at sunset over San Francisco Bay">
+      <figcaption>the city that fed me, now it feeds you too</figcaption>
+    </figure>
+    <figure class="hero-polaroid" style="max-width:420px;transform:rotate(1.4deg)">
+      <span class="tape poppy"></span>
+      <img src="images/liholiho-1.jpg" alt="The Palace of Fine Arts glowing at dusk, photographed by Namkhang" style="aspect-ratio:3/4" loading="lazy">
+      <figcaption>the Palace at dusk</figcaption>
+    </figure>
+  </header>
+
+  <div class="note">
+    <h2>Hey, welcome home (your new one)</h2>
+    <p>You just landed here, and I am so glad you did. The Bay gave me some of my favorite meals and some of my favorite days, and now they are yours. This is my list, in order, the tables I would send you to first and the drives worth taking on a free Saturday.</p>
+    <p>No gatekeeping here. Start at the top, work your way down, bring people you like, and order the thing I told you to order. When you find your own favorites, add them to the list and pass it on.</p>
+    <p>Go hungry. The keys are yours now.</p>
+    <p class="sign">Love, Namkhang</p>
+  </div>
+
+  <p class="howto">Swipe through the cards. Each one has the address, what to order, what it costs, and how to get in. The little <b>beli</b> rail on the side is my ranking, number 1 is the top.</p>
+
+  <section aria-label="Restaurants">
+    <div class="sec-head">
+      <h2>The List</h2>
+      <svg class="squiggle" viewBox="0 0 150 12" fill="none" aria-hidden="true">
+        <path d="M3 8 C 25 2, 45 11, 70 6 S 125 3, 147 7" stroke="#1f6f6b" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p>fourteen tables, ranked by me, best first</p>
+    </div>
+
+    <div class="deck-nav">
+      <button type="button" data-prev="food-deck" aria-label="Previous restaurant">&larr; Prev</button>
+      <span class="counter" id="food-counter">1 / 14</span>
+      <button type="button" data-next="food-deck" aria-label="Next restaurant">Next &rarr;</button>
+    </div>
+    <div class="dots" id="food-dots" role="tablist" aria-label="Restaurant cards"></div>
+    <p class="swipe-hint" id="food-hint">swipe this way &rarr;</p>
+
+    <div class="deck" id="food-deck">
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#1</span><span class="rail-note">my top pick</span></div>
+        <div class="card-body">
+          <span class="sticker">book way ahead</span>
+          <figure class="polaroid">
+            <span class="tape"></span>
+            <img src="images/atelier-crenn.jpg" alt="A delicate plated course at Atelier Crenn" loading="lazy">
+            <figcaption>poetry you can eat</figcaption>
+          </figure>
+          <h3><span class="num">#1</span> Atelier Crenn</h3>
+          <p class="meta">Marina / Cow Hollow, San Francisco &middot; French, pescatarian tasting menu</p>
+          <p class="chips"><span class="hl">about $395 pp</span><span>Reservations, prepaid</span><span>Tue-Sat, 4:45-9 PM</span></p>
+          <p><strong>Order this:</strong> the tasting menu is the whole point. The courses I still think about are the Kir Breton, the dry-aged black cod, the Dungeness crab broth, abalone with caviar, and the Sugar Bee Apple to finish. The pretzel and dips and the brioche are small joys along the way.</p>
+          <p class="why"><strong>Why it is special:</strong> Dominique Crenn cooks like a poet, and this is one of the most celebrated tables in America. Three Michelin stars, a hushed and artful room, and a meal that feels like a special occasion even before you sit down.</p>
+          <p class="addr">3127 Fillmore St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Atelier+Crenn+3127+Fillmore+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#2</span><span class="rail-note">quiet counter</span></div>
+        <div class="card-body">
+          <span class="sticker teal">reservations only</span>
+          <figure class="polaroid">
+            <span class="tape teal"></span>
+            <img src="images/kusakabe.jpg" alt="Omakase courses at the KUSAKABE counter" loading="lazy">
+            <figcaption>eighteen courses, zero noise</figcaption>
+          </figure>
+          <h3><span class="num">#2</span> KUSAKABE</h3>
+          <p class="meta">Jackson Square / FiDi, San Francisco &middot; Kyoto kaiseki omakase</p>
+          <p class="chips"><span class="hl">18 courses, $210 pp</span><span>Reservations required</span><span>Tue-Sun, 5-10 PM</span></p>
+          <p><strong>Order this:</strong> sit back and let the counter run. The standouts are braised yellowtail, chu toro, hotate with uni, Hokkaido uni, A5 wagyu, chawanmushi, and otoro. There is also a 13-course Petite menu Tuesday to Friday.</p>
+          <p class="why"><strong>Why it is special:</strong> a quiet counter where every course feels like a small ceremony. The most transportive omakase I found in the city, and the one I would send you to for a night you want to remember.</p>
+          <p class="addr">584 Washington St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=KUSAKABE+584+Washington+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#3</span><span class="rail-note">from my table</span></div>
+        <div class="card-body">
+          <span class="sticker gold">my photos!</span>
+          <figure class="polaroid">
+            <span class="tape"></span>
+            <div class="photo-cluster">
+              <figure class="big">
+                <img src="images/absteak-1.jpg" alt="Wagyu grilling at ABSteak" loading="lazy">
+                <figcaption>wagyu on the grill, my table</figcaption>
+              </figure>
+              <figure>
+                <img src="images/absteak-2.jpg" alt="Raw wagyu platter at ABSteak" loading="lazy">
+                <figcaption>the raw platter</figcaption>
+              </figure>
+              <figure>
+                <img src="images/absteak-3.jpg" alt="Cooked wagyu strips at ABSteak" loading="lazy">
+                <figcaption>cooked and ready</figcaption>
+              </figure>
+              <figure>
+                <img src="images/absteak-4.jpg" alt="A hand holding a tray of grilled meat at ABSteak" loading="lazy">
+                <figcaption>straight off the grill</figcaption>
+              </figure>
+              <figure>
+                <img src="images/absteak-5.jpg" alt="Grilled wagyu strips at ABSteak" loading="lazy">
+                <figcaption>one more round</figcaption>
+              </figure>
+            </div>
+          </figure>
+          <h3><span class="num">#3</span> ABSteak by Chef Akira Back</h3>
+          <p class="meta">Union Square, San Francisco &middot; Korean steakhouse</p>
+          <p class="chips"><span class="hl">Premium combo, about $175</span><span>Reservations recommended</span><span>Mon-Thu 5:30-8:30 PM, Fri-Sat 5-9 PM</span></p>
+          <p><strong>Order this:</strong> the Snow Flower Kkotsal short rib, the AB Wagyu Pizza, marinated galbi, the 45-day whiskey-aged ribeye, and Gyeran-jjim (the steamed egg). These photos are from my own dinner here, and yes, it was that good.</p>
+          <p class="why"><strong>Why it is special:</strong> the most fun fancy steakhouse in the city. Great wagyu, a lively room, and a menu that makes a group dinner feel like an event. Bring your people.</p>
+          <p class="addr">124 Ellis St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=ABSteak+124+Ellis+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#4</span><span class="rail-note">they grill, you eat</span></div>
+        <div class="card-body">
+          <figure class="polaroid">
+            <span class="tape sky"></span>
+            <img src="images/10-butchers.jpg" alt="Korean BBQ spread at 10 Butchers" loading="lazy">
+            <figcaption>sit down, they handle the grill</figcaption>
+          </figure>
+          <h3><span class="num">#4</span> 10 Butchers Korean BBQ</h3>
+          <p class="meta">Sunnyvale &middot; upscale Korean BBQ (second spot in Los Altos)</p>
+          <p class="chips"><span class="hl">about $60-100 pp</span><span>Reservations recommended</span><span>Lunch 11:30 AM-2:30 PM, dinner 5-9 PM</span></p>
+          <p><strong>Order this:</strong> Butchers Bulgogi, marinated Galbi, Nakji Pajeon (octopus pancake), wagyu galbi mandoo, black pork belly, and A5 wagyu if you are feeling it. The staff grills everything for you, so you just eat.</p>
+          <p class="why"><strong>Why it is special:</strong> the rare KBBQ where you never touch the tongs. It is polished without being stiff, and it is my favorite South Bay dinner, worth the drive down.</p>
+          <p class="addr">595 E El Camino Real, Sunnyvale &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=10+Butchers+Korean+BBQ+595+E+El+Camino+Real+Sunnyvale" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#5</span><span class="rail-note">atlanta detour</span></div>
+        <div class="card-body">
+          <span class="sticker">not the Bay, still mine</span>
+          <figure class="polaroid">
+            <span class="tape poppy"></span>
+            <img src="images/gunshow.jpg" alt="Small plates being served at Gunshow in Atlanta" loading="lazy">
+            <figcaption>dinner as theater</figcaption>
+          </figure>
+          <h3><span class="num">#5</span> Gunshow</h3>
+          <p class="meta">Glenwood Park, Atlanta, GA &middot; dim sum-style New American</p>
+          <p class="chips"><span class="hl">about $100+ pp</span><span>Reservations only</span><span>Wed-Sat, 6-9 PM</span></p>
+          <p><span class="flag">Heads up: this one lives in Atlanta, not the Bay. It earned its spot anyway, so save it for a trip.</span></p>
+          <p><strong>Order this:</strong> the chefs roll carts around the room with small plates, so say yes a lot. The warm old-fashioned banana pudding is the must, plus chicken liver mousse, beef tartare, white sturgeon caviar, and canel&eacute;s.</p>
+          <p class="why"><strong>Why it is special:</strong> dinner as theater. Plates come to you, the room buzzes, and the banana pudding alone justifies the flight. Chef Kevin Gillespie built something joyful here.</p>
+          <p class="addr">924 Garrett St, Atlanta, GA &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Gunshow+924+Garrett+St+Atlanta+GA" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#6</span><span class="rail-note">new favorite</span></div>
+        <div class="card-body">
+          <span class="sticker teal">book 30 days out</span>
+          <figure class="polaroid">
+            <span class="tape teal"></span>
+            <img src="images/happy-crane.jpg" alt="Modern Cantonese dishes at The Happy Crane" loading="lazy">
+            <figcaption>Cantonese, turned up</figcaption>
+          </figure>
+          <h3><span class="num">#6</span> The Happy Crane</h3>
+          <p class="meta">Hayes Valley, San Francisco &middot; modern Cantonese</p>
+          <p class="chips"><span class="hl">Tasting $120 pp</span><span>Reservations essential</span><span>Dinner only, Tue-Sat 5-9 PM</span></p>
+          <p><strong>Order this:</strong> the Happy As A Crane tasting if you can get it, and pre-order the Peking Duck ($110). A la carte, go for firecracker shrimp, crab rice roll, char siu Iberico pork jowl, the Golden Coin, and the oyster pancake.</p>
+          <p class="why"><strong>Why it is special:</strong> the new-school Cantonese room everyone is trying to book. Chef James Yeun Leong Parry came from Benu, and it shows. Book a month out, or try your luck at the bar, half of it is held for walk-ins.</p>
+          <p class="addr">451 Gough St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Happy+Crane+451+Gough+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#7</span><span class="rail-note">virginia detour</span></div>
+        <div class="card-body">
+          <span class="sticker gold">yes, Virginia</span>
+          <figure class="polaroid">
+            <span class="tape"></span>
+            <img src="images/izakaya-nana.jpg" alt="Tokyo alleyway style dining room at Izakaya Nana in Chantilly, Virginia" loading="lazy">
+            <figcaption>a Tokyo alley in Virginia</figcaption>
+          </figure>
+          <h3><span class="num">#7</span> Izakaya Nana - Virginia</h3>
+          <p class="meta">Chantilly, VA (near Herndon) &middot; Tokyo-alleyway izakaya</p>
+          <p class="chips"><span class="hl">about $30-50 pp</span><span>Walk-in friendly</span><span>Lunch 12-3:30 PM, dinner 5-10 PM</span></p>
+          <p><span class="flag">Heads up: this one is in Virginia, near my hometown. It earned its spot anyway, so save it for a trip east.</span></p>
+          <p><strong>Order this:</strong> mentaiko cream udon, the yakitori platter, sushi dragon balls, unadon, dango tango, the one-meter sushi, curry tornado omurice, and A5 wagyu on a hot stone. The anime and samurai themed rooms are half the fun.</p>
+          <p class="why"><strong>Why it is special:</strong> a Tokyo alley in a Virginia strip mall. It is loud, playful, and completely itself, and it is the place I miss most when I am far from home.</p>
+          <p class="addr">13882 Metrotech Dr, Chantilly, VA &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Izakaya+Nana+13882+Metrotech+Dr+Chantilly+VA" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#8</span><span class="rail-note">baked hawaii</span></div>
+        <div class="card-body">
+          <span class="sticker sky">book 2 weeks out</span>
+          <figure class="polaroid">
+            <span class="tape sky"></span>
+            <div class="photo-duo">
+              <figure>
+                <img src="images/liholiho-3.jpg" alt="Sliced steak at Liholiho Yacht Club, photographed by Namkhang" loading="lazy">
+                <figcaption>sliced steak, my table</figcaption>
+              </figure>
+              <figure>
+                <img src="images/liholiho-4.jpg" alt="Pork chop with peppers at Liholiho Yacht Club, photographed by Namkhang" loading="lazy">
+                <figcaption>the pork chop</figcaption>
+              </figure>
+            </div>
+            <figcaption>my dinner here</figcaption>
+          </figure>
+          <h3><span class="num">#8</span> Liholiho Yacht Club</h3>
+          <p class="meta">Lower Nob Hill, San Francisco &middot; Hawaiian-Asian fusion</p>
+          <p class="chips"><span class="hl">about $83 pp</span><span>Resy, book ahead</span><span>Mon-Sat, 5-9 PM</span></p>
+          <p><strong>Order this:</strong> the baked Hawaii, full stop, then swordfish katsu, tuna poke, duck liver mousse on banana bread, beef tongue bao, shaved pig head salad, rendang curry, and fried rice. Tasting menu starts at $75.</p>
+          <p class="why"><strong>Why it is special:</strong> the baked Hawaii alone is worth the reservation. The whole menu is joyful and a little wild, and the room is one of the warmest in the city.</p>
+          <p class="addr">871 Sutter St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Liholiho+Yacht+Club+871+Sutter+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#9</span><span class="rail-note">ferry building</span></div>
+        <div class="card-body">
+          <span class="sticker">walk-in, no fuss</span>
+          <figure class="polaroid">
+            <span class="tape poppy"></span>
+            <img src="images/nopa-fish.jpg" alt="Fresh seafood counter at Nopa Fish in the Ferry Building" loading="lazy">
+            <figcaption>the freshest lunch counter</figcaption>
+          </figure>
+          <h3><span class="num">#9</span> Nopa Fish</h3>
+          <p class="meta">Ferry Building, Embarcadero, San Francisco &middot; fish market and seafood counter</p>
+          <p class="chips"><span class="hl">lunch under $20</span><span>Walk-in, no reservations</span><span>Sun-Fri 11 AM-8 PM, Sat 10 AM-8 PM</span></p>
+          <p><strong>Order this:</strong> smoked trout and corn chowder, the fried rockfish sandwich, fish and chips, steamed mussels, and grab oysters to take home. It is counter service, so order at the counter and find a sunny spot.</p>
+          <p class="why"><strong>Why it is special:</strong> the Ferry Building's freshest lunch counter, from the Nopa team. Opened in June 2025 and already my default Saturday stop. Grab oysters for home on your way out.</p>
+          <p class="addr">Ferry Building, Shop 31, 1 Ferry Bldg, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Nopa+Fish+Ferry+Building+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#10</span><span class="rail-note">from my table</span></div>
+        <div class="card-body">
+          <span class="sticker teal">my photos!</span>
+          <figure class="polaroid">
+            <span class="tape teal"></span>
+            <div class="photo-duo">
+              <figure>
+                <img src="images/khao-tiew-1.jpg" alt="Sliced beef over rice at Khao Tiew, photographed by Namkhang" loading="lazy">
+                <figcaption>sliced beef over rice</figcaption>
+              </figure>
+              <figure>
+                <img src="images/khao-tiew-2.jpg" alt="Duck turmeric curry at Khao Tiew, photographed by Namkhang" loading="lazy">
+                <figcaption>duck turmeric curry</figcaption>
+              </figure>
+            </div>
+            <figcaption>my dinner here, Nov 12</figcaption>
+          </figure>
+          <h3><span class="num">#10</span> Khao Tiew</h3>
+          <p class="meta">West Portal, San Francisco &middot; Northern Thai</p>
+          <p class="chips"><span class="hl">about $20-35 pp</span><span>Walk-in + Yelp waitlist</span><span>4-8:30 PM, closed Tue</span></p>
+          <p><strong>Order this:</strong> Khao Pad Mun Nuer, the short rib tallow fried rice ($26), is the dish I keep thinking about. Then duck panang curry, khao soi, burnt butter kaya toast with coconut ice cream, and tom yum soup.</p>
+          <p class="why"><strong>Why it is special:</strong> a small, loud, joyful room in West Portal, and the short rib fried rice is one of the best plates in the city. Expect a 45-60 minute wait at peak, it is worth it. These two photos are from my own table.</p>
+          <p class="addr">272 Claremont Blvd, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Khao+Tiew+272+Claremont+Blvd+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#11</span><span class="rail-note">lobster roll</span></div>
+        <div class="card-body">
+          <figure class="polaroid">
+            <span class="tape"></span>
+            <img src="images/woodhouse-fish.jpg" alt="Lobster roll at Woodhouse Fish Co." loading="lazy">
+            <figcaption>the neighborhood anchor</figcaption>
+          </figure>
+          <h3><span class="num">#11</span> Woodhouse Fish Co.</h3>
+          <p class="meta">Lower Pacific Heights, San Francisco &middot; New England seafood</p>
+          <p class="chips"><span class="hl">about $25-40 pp</span><span>Walk-in friendly</span><span>Daily, 11:30 AM-9:30 PM</span></p>
+          <p><strong>Order this:</strong> the lobster roll, chilled with mayo or hot with butter, then cioppino, squid ink linguine, clam chowder, crab cakes, and oysters, which are $1.25 on Tuesdays. Note: the Market St location is permanently closed, go to Fillmore.</p>
+          <p class="why"><strong>Why it is special:</strong> the lobster roll that anchors the neighborhood. No fuss, no line games, just a great East Coast style seafood counter that always delivers.</p>
+          <p class="addr">1914 Fillmore St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Woodhouse+Fish+Co+1914+Fillmore+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#12</span><span class="rail-note">mezze spread</span></div>
+        <div class="card-body">
+          <figure class="polaroid">
+            <span class="tape sky"></span>
+            <img src="images/beit-rima.jpg" alt="Mezze spread at Beit Rima" loading="lazy">
+            <figcaption>order the whole spread</figcaption>
+          </figure>
+          <h3><span class="num">#12</span> Beit Rima</h3>
+          <p class="meta">Castro and Cole Valley, San Francisco &middot; Arabic comfort food</p>
+          <p class="chips"><span class="hl">about $25-35 pp</span><span>Counter service</span><span>11 AM-9 PM, Fri-Sat to 9:30</span></p>
+          <p><strong>Order this:</strong> the mezze sampler ($24, with lebna, muhammara, baba ganoush, hummus, and falafel), Samir's hand-kneaded bread ($7), chicken shish tawook plate ($26), musakhan, batata harra ($11), and baked halloumi ($16).</p>
+          <p class="why"><strong>Why it is special:</strong> the mezze spread that turns a weeknight into a feast. Warm, generous, and made for sharing, my go-to when friends come over and nobody can agree on anything.</p>
+          <p class="addr">138 Church St or 86 Carl St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Beit+Rima+138+Church+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#13</span><span class="rail-note">1 AM tacos</span></div>
+        <div class="card-body">
+          <span class="sticker">late night only</span>
+          <figure class="polaroid">
+            <span class="tape poppy"></span>
+            <img src="images/spartan-taco.jpg" alt="Crispy tacos from the Spartan Taco Truck in San Jose" loading="lazy">
+            <figcaption>the 1 AM taco run</figcaption>
+          </figure>
+          <h3><span class="num">#13</span> Spartan Taco Truck</h3>
+          <p class="meta">San Jose, near SJSU &middot; late-night taco truck</p>
+          <p class="chips"><span class="hl">about $10-15 pp</span><span>Cash or Venmo</span><span>Nightly, about 8:30 PM-2 AM</span></p>
+          <p><strong>Order this:</strong> little crispy tacos (3 for $10), big crispy tacos with steak, super soft al pastor, lengua, tripa, quesabirria, and a peanut butter horchata to wash it down.</p>
+          <p class="why"><strong>Why it is special:</strong> the 1 AM taco run. Crispy shells, generous fillings, no regrets. Bring cash or Venmo and bring friends, this is a group ritual, not a solo mission.</p>
+          <p class="addr">447 E William St, San Jose &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Spartan+Taco+Truck+447+E+William+St+San+Jose" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#14</span><span class="rail-note">paella + patio</span></div>
+        <div class="card-body">
+          <figure class="polaroid">
+            <span class="tape teal"></span>
+            <img src="images/teleferic.jpg" alt="Tapas and paella at Teleferic Barcelona in Los Gatos" loading="lazy">
+            <figcaption>a little Barcelona in Los Gatos</figcaption>
+          </figure>
+          <h3><span class="num">#14</span> Teleferic Barcelona Los Gatos</h3>
+          <p class="meta">Old Town Los Gatos &middot; Spanish tapas and paella</p>
+          <p class="chips"><span class="hl">about $56 pp</span><span>Reservations recommended</span><span>Sun-Thu 11 AM-9:15 PM, Fri-Sat to 10:15 PM</span></p>
+          <p><strong>Order this:</strong> patatas bravas ($10), crab croquetas ($12), tuna tacos ($18), pulpo Teleferic ($22), the paella negra (the number one paella), paella mixta, jamon iberico de bellota ($26), and wagyu empanadas ($18). The Barcelona Lunch is $28-34 on weekdays.</p>
+          <p class="why"><strong>Why it is special:</strong> the paella and the patio. Two hundred plus Spanish wines, a big sunny patio, and the best excuse to spend an afternoon in Los Gatos.</p>
+          <p class="addr">50 University Ave, Suite B270, Los Gatos &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Teleferic+Barcelona+50+University+Ave+Los+Gatos" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-label="Day trips">
+    <div class="sec-head trips">
+      <h2>Day Trips</h2>
+      <svg class="squiggle" viewBox="0 0 150 12" fill="none" aria-hidden="true">
+        <path d="M3 8 C 25 2, 45 11, 70 6 S 125 3, 147 7" stroke="#e4572e" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p>four drives worth a free Saturday</p>
+    </div>
+
+    <div class="deck-nav">
+      <button type="button" data-prev="trip-deck" aria-label="Previous day trip">&larr; Prev</button>
+      <span class="counter" id="trip-counter">1 / 4</span>
+      <button type="button" data-next="trip-deck" aria-label="Next day trip">Next &rarr;</button>
+    </div>
+    <div class="dots" id="trip-dots" role="tablist" aria-label="Day trip cards"></div>
+    <p class="swipe-hint" id="trip-hint">swipe this way &rarr;</p>
+
+    <div class="deck" id="trip-deck">
+
+      <article class="card">
+        <div class="rail r-teal"><span class="rail-label">day trip</span><span class="rank">&#127796;</span><span class="rail-note">2h 5m drive</span></div>
+        <div class="card-body">
+          <span class="sticker teal">fairytale coast</span>
+          <figure class="polaroid">
+            <span class="tape teal"></span>
+            <img src="images/carmel.jpg" alt="Carmel Beach at sunset" loading="lazy">
+            <figcaption>white sand, cypress, sea otters</figcaption>
+          </figure>
+          <h3>Carmel-by-the-Sea</h3>
+          <p class="meta">About 2 hours 5 minutes south of SF (120 miles)</p>
+          <p class="chips"><span class="hl">17-Mile Drive, $12.50/car</span><span>Point Lobos, $10/car</span><span class="cool">Best: Sep-Oct</span></p>
+          <p><strong>Do this:</strong> walk Carmel Beach (dogs run off-leash here), wander Ocean Ave and the fairytale cottages, then drive the 17-Mile Drive to the Lone Cypress. The drive fee is refunded if you spend $35 or more at a Pebble Beach restaurant.</p>
+          <p><strong>Know before you go:</strong> Point Lobos State Natural Reserve is open 8 AM-7 PM with last entry at 6:30 PM, and only 150 cars get in, so arrive before 9:30 AM or after 3 PM.</p>
+          <p class="why"><strong>The highlight:</strong> Point Lobos, where Jacques Cousteau said land and water meet at their greatest. Sea otters, seals, and cypress groves in one small park.</p>
+          <p class="addr">Carmel-by-the-Sea, CA &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Carmel-by-the-Sea+CA" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-gold"><span class="rail-label">day trip</span><span class="rank">&#129419;</span><span class="rail-note">1h drive</span></div>
+        <div class="card-body">
+          <span class="sticker gold">tule elk!</span>
+          <figure class="polaroid">
+            <span class="tape"></span>
+            <img src="images/point-reyes.jpg" alt="Point Reyes Lighthouse on the rugged Northern California coast" loading="lazy">
+            <figcaption>wild coast, elk, whales</figcaption>
+          </figure>
+          <h3>Point Reyes</h3>
+          <p class="meta">About 1 hour north of SF (36 miles to the Bear Valley Visitor Center)</p>
+          <p class="chips"><span class="hl">Free entry, no parking fee</span><span class="cool">Best: Sep-Oct, or Jan-Apr for whales</span></p>
+          <p><strong>Do this:</strong> hike the Tomales Point Trail (about 9.5 miles round trip) for near-guaranteed tule elk, climb the 300 plus steps to the 1870 lighthouse, find the Cypress Tree Tunnel, and watch elephant seals at Chimney Rock from December to March.</p>
+          <p><strong>Know before you go:</strong> pack layers, it can be 30 degrees colder than inland. Dogs are banned on trails and beaches. The lighthouse stairs are open Friday to Monday, 10 AM-4 PM, and close in high wind. Parking fills late on whale-season weekends, when a shuttle runs.</p>
+          <p class="why"><strong>The highlight:</strong> tule elk on Tomales Point, especially during the rut from August to October. Gray whales pass by from January to April.</p>
+          <p class="addr">Point Reyes National Seashore &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Point+Reyes+National+Seashore" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">day trip</span><span class="rank">&#127795;</span><span class="rail-note">36 min drive</span></div>
+        <div class="card-body">
+          <span class="sticker">reserve parking first</span>
+          <figure class="polaroid">
+            <span class="tape poppy"></span>
+            <img src="images/muir-woods.jpg" alt="Towering old-growth redwoods in Muir Woods" loading="lazy">
+            <figcaption>cathedral of redwoods</figcaption>
+          </figure>
+          <h3>Muir Woods</h3>
+          <p class="meta">About 36 minutes north of SF (16 miles)</p>
+          <p class="chips"><span class="hl">Parking reservation required, $10/car</span><span>Entry $15 pp, ages 16+</span><span class="cool">Best: early morning</span></p>
+          <p><strong>Do this:</strong> walk the main boardwalk loop through old-growth coast redwoods, find Cathedral Grove, and take the longer trails up to the ridge if you want a workout.</p>
+          <p><strong>Know before you go:</strong> book parking at GoMuirWoods.com up to 90 days ahead. You get a 30-minute arrival window and there is no walk-up parking. Download your confirmation first, there is no cell service in the canyon. The shuttle ($4 round trip) is seasonal and returns in spring 2027.</p>
+          <p class="why"><strong>The highlight:</strong> standing under thousand-year-old redwoods, twenty minutes from the city. It never gets old.</p>
+          <p class="addr">Muir Woods National Monument &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Muir+Woods+National+Monument" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-sky"><span class="rail-label">day trip</span><span class="rank">&#127956;</span><span class="rail-note">3h 12m drive</span></div>
+        <div class="card-body">
+          <span class="sticker sky">ski in winter, swim in summer</span>
+          <figure class="polaroid">
+            <span class="tape sky"></span>
+            <img src="images/lake-tahoe.jpg" alt="Emerald Bay on Lake Tahoe in summer" loading="lazy">
+            <figcaption>that blue is real</figcaption>
+          </figure>
+          <h3>Lake Tahoe</h3>
+          <p class="meta">About 3 hours 12 minutes east of SF (187 miles to South Lake)</p>
+          <p class="chips"><span class="hl">Best: Feb-Mar ski, Jun + Sep summer</span><span class="cool">Full lake loop: about 3h driving</span></p>
+          <p><strong>Do this:</strong> ski Heavenly, Palisades Tahoe, Northstar, or Kirkwood in winter (Heavenly opens Nov 20, 2026). In summer, swim at Sand Harbor, hike down to Emerald Bay and Vikingsholm, and drive the full 72-mile lake loop.</p>
+          <p><strong>Know before you go:</strong> in winter, check Caltrans QuickMap the morning of, chain controls hit I-80, US-50, and SR-89, and storms can add 1-3 hours, so carry chains or drive AWD. In summer, Sand Harbor needs a day-use reservation from May 15 to Sep 30, and the Emerald Bay lot fills by 9 AM on weekends. July and August are extremely crowded, September is the sweet spot.</p>
+          <p class="why"><strong>The highlight:</strong> Emerald Bay at golden hour. The bluest water in California, and it earns every bit of the drive.</p>
+          <p class="addr">South Lake Tahoe, CA &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=South+Lake+Tahoe+CA" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <figure class="hero-polaroid" style="max-width:420px;transform:rotate(-1.2deg);margin-bottom:28px">
+      <span class="tape sky"></span>
+      <img src="images/liholiho-2.jpg" alt="Sunset over the marina, photographed by Namkhang" style="aspect-ratio:3/4" loading="lazy">
+      <figcaption>sunset over the marina</figcaption>
+    </figure>
+    <div class="tape-note">
+      <h2>Go hungry</h2>
+      <p>Hours, prices, and reservation rules change, so check before you go. If a place is booked out, the waitlist is usually worth it. And when you find your own favorite, add it to the list and hand it to the next person who lands here.</p>
+    </div>
+    <p class="fine">made with love in the Bay, for the people just arriving</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  function setupDeck(deckId, dotsId, counterId, hintId){
+    var deck = document.getElementById(deckId);
+    var dotsWrap = document.getElementById(dotsId);
+    var counter = document.getElementById(counterId);
+    var hint = document.getElementById(hintId);
+    if(!deck) return;
+    var cards = deck.querySelectorAll(".card");
+    var n = cards.length;
+    var dots = [];
+    for(var i = 0; i < n; i++){
+      (function(idx){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Go to card " + (idx + 1));
+        b.addEventListener("click", function(){ scrollToCard(idx); });
+        dotsWrap.appendChild(b);
+        dots.push(b);
+      })(i);
+    }
+    function cardStep(){
+      if(n < 2) return 0;
+      return cards[1].offsetLeft - cards[0].offsetLeft;
+    }
+    function currentIndex(){
+      var step = cardStep();
+      if(!step) return 0;
+      var idx = Math.round((deck.scrollLeft - cards[0].offsetLeft) / step);
+      return Math.max(0, Math.min(n - 1, idx));
+    }
+    function render(){
+      var idx = currentIndex();
+      counter.textContent = (idx + 1) + " / " + n;
+      dots.forEach(function(d, j){ d.classList.toggle("on", j === idx); });
+    }
+    function scrollToCard(idx){
+      idx = Math.max(0, Math.min(n - 1, idx));
+      deck.scrollTo({ left: cards[idx].offsetLeft - 8, behavior: "smooth" });
+    }
+    deck.addEventListener("scroll", function(){
+      render();
+      if(hint && deck.scrollLeft > 40) hint.style.display = "none";
+    }, { passive: true });
+    document.querySelectorAll('[data-prev="' + deckId + '"]').forEach(function(btn){
+      btn.addEventListener("click", function(){ scrollToCard(currentIndex() - 1); });
+    });
+    document.querySelectorAll('[data-next="' + deckId + '"]').forEach(function(btn){
+      btn.addEventListener("click", function(){ scrollToCard(currentIndex() + 1); });
+    });
+    render();
+  }
+  setupDeck("food-deck", "food-dots", "food-counter", "food-hint");
+  setupDeck("trip-deck", "trip-dots", "trip-counter", "trip-hint");
+})();
+</script>
+</body>
+</html>
