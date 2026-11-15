@@ -140,6 +140,7 @@
     position:relative;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;
     padding:18px 8px 26px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
   }
+  .deck-end{flex:0 0 auto;width:0}
   .deck::-webkit-scrollbar{height:8px}
   .deck::-webkit-scrollbar-thumb{background:var(--marigold);border-radius:4px}
   .swipe-hint{
@@ -718,6 +719,16 @@
     var cards = deck.querySelectorAll(".card");
     var n = cards.length;
     var dots = [];
+    var end = document.createElement("div");
+    end.className = "deck-end";
+    end.setAttribute("aria-hidden", "true");
+    deck.appendChild(end);
+    function sizeEnd(){
+      if(!cards.length) return;
+      end.style.width = Math.max(0, deck.clientWidth - cards[0].offsetWidth) + "px";
+    }
+    sizeEnd();
+    window.addEventListener("resize", sizeEnd);
     for(var i = 0; i < n; i++){
       (function(idx){
         var b = document.createElement("button");
