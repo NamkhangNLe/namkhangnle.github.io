@@ -7,11 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:setup": "npm --prefix tests ci --ignore-scripts && npm --prefix tests exec -- playwright install chromium",
+    "test:e2e": "npm --prefix tests ci --ignore-scripts && npm --prefix tests test"
   },
   "dependencies": {
-    "framer-motion": "^12.23.26",
-    "lucide-react": "^0.562.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
