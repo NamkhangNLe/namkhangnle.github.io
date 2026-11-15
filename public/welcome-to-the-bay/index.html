@@ -743,6 +743,7 @@
       if(n < 2) return 0;
       return cards[1].offsetLeft - cards[0].offsetLeft;
     }
+    var current = 0;
     function maxScroll(){
       return deck.scrollWidth - deck.clientWidth;
     }
@@ -754,23 +755,26 @@
       return Math.max(0, Math.min(n - 1, idx));
     }
     function render(){
-      var idx = currentIndex();
-      counter.textContent = (idx + 1) + " / " + n;
-      dots.forEach(function(d, j){ d.classList.toggle("on", j === idx); });
+      counter.textContent = (current + 1) + " / " + n;
+      dots.forEach(function(d, j){ d.classList.toggle("on", j === current); });
     }
     function scrollToCard(idx){
       idx = Math.max(0, Math.min(n - 1, idx));
+      current = idx;
+      render();
       deck.scrollTo({ left: Math.min(cards[idx].offsetLeft - 8, maxScroll()), behavior: "smooth" });
     }
+    var scrollTimer = null;
     deck.addEventListener("scroll", function(){
-      render();
+      if(scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function(){ current = currentIndex(); render(); }, 120);
       if(hint && deck.scrollLeft > 40) hint.style.display = "none";
     }, { passive: true });
     document.querySelectorAll('[data-prev="' + deckId + '"]').forEach(function(btn){
-      btn.addEventListener("click", function(){ scrollToCard(currentIndex() - 1); });
+      btn.addEventListener("click", function(){ scrollToCard(current - 1); });
     });
     document.querySelectorAll('[data-next="' + deckId + '"]').forEach(function(btn){
-      btn.addEventListener("click", function(){ scrollToCard(currentIndex() + 1); });
+      btn.addEventListener("click", function(){ scrollToCard(current + 1); });
     });
     render();
   }
