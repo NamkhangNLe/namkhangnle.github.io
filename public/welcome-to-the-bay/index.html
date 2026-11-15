@@ -124,20 +124,20 @@
   /* ---------- decks ---------- */
   .deck-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px 0 10px}
   .deck-nav button{
-    font-family:var(--display);font-weight:800;font-size:15px;cursor:pointer;
-    background:#fff;border:2px solid var(--ink);border-radius:24px;padding:7px 16px;
+    font-family:var(--display);font-weight:800;font-size:17px;cursor:pointer;min-height:48px;
+    background:#fff;border:2px solid var(--ink);border-radius:24px;padding:12px 24px;
     box-shadow:3px 3px 0 rgba(38,34,28,.9);transition:transform .12s ease;
   }
   .deck-nav button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(38,34,28,.9)}
   .deck-nav .counter{font-family:var(--hand);font-size:18px;min-width:64px;text-align:center}
-  .dots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:2px 0 12px;padding:0 12px}
+  .dots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:2px 0 12px;padding:0 12px}
   .dots button{
-    width:11px;height:11px;border-radius:50%;border:2px solid var(--ink);background:transparent;
+    width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);background:transparent;
     cursor:pointer;padding:0;
   }
   .dots button.on{background:var(--poppy)}
   .deck{
-    position:relative;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;
+    position:relative;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
     padding:18px 8px 26px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
   }
   .deck-end{flex:0 0 auto;width:0}
@@ -208,6 +208,7 @@
   }
   .chips span.hl{background:var(--marigold)}
   .chips span.cool{background:#dcebf2}
+  .chips span.score{background:#dcefe2;border-color:#1a6b32;color:#1a6b32}
   .card p{font-size:15px;margin-bottom:10px}
   .card p strong{color:var(--ink)}
   .why{
@@ -265,7 +266,7 @@
     </svg>
     <figure class="hero-polaroid">
       <span class="tape teal"></span>
-      <img src="images/hero.jpg" alt="The Golden Gate Bridge glowing at sunset over San Francisco Bay">
+      <img src="images/liholiho-2.jpg" alt="Sunset over the marina, photographed by Namkhang" style="aspect-ratio:4/3">
       <figcaption>the city that fed me, now it feeds you too</figcaption>
     </figure>
     <figure class="hero-polaroid" style="max-width:420px;transform:rotate(1.4deg)">
@@ -291,12 +292,12 @@
       <svg class="squiggle" viewBox="0 0 150 12" fill="none" aria-hidden="true">
         <path d="M3 8 C 25 2, 45 11, 70 6 S 125 3, 147 7" stroke="#1f6f6b" stroke-width="2.5" stroke-linecap="round"/>
       </svg>
-      <p>twelve tables, ranked by me, best first</p>
+      <p>thirteen tables, ranked by my scores, best first</p>
     </div>
 
     <div class="deck-nav">
       <button type="button" data-prev="food-deck" aria-label="Previous restaurant">&larr; Prev</button>
-      <span class="counter" id="food-counter">1 / 12</span>
+      <span class="counter" id="food-counter">1 / 13</span>
       <button type="button" data-next="food-deck" aria-label="Next restaurant">Next &rarr;</button>
     </div>
     <div class="dots" id="food-dots" role="tablist" aria-label="Restaurant cards"></div>
@@ -305,43 +306,25 @@
     <div class="deck" id="food-deck">
 
       <article class="card">
-        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#1</span><span class="rail-note">my top pick</span></div>
-        <div class="card-body">
-          <span class="sticker">book way ahead</span>
-          <figure class="polaroid">
-            <span class="tape"></span>
-            <img src="images/atelier-crenn.jpg" alt="A delicate plated course at Atelier Crenn" loading="lazy">
-            <figcaption>poetry you can eat</figcaption>
-          </figure>
-          <h3><span class="num">#1</span> Atelier Crenn</h3>
-          <p class="meta">Marina / Cow Hollow, San Francisco &middot; French, pescatarian tasting menu</p>
-          <p class="chips"><span class="hl">about $395 pp</span><span>Reservations, prepaid</span><span>Tue-Sat, 4:45-9 PM</span></p>
-          <p><strong>Order this:</strong> the tasting menu is the whole point. The courses I still think about are the Kir Breton, the dry-aged black cod, the Dungeness crab broth, abalone with caviar, and the Sugar Bee Apple to finish. The pretzel and dips and the brioche are small joys along the way.</p>
-          <p class="why"><strong>Why it is special:</strong> Dominique Crenn cooks like a poet, and this is one of the most celebrated tables in America. Three Michelin stars, a hushed and artful room, and a meal that feels like a special occasion even before you sit down.</p>
-          <p class="addr">3127 Fillmore St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Atelier+Crenn+3127+Fillmore+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#2</span><span class="rail-note">quiet counter</span></div>
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#1</span><span class="rail-note">quiet counter</span></div>
         <div class="card-body">
           <span class="sticker teal">reservations only</span>
           <figure class="polaroid">
             <span class="tape teal"></span>
-            <img src="images/kusakabe.jpg" alt="Omakase courses at the KUSAKABE counter" loading="lazy">
-            <figcaption>eighteen courses, zero noise</figcaption>
+            <img src="images/kusakabe-2.jpg" alt="Toro nigiri at KUSAKABE, photographed by Namkhang" loading="lazy">
+            <figcaption>toro, my table</figcaption>
           </figure>
-          <h3><span class="num">#2</span> KUSAKABE</h3>
-          <p class="meta">Jackson Square / FiDi, San Francisco &middot; Kyoto kaiseki omakase</p>
-          <p class="chips"><span class="hl">18 courses, $210 pp</span><span>Reservations required</span><span>Tue-Sun, 5-10 PM</span></p>
-          <p><strong>Order this:</strong> sit back and let the counter run. The standouts are braised yellowtail, chu toro, hotate with uni, Hokkaido uni, A5 wagyu, chawanmushi, and otoro. There is also a 13-course Petite menu Tuesday to Friday.</p>
-          <p class="why"><strong>Why it is special:</strong> a quiet counter where every course feels like a small ceremony. The most transportive omakase I found in the city, and the one I would send you to for a night you want to remember.</p>
+          <h3><span class="num">#1</span> KUSAKABE</h3>
+          <p class="meta">North Beach, San Francisco &middot; omakase</p>
+          <p class="chips"><span class="score">beli 10.0</span><span class="hl">18 courses, $210 pp</span><span>Reservations required</span><span>Tue-Sun, 5-10 PM</span></p>
+          <p><strong>Order this:</strong> the omakase, and let the counter run. My mom came with me and said she did not know Japanese food could taste like this. She was right.</p>
+          <p class="why"><strong>Why it is special:</strong> a perfect 10 from me, the only one I have given. A quiet counter, course after course of nigiri and small plates, and the meal that turned my mom into a believer.</p>
           <p class="addr">584 Washington St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=KUSAKABE+584+Washington+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
         </div>
       </article>
 
       <article class="card">
-        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#3</span><span class="rail-note">from my table</span></div>
+        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#2</span><span class="rail-note">from my table</span></div>
         <div class="card-body">
           <span class="sticker gold">my photos!</span>
           <figure class="polaroid">
@@ -369,56 +352,35 @@
               </figure>
             </div>
           </figure>
-          <h3><span class="num">#3</span> ABSteak by Chef Akira Back</h3>
+          <h3><span class="num">#2</span> ABSteak by Chef Akira Back</h3>
           <p class="meta">Union Square, San Francisco &middot; Korean steakhouse</p>
-          <p class="chips"><span class="hl">Premium combo, about $175</span><span>Reservations recommended</span><span>Mon-Thu 5:30-8:30 PM, Fri-Sat 5-9 PM</span></p>
-          <p><strong>Order this:</strong> the Snow Flower Kkotsal short rib, the AB Wagyu Pizza, marinated galbi, the 45-day whiskey-aged ribeye, and Gyeran-jjim (the steamed egg). These photos are from my own dinner here, and yes, it was that good.</p>
-          <p class="why"><strong>Why it is special:</strong> the most fun fancy steakhouse in the city. Great wagyu, a lively room, and a menu that makes a group dinner feel like an event. Bring your people.</p>
+          <p class="chips"><span class="score">beli 10.0</span><span class="hl">Premium combo, about $175</span><span>Reservations recommended</span><span>Mon-Thu 5:30-8:30 PM, Fri-Sat 5-9 PM</span></p>
+          <p><strong>Order this:</strong> the beef brisket. It literally melted in my mouth, and dipped in their house vinegar sauce it took the smokiness to another level. I have never had something come together like that in my entire life, it ruined the rest of the meal. The wagyu bulgogi was good too.</p>
+          <p class="why"><strong>Why it is special:</strong> a perfect 10 from me. The brisket alone is worth the trip, and the room is loud, fun, and built for a group dinner.</p>
           <p class="addr">124 Ellis St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=ABSteak+124+Ellis+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
         </div>
       </article>
 
       <article class="card">
-        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#4</span><span class="rail-note">they grill, you eat</span></div>
-        <div class="card-body">
-          <figure class="polaroid">
-            <span class="tape sky"></span>
-            <img src="images/10-butchers.jpg" alt="Korean BBQ spread at 10 Butchers" loading="lazy">
-            <figcaption>sit down, they handle the grill</figcaption>
-          </figure>
-          <h3><span class="num">#4</span> 10 Butchers Korean BBQ</h3>
-          <p class="meta">Sunnyvale &middot; upscale Korean BBQ (second spot in Los Altos)</p>
-          <p class="chips"><span class="hl">about $60-100 pp</span><span>Reservations recommended</span><span>Lunch 11:30 AM-2:30 PM, dinner 5-9 PM</span></p>
-          <p><strong>Order this:</strong> Butchers Bulgogi, marinated Galbi, Nakji Pajeon (octopus pancake), wagyu galbi mandoo, black pork belly, and A5 wagyu if you are feeling it. The staff grills everything for you, so you just eat.</p>
-          <p class="why"><strong>Why it is special:</strong> the rare KBBQ where you never touch the tongs. It is polished without being stiff, and it is my favorite South Bay dinner, worth the drive down.</p>
-          <p class="addr">595 E El Camino Real, Sunnyvale &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=10+Butchers+Korean+BBQ+595+E+El+Camino+Real+Sunnyvale" target="_blank" rel="noopener">Open in Maps</a></p>
-        </div>
-      </article>
-
-      
-
-      <article class="card">
-        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#5</span><span class="rail-note">new favorite</span></div>
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#3</span><span class="rail-note">new favorite</span></div>
         <div class="card-body">
           <span class="sticker teal">book 30 days out</span>
           <figure class="polaroid">
             <span class="tape teal"></span>
-            <img src="images/happy-crane.jpg" alt="Modern Cantonese dishes at The Happy Crane" loading="lazy">
-            <figcaption>Cantonese, turned up</figcaption>
+            <img src="images/happy-crane-2.jpg" alt="Skirt steak at The Happy Crane, photographed by Namkhang" loading="lazy">
+            <figcaption>the skirt steak</figcaption>
           </figure>
-          <h3><span class="num">#5</span> The Happy Crane</h3>
+          <h3><span class="num">#3</span> The Happy Crane</h3>
           <p class="meta">Hayes Valley, San Francisco &middot; modern Cantonese</p>
-          <p class="chips"><span class="hl">Tasting $120 pp</span><span>Reservations essential</span><span>Dinner only, Tue-Sat 5-9 PM</span></p>
-          <p><strong>Order this:</strong> the Happy As A Crane tasting if you can get it, and pre-order the Peking Duck ($110). A la carte, go for firecracker shrimp, crab rice roll, char siu Iberico pork jowl, the Golden Coin, and the oyster pancake.</p>
-          <p class="why"><strong>Why it is special:</strong> the new-school Cantonese room everyone is trying to book. Chef James Yeun Leong Parry came from Benu, and it shows. Book a month out, or try your luck at the bar, half of it is held for walk-ins.</p>
+          <p class="chips"><span class="score">beli 9.9</span><span class="hl">Tasting $120 pp</span><span>Reservations essential</span><span>Dinner only, Tue-Sat 5-9 PM</span></p>
+          <p><strong>Order this:</strong> the skirt steak, the best steak I have ever had, and the flaky fish, a twist on the classic with a deep sauce that had a multitude of flavors. Come hungry and let the presentation do its thing.</p>
+          <p class="why"><strong>Why it is special:</strong> my 9.9, with a best of SF tag to match. Modern Cantonese where every plate feels like a small ceremony, and the hardest table on this list to book.</p>
           <p class="addr">451 Gough St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Happy+Crane+451+Gough+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
         </div>
       </article>
 
-      
-
       <article class="card">
-        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#6</span><span class="rail-note">baked hawaii</span></div>
+        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#4</span><span class="rail-note">baked hawaii</span></div>
         <div class="card-body">
           <span class="sticker sky">book 2 weeks out</span>
           <figure class="polaroid">
@@ -435,35 +397,17 @@
             </div>
             <figcaption>my dinner here</figcaption>
           </figure>
-          <h3><span class="num">#6</span> Liholiho Yacht Club</h3>
+          <h3><span class="num">#4</span> Liholiho Yacht Club</h3>
           <p class="meta">Lower Nob Hill, San Francisco &middot; Hawaiian-Asian fusion</p>
-          <p class="chips"><span class="hl">about $83 pp</span><span>Resy, book ahead</span><span>Mon-Sat, 5-9 PM</span></p>
-          <p><strong>Order this:</strong> the baked Hawaii, full stop, then swordfish katsu, tuna poke, duck liver mousse on banana bread, beef tongue bao, shaved pig head salad, rendang curry, and fried rice. Tasting menu starts at $75.</p>
-          <p class="why"><strong>Why it is special:</strong> the baked Hawaii alone is worth the reservation. The whole menu is joyful and a little wild, and the room is one of the warmest in the city.</p>
+          <p class="chips"><span class="score">beli 9.9</span><span class="hl">about $83 pp</span><span>Resy, book ahead</span><span>Mon-Sat, 5-9 PM</span></p>
+          <p><strong>Order this:</strong> the porkchop and the black cod, my two favorites. The poke was unique, and the bite was nice. And the baked Hawaii, always.</p>
+          <p class="why"><strong>Why it is special:</strong> my birthday dinner, with my SF friends, a year after I landed here and found this community. 9.9 from me, and the warmest room on this list.</p>
           <p class="addr">871 Sutter St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Liholiho+Yacht+Club+871+Sutter+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
         </div>
       </article>
 
       <article class="card">
-        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#7</span><span class="rail-note">ferry building</span></div>
-        <div class="card-body">
-          <span class="sticker">walk-in, no fuss</span>
-          <figure class="polaroid">
-            <span class="tape poppy"></span>
-            <img src="images/nopa-fish.jpg" alt="Fresh seafood counter at Nopa Fish in the Ferry Building" loading="lazy">
-            <figcaption>the freshest lunch counter</figcaption>
-          </figure>
-          <h3><span class="num">#7</span> Nopa Fish</h3>
-          <p class="meta">Ferry Building, Embarcadero, San Francisco &middot; fish market and seafood counter</p>
-          <p class="chips"><span class="hl">lunch under $20</span><span>Walk-in, no reservations</span><span>Sun-Fri 11 AM-8 PM, Sat 10 AM-8 PM</span></p>
-          <p><strong>Order this:</strong> smoked trout and corn chowder, the fried rockfish sandwich, fish and chips, steamed mussels, and grab oysters to take home. It is counter service, so order at the counter and find a sunny spot.</p>
-          <p class="why"><strong>Why it is special:</strong> the Ferry Building's freshest lunch counter, from the Nopa team. Opened in June 2025 and already my default Saturday stop. Grab oysters for home on your way out.</p>
-          <p class="addr">Ferry Building, Shop 31, 1 Ferry Bldg, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Nopa+Fish+Ferry+Building+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#8</span><span class="rail-note">from my table</span></div>
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#5</span><span class="rail-note">from my table</span></div>
         <div class="card-body">
           <span class="sticker teal">my photos!</span>
           <figure class="polaroid">
@@ -480,41 +424,140 @@
             </div>
             <figcaption>my dinner here, Nov 12</figcaption>
           </figure>
-          <h3><span class="num">#8</span> Khao Tiew</h3>
+          <h3><span class="num">#5</span> Khao Tiew</h3>
           <p class="meta">West Portal, San Francisco &middot; Northern Thai</p>
-          <p class="chips"><span class="hl">about $20-35 pp</span><span>Walk-in + Yelp waitlist</span><span>4-8:30 PM, closed Tue</span></p>
-          <p><strong>Order this:</strong> Khao Pad Mun Nuer, the short rib tallow fried rice ($26), is the dish I keep thinking about. Then duck panang curry, khao soi, burnt butter kaya toast with coconut ice cream, and tom yum soup.</p>
-          <p class="why"><strong>Why it is special:</strong> a small, loud, joyful room in West Portal, and the short rib fried rice is one of the best plates in the city. Expect a 45-60 minute wait at peak, it is worth it. These two photos are from my own table.</p>
+          <p class="chips"><span class="score">beli 9.9</span><span class="hl">about $20-35 pp</span><span>Walk-in + Yelp waitlist</span><span>4-8:30 PM, closed Tue</span></p>
+          <p><strong>Order this:</strong> the duck curry, my favorite dish here. The duck was beautifully cooked and the curry lathered onto the white rice simply melts in your mouth. My friend said we should have ordered 20 of them. The steak was super smoky too, and the short rib tallow fried rice is still the dish I keep thinking about.</p>
+          <p class="why"><strong>Why it is special:</strong> my 9.9, and the dinner I finally got to try after hearing about it for months. A small, loud, joyful room in West Portal. Expect a 45-60 minute wait at peak, it is worth it. These two photos are from my own table.</p>
           <p class="addr">272 Claremont Blvd, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Khao+Tiew+272+Claremont+Blvd+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
         </div>
       </article>
 
       <article class="card">
-        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#9</span><span class="rail-note">lobster roll</span></div>
+        <div class="rail r-gold"><span class="rail-label">beli</span><span class="rank">#6</span><span class="rail-note">lobster roll</span></div>
         <div class="card-body">
           <figure class="polaroid">
             <span class="tape"></span>
-            <img src="images/woodhouse-fish.jpg" alt="Lobster roll at Woodhouse Fish Co." loading="lazy">
-            <figcaption>the neighborhood anchor</figcaption>
+            <div class="photo-duo">
+              <figure>
+                <img src="images/woodhouse-1.jpg" alt="Lobster roll at Woodhouse Fish Co., photographed by Namkhang" loading="lazy">
+                <figcaption>the $17 lobster roll</figcaption>
+              </figure>
+              <figure>
+                <img src="images/woodhouse-2.jpg" alt="Cioppino at Woodhouse Fish Co., photographed by Namkhang" loading="lazy">
+                <figcaption>the cioppino</figcaption>
+              </figure>
+            </div>
+            <figcaption>my table, Japantown</figcaption>
           </figure>
-          <h3><span class="num">#9</span> Woodhouse Fish Co.</h3>
-          <p class="meta">Lower Pacific Heights, San Francisco &middot; New England seafood</p>
-          <p class="chips"><span class="hl">about $25-40 pp</span><span>Walk-in friendly</span><span>Daily, 11:30 AM-9:30 PM</span></p>
-          <p><strong>Order this:</strong> the lobster roll, chilled with mayo or hot with butter, then cioppino, squid ink linguine, clam chowder, crab cakes, and oysters, which are $1.25 on Tuesdays. Note: the Market St location is permanently closed, go to Fillmore.</p>
-          <p class="why"><strong>Why it is special:</strong> the lobster roll that anchors the neighborhood. No fuss, no line games, just a great East Coast style seafood counter that always delivers.</p>
+          <h3><span class="num">#6</span> Woodhouse Fish Co.</h3>
+          <p class="meta">Japantown, San Francisco &middot; New England seafood</p>
+          <p class="chips"><span class="score">beli 9.8</span><span class="hl">about $25-40 pp</span><span>Walk-in friendly</span><span>Daily, 11:30 AM-9:30 PM</span></p>
+          <p><strong>Order this:</strong> the $17 lobster roll, it cannot be beat. Simply an incredible amount of quality for the price. And the cioppino, built for sharing. Oysters are $1.25 on Tuesdays. Note: the Market St location is permanently closed, go to Fillmore.</p>
+          <p class="why"><strong>Why it is special:</strong> my 9.8, and the neighborhood anchor that punches way above its price. No fuss, no line games, just a great East Coast style seafood counter that always delivers.</p>
           <p class="addr">1914 Fillmore St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Woodhouse+Fish+Co+1914+Fillmore+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
         </div>
       </article>
 
       <article class="card">
-        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#10</span><span class="rail-note">mezze spread</span></div>
+        <div class="rail r-poppy"><span class="rail-label">sichuan</span><span class="rank">&#127798;&#65039;</span><span class="rail-note">explosive chicken</span></div>
+        <div class="card-body">
+          <span class="sticker">book ahead</span>
+          <figure class="polaroid">
+            <span class="tape poppy"></span>
+            <div class="photo-duo">
+              <figure>
+                <img src="images/zy-sichuan.jpg" alt="Chicken with explosive chili pepper at Z&Y Restaurant, photographed by Namkhang" loading="lazy">
+                <figcaption>the chicken with explosive chili pepper</figcaption>
+              </figure>
+              <figure>
+                <img src="images/zy-green-beans.jpg" alt="Garlic green beans at Z&Y Restaurant, photographed by Namkhang" loading="lazy">
+                <figcaption>garlic green beans</figcaption>
+              </figure>
+            </div>
+            <figcaption>my table, family style</figcaption>
+          </figure>
+          <h3><span class="num">#7</span> Z&Y Restaurant</h3>
+          <p class="meta">Chinatown &middot; Sichuan, the first in Chinatown</p>
+          <p class="chips"><span class="score">beli 9.8</span><span class="hl">about $30 pp</span><span>Michelin Guide</span><span>Reservations recommended</span></p>
+          <p><strong>Order this:</strong> the Chicken with Explosive Chili Pepper ($35), a plate of fried chicken buried in dried red chilies, the tea-smoked duck, and fish filet in flaming chili oil. The green beans and eggplant are the sleeper hits. Order family style and share everything.</p>
+          <p class="why"><strong>Why it is special:</strong> my 9.8, with a best of SF tag to match. The first Sichuan restaurant in Chinatown, and the chef cooked for the Chinese consulate in San Francisco. The explosive chicken is the dish to beat.</p>
+          <p><strong>Know before you go:</strong> lunch 11:30 AM-3 PM, dinner 4:30-9 PM, closed Tuesdays. Book ahead, walk-ins waited 45 minutes on weekends. Peanuts show up in a few dishes, so flag allergies up front.</p>
+          <p class="addr">655 Jackson St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Z%26Y+Restaurant+655+Jackson+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#8</span><span class="rail-note">my top pick</span></div>
+        <div class="card-body">
+          <span class="sticker">book way ahead</span>
+          <figure class="polaroid">
+            <span class="tape"></span>
+            <div class="photo-duo">
+              <figure>
+                <img src="images/atelier-crenn-2.jpg" alt="A beet dessert course at Atelier Crenn, photographed by Namkhang" loading="lazy">
+                <figcaption>the beet dessert</figcaption>
+              </figure>
+              <figure>
+                <img src="images/atelier-crenn-3.jpg" alt="A wooden dessert tile at Atelier Crenn, photographed by Namkhang" loading="lazy">
+                <figcaption>one more sweet</figcaption>
+              </figure>
+            </div>
+            <figcaption>from my table, three visits in</figcaption>
+          </figure>
+          <h3><span class="num">#8</span> Atelier Crenn</h3>
+          <p class="meta">Marina / Cow Hollow, San Francisco &middot; French, pescatarian tasting menu</p>
+          <p class="chips"><span class="score">beli 9.6</span><span class="hl">about $395 pp</span><span>Reservations, prepaid</span><span>Tue-Sat, 4:45-9 PM</span></p>
+          <p><strong>Order this:</strong> the tasting menu, start to finish. My order, course by course: Kir Breton, brioche with house-made butter, pretzel and dips, dry-aged black cod, Dungeness crab broth, abalone with caviar, and the Sugar Bee Apple to close.</p>
+          <p class="why"><strong>Why it is special:</strong> three Michelin stars, and the best restaurant I have ever been to. Pescatarian menu, and I have been three times. 97% of people who went would recommend it, and I am one of them.</p>
+          <p class="addr">3127 Fillmore St, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Atelier+Crenn+3127+Fillmore+St+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#9</span><span class="rail-note">they grill, you eat</span></div>
+        <div class="card-body">
+          <figure class="polaroid">
+            <span class="tape sky"></span>
+            <img src="images/10-butchers.jpg" alt="Korean BBQ spread at 10 Butchers" loading="lazy">
+            <figcaption>sit down, they handle the grill</figcaption>
+          </figure>
+          <h3><span class="num">#9</span> 10 Butchers Korean BBQ</h3>
+          <p class="meta">Sunnyvale &middot; upscale Korean BBQ (second spot in Los Altos)</p>
+          <p class="chips"><span class="hl">about $60-100 pp</span><span>Reservations recommended</span><span>Lunch 11:30 AM-2:30 PM, dinner 5-9 PM</span></p>
+          <p><strong>Order this:</strong> Butchers Bulgogi, marinated Galbi, Nakji Pajeon (octopus pancake), wagyu galbi mandoo, black pork belly, and A5 wagyu if you are feeling it. The staff grills everything for you, so you just eat.</p>
+          <p class="why"><strong>Why it is special:</strong> the rare KBBQ where you never touch the tongs. It is polished without being stiff, and it is my favorite South Bay dinner, worth the drive down.</p>
+          <p class="addr">595 E El Camino Real, Sunnyvale &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=10+Butchers+Korean+BBQ+595+E+El+Camino+Real+Sunnyvale" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#10</span><span class="rail-note">ferry building</span></div>
+        <div class="card-body">
+          <span class="sticker">walk-in, no fuss</span>
+          <figure class="polaroid">
+            <span class="tape poppy"></span>
+            <img src="images/nopa-fish.jpg" alt="Fresh seafood counter at Nopa Fish in the Ferry Building" loading="lazy">
+            <figcaption>the freshest lunch counter</figcaption>
+          </figure>
+          <h3><span class="num">#10</span> Nopa Fish</h3>
+          <p class="meta">Ferry Building, Embarcadero, San Francisco &middot; fish market and seafood counter</p>
+          <p class="chips"><span class="hl">lunch under $20</span><span>Walk-in, no reservations</span><span>Sun-Fri 11 AM-8 PM, Sat 10 AM-8 PM</span></p>
+          <p><strong>Order this:</strong> smoked trout and corn chowder, the fried rockfish sandwich, fish and chips, steamed mussels, and grab oysters to take home. It is counter service, so order at the counter and find a sunny spot.</p>
+          <p class="why"><strong>Why it is special:</strong> the Ferry Building's freshest lunch counter, from the Nopa team. Opened in June 2025 and already my default Saturday stop. Grab oysters for home on your way out.</p>
+          <p class="addr">Ferry Building, Shop 31, 1 Ferry Bldg, San Francisco &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=Nopa+Fish+Ferry+Building+San+Francisco" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="rail r-sky"><span class="rail-label">beli</span><span class="rank">#11</span><span class="rail-note">mezze spread</span></div>
         <div class="card-body">
           <figure class="polaroid">
             <span class="tape sky"></span>
             <img src="images/beit-rima.jpg" alt="Mezze spread at Beit Rima" loading="lazy">
             <figcaption>order the whole spread</figcaption>
           </figure>
-          <h3><span class="num">#10</span> Beit Rima</h3>
+          <h3><span class="num">#11</span> Beit Rima</h3>
           <p class="meta">Castro and Cole Valley, San Francisco &middot; Arabic comfort food</p>
           <p class="chips"><span class="hl">about $25-35 pp</span><span>Counter service</span><span>11 AM-9 PM, Fri-Sat to 9:30</span></p>
           <p><strong>Order this:</strong> the mezze sampler ($24, with lebna, muhammara, baba ganoush, hummus, and falafel), Samir's hand-kneaded bread ($7), chicken shish tawook plate ($26), musakhan, batata harra ($11), and baked halloumi ($16).</p>
@@ -524,7 +567,7 @@
       </article>
 
       <article class="card">
-        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#11</span><span class="rail-note">1 AM tacos</span></div>
+        <div class="rail r-poppy"><span class="rail-label">beli</span><span class="rank">#12</span><span class="rail-note">1 AM tacos</span></div>
         <div class="card-body">
           <span class="sticker">late night only</span>
           <figure class="polaroid">
@@ -532,7 +575,7 @@
             <img src="images/spartan-taco.jpg" alt="Crispy tacos from the Spartan Taco Truck in San Jose" loading="lazy">
             <figcaption>the 1 AM taco run</figcaption>
           </figure>
-          <h3><span class="num">#11</span> Spartan Taco Truck</h3>
+          <h3><span class="num">#12</span> Spartan Taco Truck</h3>
           <p class="meta">San Jose, near SJSU &middot; late-night taco truck</p>
           <p class="chips"><span class="hl">about $10-15 pp</span><span>Cash or Venmo</span><span>Nightly, about 8:30 PM-2 AM</span></p>
           <p><strong>Order this:</strong> little crispy tacos (3 for $10), big crispy tacos with steak, super soft al pastor, lengua, tripa, quesabirria, and a peanut butter horchata to wash it down.</p>
@@ -542,14 +585,14 @@
       </article>
 
       <article class="card">
-        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#12</span><span class="rail-note">paella + patio</span></div>
+        <div class="rail r-teal"><span class="rail-label">beli</span><span class="rank">#13</span><span class="rail-note">paella + patio</span></div>
         <div class="card-body">
           <figure class="polaroid">
             <span class="tape teal"></span>
             <img src="images/teleferic.jpg" alt="Tapas and paella at Teleferic Barcelona in Los Gatos" loading="lazy">
             <figcaption>a little Barcelona in Los Gatos</figcaption>
           </figure>
-          <h3><span class="num">#12</span> Teleferic Barcelona Los Gatos</h3>
+          <h3><span class="num">#13</span> Teleferic Barcelona Los Gatos</h3>
           <p class="meta">Old Town Los Gatos &middot; Spanish tapas and paella</p>
           <p class="chips"><span class="hl">about $56 pp</span><span>Reservations recommended</span><span>Sun-Thu 11 AM-9:15 PM, Fri-Sat to 10:15 PM</span></p>
           <p><strong>Order this:</strong> patatas bravas ($10), crab croquetas ($12), tuna tacos ($18), pulpo Teleferic ($22), the paella negra (the number one paella), paella mixta, jamon iberico de bellota ($26), and wagyu empanadas ($18). The Barcelona Lunch is $28-34 on weekdays.</p>
@@ -586,7 +629,16 @@
           <span class="sticker teal">fairytale coast</span>
           <figure class="polaroid">
             <span class="tape teal"></span>
-            <img src="images/carmel.jpg" alt="Carmel Beach at sunset" loading="lazy">
+            <div class="photo-duo">
+              <figure>
+                <img src="images/carmel-cove.jpg" alt="Turquoise cove on the Carmel coast, photographed by Namkhang" loading="lazy">
+                <figcaption>the cove at Point Lobos</figcaption>
+              </figure>
+              <figure>
+                <img src="images/point-lobos-notes.jpg" alt="Handwritten visitor notes on the wall at Point Lobos, photographed by Namkhang" loading="lazy">
+                <figcaption>the note wall at Point Lobos</figcaption>
+              </figure>
+            </div>
             <figcaption>white sand, cypress, sea otters</figcaption>
           </figure>
           <h3>Carmel-by-the-Sea</h3>
@@ -605,7 +657,7 @@
           <span class="sticker gold">tule elk!</span>
           <figure class="polaroid">
             <span class="tape"></span>
-            <img src="images/point-reyes.jpg" alt="Point Reyes Lighthouse on the rugged Northern California coast" loading="lazy">
+            <img src="images/point-reyes-cypress.jpg" alt="A cypress tree on the coast at Point Reyes, photographed by Namkhang" loading="lazy">
             <figcaption>wild coast, elk, whales</figcaption>
           </figure>
           <h3>Point Reyes</h3>
@@ -660,11 +712,18 @@
   </section>
 
   <footer>
-    <figure class="hero-polaroid" style="max-width:420px;transform:rotate(-1.2deg);margin-bottom:28px">
+    <div style="display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:28px">
+    <figure class="hero-polaroid" style="max-width:420px;transform:rotate(-1.2deg);margin-bottom:0">
       <span class="tape sky"></span>
-      <img src="images/liholiho-2.jpg" alt="Sunset over the marina, photographed by Namkhang" style="aspect-ratio:3/4" loading="lazy">
-      <figcaption>sunset over the marina</figcaption>
+      <img src="images/sunset-silhouette.jpg" alt="Two friends watching the sunset, photographed by Namkhang" style="aspect-ratio:3/2" loading="lazy">
+      <figcaption>watching the sun go down</figcaption>
     </figure>
+    <figure class="hero-polaroid" style="max-width:420px;transform:rotate(1.1deg);margin-bottom:0">
+      <span class="tape teal"></span>
+      <img src="images/golden-gate-cypress.jpg" alt="The Golden Gate Bridge through cypress trees at dusk, photographed by Namkhang" style="aspect-ratio:3/4" loading="lazy">
+      <figcaption>the bridge, through the cypress</figcaption>
+    </figure>
+    </div>
     <div class="tape-note">
       <h2>Go hungry</h2>
       <p>Hours, prices, and reservation rules change, so check before you go. If a place is booked out, the waitlist is usually worth it. And when you find your own favorite, add it to the list and hand it to the next person who lands here.</p>
