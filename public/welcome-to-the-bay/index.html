@@ -137,7 +137,7 @@
   }
   .dots button.on{background:var(--poppy)}
   .deck{
-    display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+    position:relative;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;
     padding:18px 8px 26px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
   }
   .deck::-webkit-scrollbar{height:8px}
@@ -732,7 +732,11 @@
       if(n < 2) return 0;
       return cards[1].offsetLeft - cards[0].offsetLeft;
     }
+    function maxScroll(){
+      return deck.scrollWidth - deck.clientWidth;
+    }
     function currentIndex(){
+      if(deck.scrollLeft >= maxScroll() - 4) return n - 1;
       var step = cardStep();
       if(!step) return 0;
       var idx = Math.round((deck.scrollLeft - cards[0].offsetLeft) / step);
@@ -745,7 +749,7 @@
     }
     function scrollToCard(idx){
       idx = Math.max(0, Math.min(n - 1, idx));
-      deck.scrollTo({ left: cards[idx].offsetLeft - 8, behavior: "smooth" });
+      deck.scrollTo({ left: Math.min(cards[idx].offsetLeft - 8, maxScroll()), behavior: "smooth" });
     }
     deck.addEventListener("scroll", function(){
       render();
