@@ -62,6 +62,12 @@ const experienceData = [
     }
 ];
 
+const awardsData = [
+    '3rd Place, Spring 2024 Georgia Tech Junior Design Capstone Expo (Hemodynamics Calculator)',
+    'Winner, AI ATL 2023 (ScribbleTex, GitHub prize)',
+    "President's Undergraduate Research Award, Georgia Tech, 2021"
+];
+
 export default function Notes() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedRoleId, setSelectedRoleId] = useState(experienceData[0].id);
@@ -225,6 +231,27 @@ export default function Notes() {
                                     </span>
                                 ))}
                             </div>
+                        </div>
+
+                        {/* Awards */}
+                        <div className="pt-10 border-t border-gray-100/60 pb-10">
+                            <div className="flex items-center gap-3 mb-5">
+                                <div className="h-[1px] w-12 bg-gray-100" />
+                                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C1C1C1]">
+                                    Awards
+                                </h2>
+                                <div className="h-[1px] flex-1 bg-gray-100" />
+                            </div>
+                            <ul className="space-y-5">
+                                {awardsData.map((award, i) => (
+                                    <li key={i} className="flex gap-5 group">
+                                        <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-[#3478F6] flex-shrink-0 group-hover:scale-125 transition-transform shadow-sm shadow-blue-200" />
+                                        <span className="text-[16px] leading-relaxed text-[#3C3C43] font-medium tracking-tight">
+                                            {award}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
