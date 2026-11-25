@@ -82,12 +82,15 @@ export default function Notes() {
         );
     }, [searchTerm]);
 
-    const selectedRole = experienceData.find(r => r.id === selectedRoleId) || filteredExperience[0] || experienceData[0];
+    const selectedRole = selectedRoleId
+        ? experienceData.find(r => r.id === selectedRoleId) || filteredExperience[0] || experienceData[0]
+        : null;
 
     return (
         <div className="flex h-full bg-[#FCFCFD] text-gray-800 font-sans select-none overflow-hidden">
-            {/* Sidebar */}
-            <div className="w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl">
+            {/* Sidebar — on phones it is the full view when no role is
+                selected, and hidden while a role is open. */}
+            <div className={`w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl ${selectedRole ? 'max-md:hidden' : 'max-md:w-full max-md:border-r-0'}`}>
                 {/* Search Bar */}
                 <div className="p-4 space-y-3">
                     <div className="flex items-center justify-between text-[#8E8E93] text-[10px] font-black uppercase tracking-[0.15em] px-1">
@@ -167,11 +170,12 @@ export default function Notes() {
                 </div>
             </div>
 
-            {/* Content area */}
+            {/* Content area — hidden on phones until a role is picked. */}
+            {selectedRole && (
             <div className="flex-1 flex flex-col bg-white overflow-hidden shadow-inner relative">
                 {/* Content Header */}
-                <div className="px-10 py-8 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
-                    <h1 className="text-2xl font-black text-gray-900 leading-tight flex items-center justify-between w-full gap-x-6">
+                <div className="px-10 py-8 max-md:px-5 max-md:py-6 border-b border-[#F2F2F2] flex items-center justify-between bg-white/80 backdrop-blur sticky top-0 z-10">
+                    <h1 className="text-2xl font-black text-gray-900 leading-tight flex items-center justify-between w-full gap-x-6 max-md:flex-wrap max-md:gap-y-2">
                         <div className="flex-shrink-0 whitespace-nowrap overflow-hidden text-ellipsis">
                             {selectedRole.title} at{' '}
                             <a
@@ -190,8 +194,14 @@ export default function Notes() {
                 </div>
 
                 {/* Main Text Area */}
-                <div className="flex-1 overflow-y-auto px-10 py-6 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto px-10 py-6 custom-scrollbar max-md:px-5">
                     <div className="max-w-3xl space-y-10 duration-500 delay-150">
+                        <button
+                            onClick={() => setSelectedRoleId(null)}
+                            className="md:hidden text-[13px] font-semibold text-[#3478F6]"
+                        >
+                            ← All roles
+                        </button>
                         <div className="space-y-6">
                             <div className="flex items-center gap-3">
                                 <div className="h-[1px] flex-1 bg-gray-100" />
@@ -255,7 +265,7 @@ export default function Notes() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>)}
 
         </div >
     );

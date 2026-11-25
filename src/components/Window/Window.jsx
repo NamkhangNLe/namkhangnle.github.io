@@ -2,23 +2,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X, Minus, Square } from 'lucide-react';
 import { useWindowContext } from '../../context/WindowContext';
+import { useIsMobile } from '../../utils/mobile';
 
 export default function Window({ window }) {
     const { closeWindow, focusWindow, minimizeWindow } = useWindowContext();
     const { id, title, content, zIndex, isMinimized, size, position } = window;
+    const isMobile = useIsMobile();
 
     if (isMinimized) return null;
 
     return (
         <motion.div
-            drag
+            drag={!isMobile}
             dragMomentum={false}
-            initial={{ scale: 0.9, opacity: 0, x: position.x, y: position.y }}
+            initial={{ scale: isMobile ? 1 : 0.9, opacity: 0, x: isMobile ? 0 : position.x, y: isMobile ? 0 : position.y }}
             animate={{ scale: 1, opacity: 1, zIndex }}
             onDragStart={() => focusWindow(id)}
             onTapStart={() => focusWindow(id)}
-            style={{ width: size.w, height: size.h, position: 'absolute' }}
-            className="bg-gray-900/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl flex flex-col overflow-hidden text-white"
+            style={isMobile
+                // Full-screen between the menu bar (32px) and the dock (~80px),
+                // so nothing is clipped off either side on a phone.
+                ? { position: 'absolute', left: 0, right: 0, top: 32, bottom: 80 }
+                : { width: size.w, height: size.h, position: 'absolute' }}
+            className="bg-gray-900/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl flex flex-col overflow-hidden text-white max-md:rounded-none"
         >
             {/* Window Title Bar */}
             <div className="h-10 bg-white/5 border-b border-white/5 flex items-center justify-between px-4 cursor-grab active:cursor-grabbing" onPointerDown={() => focusWindow(id)}>

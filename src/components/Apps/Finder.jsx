@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Folder, FileText, Download, ExternalLink, Activity, Type, Flashlight, Bot, Stethoscope, HeartPulse, PencilLine, ChevronRight } from 'lucide-react';
 import { useWindowContext } from '../../context/WindowContext';
+import Resume from './Resume';
+import { isMobileViewport } from '../../utils/mobile';
 
 const ProjectContent = ({ title, description, link, linkText }) => (
     <div className="p-6 text-white space-y-4">
@@ -77,6 +79,16 @@ export default function Finder() {
 
     const selectedItem = folders[activeFolder].find(item => item.id === selectedId);
 
+    // On a phone the full-page PDF scales too small to read, so open the
+    // resume as a readable in-site window instead. Desktop keeps the PDF.
+    const handleResume = () => {
+        if (isMobileViewport()) {
+            openWindow('resume', 'Resume', <Resume />, { w: 900, h: 600 });
+        } else {
+            window.open('/Namkhang_Le_Resume.pdf', '_blank');
+        }
+    };
+
     const handleOpen = (item) => {
         if (item.type === 'folder') {
             const data = projectData[item.id];
@@ -91,21 +103,21 @@ export default function Finder() {
                 />
             );
         } else {
-            window.open('/Namkhang_Le_Resume.pdf', '_blank');
+            handleResume();
         }
     };
 
     const getSidebarItemClass = (id) => `
-        flex items-center gap-2 px-2 py-1 rounded cursor-pointer transition-colors group
+        flex items-center gap-2 px-2 py-1 rounded cursor-pointer transition-colors group shrink-0 whitespace-nowrap
         ${activeFolder === id ? 'bg-blue-500/10 text-blue-600' : 'hover:bg-gray-200'}
     `;
 
     return (
         <div className="flex flex-col h-full bg-white text-black select-none">
-            <div className="flex-1 flex overflow-hidden">
-                {/* Sidebar */}
-                <div className="w-48 bg-gray-100/90 backdrop-blur border-r border-gray-200 p-2 space-y-1 text-sm font-medium">
-                    <div className="px-2 py-1 text-gray-500 text-xs font-bold uppercase tracking-wider">Favorites</div>
+            <div className="flex-1 flex overflow-hidden max-md:flex-col">
+                {/* Sidebar — a horizontal folder strip on phones. */}
+                <div className="w-48 bg-gray-100/90 backdrop-blur border-r border-gray-200 p-2 space-y-1 text-sm font-medium max-md:w-full max-md:flex max-md:flex-row max-md:items-center max-md:gap-1 max-md:overflow-x-auto max-md:border-r-0 max-md:border-b max-md:space-y-0 max-md:p-1.5">
+                    <div className="px-2 py-1 text-gray-500 text-xs font-bold uppercase tracking-wider max-md:hidden">Favorites</div>
                     <div onClick={() => { setActiveFolder('startups'); setSelectedId(null); }} className={getSidebarItemClass('startups')}>
                         <Folder className="w-4 h-4 group-hover:text-blue-600" /> Startups
                     </div>
@@ -116,8 +128,8 @@ export default function Finder() {
                         <Folder className="w-4 h-4 group-hover:text-blue-600" /> Projects
                     </div>
 
-                    <div className="px-2 py-1 text-gray-500 text-xs font-bold mt-4 uppercase tracking-wider">iCloud</div>
-                    <div onClick={() => window.open('/Namkhang_Le_Resume.pdf', '_blank')} className={getSidebarItemClass('resume')}>
+                    <div className="px-2 py-1 text-gray-500 text-xs font-bold mt-4 uppercase tracking-wider max-md:hidden">iCloud</div>
+                    <div onClick={handleResume} className={getSidebarItemClass('resume')}>
                         <FileText className="w-4 h-4 group-hover:text-blue-600" /> Resume
                     </div>
                 </div>
@@ -126,7 +138,7 @@ export default function Finder() {
                 <div className="flex-1 flex overflow-hidden">
                     {/* Main Grid */}
                     <div className="p-4 overflow-y-auto custom-scrollbar flex-1">
-                        <div className="grid grid-cols-4 gap-4">
+                        <div className="grid grid-cols-4 gap-4 max-md:grid-cols-3">
                             {folders[activeFolder].map((item) => (
                                 <div
                                     key={item.id}

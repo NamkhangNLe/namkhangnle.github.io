@@ -89,11 +89,18 @@ export default function Blog({ initialPostId = 'obsession' }) {
     }, [searchTerm, sortedPosts]);
 
     const selectedPost =
-        posts.find((post) => post.id === selectedPostId) || filteredPosts[0] || sortedPosts[0];
+        selectedPostId
+            ? posts.find((post) => post.id === selectedPostId) || filteredPosts[0] || sortedPosts[0]
+            : null;
 
     // Keep the address bar and tab title in sync so copying the URL always
     // yields a shareable deep link.
     useEffect(() => {
+        if (!selectedPostId) {
+            window.history.replaceState(null, '', '/');
+            document.title = 'Namkhang Le';
+            return;
+        }
         window.history.replaceState(null, '', '?post=' + selectedPostId);
         const post = posts.find((p) => p.id === selectedPostId);
         document.title = post ? `${post.title} — Namkhang Le` : 'Namkhang Le';
@@ -104,8 +111,9 @@ export default function Blog({ initialPostId = 'obsession' }) {
 
     return (
         <div className="flex h-full bg-[#FCFCFD] text-gray-800 font-sans select-none overflow-hidden">
-            {/* Sidebar */}
-            <div className="w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl">
+            {/* Sidebar — on phones it is the full view when no post is
+                selected, and hidden while an article is open. */}
+            <div className={`w-72 border-r border-[#E5E5E5] flex flex-col bg-[#F6F6F6]/90 backdrop-blur-xl ${selectedPost ? 'max-md:hidden' : 'max-md:w-full max-md:border-r-0'}`}>
                 <div className="p-4 space-y-3">
                     <div className="flex items-center gap-1.5 text-[#8E8E93] text-[10px] font-black uppercase tracking-[0.15em] px-1">
                         <BookOpen className="w-3 h-3" />
@@ -188,9 +196,10 @@ export default function Blog({ initialPostId = 'obsession' }) {
                 </div>
             </div>
 
-            {/* Reading pane */}
+            {/* Reading pane — hidden on phones until a post is picked. */}
+            {selectedPost && (
             <div className="flex-1 flex flex-col bg-white overflow-hidden">
-                <div className="px-10 py-8 border-b border-[#F2F2F2] bg-white/80 backdrop-blur sticky top-0 z-10">
+                <div className="px-10 py-8 max-md:px-5 max-md:py-6 border-b border-[#F2F2F2] bg-white/80 backdrop-blur sticky top-0 z-10">
                     <h1 className="text-2xl font-black text-gray-900 leading-tight tracking-tight">
                         {selectedPost.title}
                     </h1>
@@ -205,14 +214,20 @@ export default function Blog({ initialPostId = 'obsession' }) {
                         </span>
                     </div>
                 </div>
-                <div className="flex-1 overflow-y-auto px-10 py-8">
+                <div className="flex-1 overflow-y-auto px-10 py-8 max-md:px-5 max-md:py-6">
                     <div className="max-w-3xl space-y-5">
+                        <button
+                            onClick={() => setSelectedPostId(null)}
+                            className="md:hidden text-[13px] font-semibold text-[#3478F6]"
+                        >
+                            ← All posts
+                        </button>
                         {selectedPost.blocks.map((block, i) => (
                             <Block key={i} block={block} />
                         ))}
                     </div>
                 </div>
-            </div>
+            </div>)}
         </div>
     );
 }

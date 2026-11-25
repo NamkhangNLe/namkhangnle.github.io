@@ -76,22 +76,26 @@ export default function MenuBar() {
                     <div className="h-[1px] bg-white/10 my-1 mx-2" />
                     <DropdownItem label="Empty Bin..." />
                 </MenuItem>
-                <MenuItem label="File">
-                    <DropdownItem label="New Finder Window" shortcut="⌘N" />
-                    <DropdownItem label="New Folder" shortcut="⇧⌘N" />
-                    <DropdownItem label="Open" shortcut="⌘O" />
-                    <DropdownItem label="Print" shortcut="⌘P" />
-                </MenuItem>
-                <MenuItem label="Edit" />
-                <MenuItem label="View" />
-                <MenuItem label="Go" />
-                <MenuItem label="Window" />
-                <MenuItem label="Help" />
+                {/* File through Help collapse on phones: the bar only fits
+                    the logo, Finder, and the clock at phone widths. */}
+                <div className="hidden md:flex items-center gap-1">
+                    <MenuItem label="File">
+                        <DropdownItem label="New Finder Window" shortcut="⌘N" />
+                        <DropdownItem label="New Folder" shortcut="⇧⌘N" />
+                        <DropdownItem label="Open" shortcut="⌘O" />
+                        <DropdownItem label="Print" shortcut="⌘P" />
+                    </MenuItem>
+                    <MenuItem label="Edit" />
+                    <MenuItem label="View" />
+                    <MenuItem label="Go" />
+                    <MenuItem label="Window" />
+                    <MenuItem label="Help" />
+                </div>
             </div>
             <div className="flex items-center gap-4 px-3">
-                <Wifi className="w-4 h-4 cursor-pointer hover:opacity-70 transition-opacity" />
-                <Battery className="w-4 h-4 cursor-pointer hover:opacity-70 transition-opacity" />
-                <span className="cursor-default hover:bg-white/10 px-2 py-0.5 rounded transition-colors">{formatDate(time)}</span>
+                <Wifi className="w-4 h-4 cursor-pointer hover:opacity-70 transition-opacity max-md:hidden" />
+                <Battery className="w-4 h-4 cursor-pointer hover:opacity-70 transition-opacity max-md:hidden" />
+                <span className="cursor-default hover:bg-white/10 px-2 py-0.5 rounded transition-colors max-md:hidden">{formatDate(time)}</span>
                 <span className="cursor-default hover:bg-white/10 px-2 py-0.5 rounded transition-colors">{formatTime(time)}</span>
             </div>
         </div>

@@ -6,6 +6,8 @@ import { useWindowContext } from '../../context/WindowContext';
 import { FileText, Linkedin, Github, BookOpen, FlaskConical } from 'lucide-react';
 import Blog from '../Apps/Blog';
 import Research from '../Apps/Research';
+import Resume from '../Apps/Resume';
+import { isMobileViewport } from '../../utils/mobile';
 import { posts } from '../../data/posts';
 import { researchNotes } from '../../data/research';
 
@@ -25,6 +27,16 @@ const DesktopIcon = ({ icon, label, onClick }) => (
 
 export default function Desktop() {
     const { windows, openWindow } = useWindowContext();
+
+    // On a phone the full-page PDF scales too small to read, so open the
+    // resume as a readable in-site window instead. Desktop keeps the PDF.
+    const handleResumeClick = () => {
+        if (isMobileViewport()) {
+            openWindow('resume', 'Resume', <Resume />, { w: 900, h: 600 });
+        } else {
+            window.open('/Namkhang_Le_Resume.pdf', '_blank');
+        }
+    };
 
     // Deep link: on app mount, open the Blog app directly to the requested post,
     // or the Research app directly to the requested note.
@@ -52,12 +64,14 @@ export default function Desktop() {
             <div className="absolute inset-0 bg-black/10" />
             <MenuBar />
 
-            {/* Desktop Icons Container */}
-            <div className="absolute top-12 right-4 flex flex-col gap-4 items-end z-10">
+            {/* Desktop Icons Container — hidden on phones while a window is
+                open, so the icons never cover window content. The dock is
+                the way back to other apps on mobile. */}
+            <div className={`absolute top-12 right-4 flex flex-col gap-4 items-end z-10 ${windows.length > 0 ? 'max-md:hidden' : ''}`}>
                 <DesktopIcon
                     icon={<FileText className="w-8 h-8 text-blue-400 drop-shadow-md" strokeWidth={2.5} />}
                     label="Resume"
-                    onClick={() => window.open('/Namkhang_Le_Resume.pdf', '_blank')}
+                    onClick={handleResumeClick}
                 />
                 <DesktopIcon
                     icon={<BookOpen className="w-8 h-8 text-amber-400 drop-shadow-md" strokeWidth={2.5} />}

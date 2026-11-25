@@ -129,8 +129,9 @@ export default function Messages() {
 
     return (
         <div className="flex h-full bg-white text-black">
-            {/* Sidebar */}
-            <div className="w-64 border-r border-gray-200 bg-gray-50 flex flex-col">
+            {/* Sidebar — only a contact card with no list to switch, so it
+                is hidden on phones to give the chat full width. */}
+            <div className="w-64 border-r border-gray-200 bg-gray-50 flex flex-col max-md:hidden">
                 <div className="p-4 border-b border-gray-200 font-bold text-lg">Messages</div>
                 <div className="p-2">
                     <div className="flex items-center gap-3 p-3 bg-blue-500/10 rounded-lg cursor-pointer">

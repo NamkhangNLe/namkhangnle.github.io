@@ -47,7 +47,9 @@ export const WindowProvider = ({ children }) => {
     };
 
     const getNextZIndex = (currentWindows) => {
-        const maxZ = Math.max(0, ...currentWindows.map((w) => w.zIndex || 0));
+        // Windows sit above the desktop icons (z-10) and below the menu bar
+        // and dock (z-50), so they are never covered by icons.
+        const maxZ = Math.max(20, ...currentWindows.map((w) => w.zIndex || 0));
         return maxZ + 1;
     };
 
