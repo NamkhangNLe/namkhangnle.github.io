@@ -3,9 +3,11 @@ import MenuBar from '../MenuBar/MenuBar';
 import Dock from '../Dock/Dock'
 import Window from '../Window/Window';
 import { useWindowContext } from '../../context/WindowContext';
-import { FileText, Linkedin, Github, BookOpen } from 'lucide-react';
+import { FileText, Linkedin, Github, BookOpen, FlaskConical } from 'lucide-react';
 import Blog from '../Apps/Blog';
+import Research from '../Apps/Research';
 import { posts } from '../../data/posts';
+import { researchNotes } from '../../data/research';
 
 const DesktopIcon = ({ icon, label, onClick }) => (
     <div
@@ -24,11 +26,17 @@ const DesktopIcon = ({ icon, label, onClick }) => (
 export default function Desktop() {
     const { windows, openWindow } = useWindowContext();
 
-    // Deep link: on app mount, open the Blog app directly to the requested post.
+    // Deep link: on app mount, open the Blog app directly to the requested post,
+    // or the Research app directly to the requested note.
     useEffect(() => {
-        const postId = new URLSearchParams(window.location.search).get('post');
+        const params = new URLSearchParams(window.location.search);
+        const postId = params.get('post');
         if (postId && posts.some((p) => p.id === postId)) {
             openWindow('blog', 'Blog', <Blog initialPostId={postId} />, { w: 900, h: 600 });
+        }
+        const researchId = params.get('research');
+        if (researchId && researchNotes.some((n) => n.id === researchId)) {
+            openWindow('research', 'Research', <Research initialNoteId={researchId} />, { w: 900, h: 600 });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -55,6 +63,11 @@ export default function Desktop() {
                     icon={<BookOpen className="w-8 h-8 text-amber-400 drop-shadow-md" strokeWidth={2.5} />}
                     label="Blog"
                     onClick={() => openWindow('blog', 'Blog', <Blog />, { w: 900, h: 600 })}
+                />
+                <DesktopIcon
+                    icon={<FlaskConical className="w-8 h-8 text-emerald-400 drop-shadow-md" strokeWidth={2.5} />}
+                    label="Research"
+                    onClick={() => openWindow('research', 'Research', <Research />, { w: 900, h: 600 })}
                 />
                 <DesktopIcon
                     icon={<Linkedin className="w-8 h-8 text-blue-500 drop-shadow-md" strokeWidth={2.5} />}
