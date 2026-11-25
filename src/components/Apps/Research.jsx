@@ -132,6 +132,9 @@ export default function Research({ initialNoteId = 'pura-battery-note' }) {
                             </button>
                         )}
                     </div>
+                    <p className="text-[11px] leading-relaxed text-[#8E8E93] px-1">
+                        Public research notes on LLM agents, agent harnesses, and evaluation — the work behind my move toward frontier AI research.
+                    </p>
                 </div>
 
                 <div className="flex-1 overflow-y-auto px-2 space-y-0.5">

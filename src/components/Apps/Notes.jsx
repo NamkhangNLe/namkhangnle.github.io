@@ -9,9 +9,9 @@ const experienceData = [
         title: 'Software Engineer II',
         period: 'Aug 2025 - Present',
         location: 'San Francisco Bay Area',
-        skills: ['Agentic AI', 'LLM evals', 'PyTorch', 'Distributed Systems'],
+        skills: ['Agentic AI systems', 'LLM harnesses', 'Agent evaluation', 'Context engineering', 'PyTorch', 'Distributed Systems'],
         points: [
-            'Build infrastructure for agentic AI systems at Meta — the platform powering AI assistants used across the company.',
+            'Build infrastructure for agentic AI systems at Meta — agent harnesses and evaluation for the AI assistants used across the company.',
             'Work across the agent stack: tool use, context management, and evaluation.',
             'Standardize LLM evaluation pipelines to benchmark GenAI features, and ship AI-powered features to production surfaces.'
         ]

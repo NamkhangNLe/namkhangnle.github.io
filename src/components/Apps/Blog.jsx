@@ -129,6 +129,9 @@ export default function Blog({ initialPostId = 'obsession' }) {
                             </button>
                         )}
                     </div>
+                    <p className="text-[11px] leading-relaxed text-[#8E8E93] px-1">
+                        Writing on careers, resumes, and AI.
+                    </p>
                 </div>
 
                 <div className="flex-1 overflow-y-auto px-2 space-y-0.5">
