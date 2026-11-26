@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://namkhangnle.github.io/sitemap.xml
+Sitemap: https://namkhangnle.com/sitemap.xml
