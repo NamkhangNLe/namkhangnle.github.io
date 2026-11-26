@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MenuBar from '../MenuBar/MenuBar';
 import Dock from '../Dock/Dock'
 import Window from '../Window/Window';
@@ -8,8 +8,6 @@ import Blog from '../Apps/Blog';
 import Research from '../Apps/Research';
 import Resume from '../Apps/Resume';
 import { isMobileViewport } from '../../utils/mobile';
-import { posts } from '../../data/posts';
-import { researchNotes } from '../../data/research';
 
 const DesktopIcon = ({ icon, label, onClick }) => (
     <div
@@ -37,21 +35,6 @@ export default function Desktop() {
             window.open('/Namkhang_Le_Resume.pdf', '_blank');
         }
     };
-
-    // Deep link: on app mount, open the Blog app directly to the requested post,
-    // or the Research app directly to the requested note.
-    useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const postId = params.get('post');
-        if (postId && posts.some((p) => p.id === postId)) {
-            openWindow('blog', 'Blog', <Blog initialPostId={postId} />, { w: 900, h: 600 });
-        }
-        const researchId = params.get('research');
-        if (researchId && researchNotes.some((n) => n.id === researchId)) {
-            openWindow('research', 'Research', <Research initialNoteId={researchId} />, { w: 900, h: 600 });
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div
