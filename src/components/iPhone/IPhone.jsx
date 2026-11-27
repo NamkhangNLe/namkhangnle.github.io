@@ -1,18 +1,25 @@
-// iPhone shell v2 — a proper rebuild, not a reskin of v1.
+// iPhone shell v3 — REALISM pass.
 //
-// What v1 got wrong (and this file deliberately does NOT repeat):
-//  - a home screen that mixed the lock screen (big clock + date) with the
-//    home screen. A real iPhone home screen has no big clock.
-//  - a fake status bar: lucide Signal/Wifi/Battery outline icons and an
-//    empty spacer pretending to be the Dynamic Island. This one draws the
-//    actual iOS glyph shapes as filled SVG and includes a real island pill.
-//  - generic flat-gradient tiles with thin outline glyphs. Icons now live in
-//    icons.jsx as layered, filled, hand-drawn marks.
-//  - Mac window components dropped into a white sheet. The views in views.jsx
-//    are dedicated iOS screens built from ios.jsx primitives.
-//  - scale/fade sheet transitions. Push transitions slide from the right with
-//    the outgoing screen parallaxing left, and swipe-back from the left edge
-//    works — the way iOS actually navigates.
+// What v2 got wrong (Namkhang, Nov 27: "still feels kidish and not state
+// of the art" — "my Mac app feels realistic"): the Mac desktop feels real
+// because it faithfully copies a real system — muted chrome, real content,
+// nothing invented. v2 invented a candy iPhone that doesn't exist: a vivid
+// purple-orange gradient wallpaper and six saturated system-color icons.
+// This version fixes the visual identity, not the structure:
+//  - the wallpaper is a REAL photograph (the SAME snow-capped mountain at
+//    dusk as the Mac desktop — Unsplash photo-1477346611705-65d1883cee1e),
+//    dimmed the way iOS dims wallpapers, with scrims behind the status bar
+//    and the dock. No gradient, no flat color field.
+//  - the empty middle is no longer empty: it is the mountain photograph —
+//    slate sky, snow peaks, the rust alpenglow band, dark valley behind
+//    the dock. Same photo as desktop, one identity on both form factors.
+//  - every icon is redrawn muted and layered (see icons.jsx) — no pure
+//    saturated hues anywhere on the home screen.
+//  - the date widget is frosted glass over the photo and now carries the
+//    live clock + "New York" — real data, no invented content.
+//  - the empty middle is no longer empty: it is the skyline photograph.
+// Structure kept from v2: home screen, push stack, swipe-back, deep links,
+// the iOS readers, desktop untouched.
 
 import React, { useState, useRef, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -26,31 +33,38 @@ import {
 } from './icons';
 import { BlogListView, ResearchListView, ProjectsView, ExperienceView, AboutView, ResumeView } from './views';
 
-// ---- Wallpaper: a dusk gradient with a sun glow, film grain, and a
-// vignette. Layered light, not three flat radial blobs on black. ----
-const NOISE_URI =
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E";
+// ---- Wallpaper: a REAL photograph, not an invented gradient. ----
+// The SAME snow-capped mountain range at dusk as the Mac desktop
+// (Unsplash photo-1477346611705-65d1883cee1e — the only Unsplash URL in the
+// live bundle, w=2070 on desktop). Portrait focal-point crop (fp-x=0.55)
+// keeps the main peak cluster centred and catches the rust alpenglow band
+// on the right; the full height is kept, so the dark valley sits behind
+// the dock. Verified 200, 828x1792 JPEG, viewed before use.
+// This photo is already dark and muted, so the iOS dim is lighter than
+// v3's skyline treatment: the sky is slate blue-grey (not pale), so the
+// top scrim is weaker, and the valley is near-black, so the bottom scrim
+// is only a whisper. Peaks + alpenglow stay visible in the middle.
+const WALLPAPER_URL =
+    'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=828&h=1792&crop=focalpoint&fp-x=0.55&fp-y=0.45&fp-z=1&q=70';
 
 function Wallpaper() {
     return (
         <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+            <img
+                src={WALLPAPER_URL}
+                alt=""
+                draggable={false}
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ filter: 'saturate(0.95) brightness(0.97)' }}
+            />
+            <div className="absolute inset-0" style={{ background: 'rgba(4,10,24,0.08)' }} />
             <div
                 className="absolute inset-0"
-                style={{
-                    background:
-                        'radial-gradient(90% 42% at 50% 82%, rgba(255,176,102,0.60), transparent 62%),' +
-                        'radial-gradient(65% 38% at 12% 8%, rgba(96,140,255,0.55), transparent 62%),' +
-                        'radial-gradient(55% 30% at 88% 30%, rgba(168,85,247,0.35), transparent 65%),' +
-                        'linear-gradient(180deg, #0B1035 0%, #2A1B5E 36%, #6E2A63 60%, #B4503F 80%, #DE8A4E 100%)',
-                }}
-            />
-            <div
-                className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
-                style={{ backgroundImage: `url("${NOISE_URI}")` }}
+                style={{ background: 'linear-gradient(180deg, rgba(3,8,20,0.34) 0%, rgba(3,8,20,0.12) 14%, transparent 26%)' }}
             />
             <div
                 className="absolute inset-0"
-                style={{ background: 'radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,0.28) 100%)' }}
+                style={{ background: 'linear-gradient(0deg, rgba(3,8,20,0.22) 0%, transparent 16%)' }}
             />
         </div>
     );
@@ -144,22 +158,34 @@ function HomeScreen({ onOpenApp, onOpenExternal }) {
     const weekday = now.toLocaleDateString([], { weekday: 'long' });
     const day = now.getDate();
     const monthYear = now.toLocaleDateString([], { month: 'long', year: 'numeric' });
+    const time = now
+        .toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+        .replace(/\s?[AP]M/i, '');
 
     return (
         <div className="absolute inset-0 flex flex-col">
             <Wallpaper />
             <div className="relative flex flex-col h-full">
                 <StatusBar />
-                {/* Date widget — the one widget a real home screen has room
-                    for here. Real date, no invented events. */}
+                {/* Date widget — frosted glass over the photograph, the way a
+                    real widget sits on a real wallpaper. Real date on the
+                    left; the live clock and "New York" on the right. No
+                    invented events, no fake weather, no fake notifications. */}
                 <div className="px-6 pt-3 shrink-0">
-                    <div className="rounded-[24px] bg-white/[0.28] backdrop-blur-xl border border-white/30 shadow-lg shadow-black/10 px-4 py-3 flex items-baseline gap-3">
+                    <div className="rounded-[24px] bg-white/[0.14] backdrop-blur-2xl border border-white/25 shadow-lg shadow-black/20 px-4 py-3 flex items-center gap-3">
                         <span className="text-[34px] leading-none font-bold text-white tracking-tight">
                             {day}
                         </span>
                         <span className="text-[14px] font-medium text-white/85">
                             {weekday}
                             <span className="block text-[12px] text-white/65">{monthYear}</span>
+                        </span>
+                        <span className="w-px self-stretch bg-white/25 mx-1" />
+                        <span className="ml-auto text-right">
+                            <span className="block text-[26px] leading-none font-semibold text-white tracking-tight tabular-nums">
+                                {time}
+                            </span>
+                            <span className="block text-[12px] text-white/65 mt-1">New York</span>
                         </span>
                     </div>
                 </div>
@@ -190,12 +216,13 @@ function HomeScreen({ onOpenApp, onOpenExternal }) {
                     <span className="w-[7px] h-[7px] rounded-full bg-white/40" />
                 </div>
 
-                {/* Dock — icons only, the way iOS does it. No labels. */}
+                {/* Dock — icons only, the way iOS does it. No labels.
+                    Frosted glass over the photograph, not a bright tile. */}
                 <div
                     className="px-4 shrink-0"
                     style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}
                 >
-                    <div className="flex justify-center gap-6 px-4 py-3 bg-white/25 backdrop-blur-2xl border border-white/20 rounded-[28px]">
+                    <div className="flex justify-center gap-6 px-4 py-3 bg-white/[0.16] backdrop-blur-2xl border border-white/20 rounded-[28px] shadow-lg shadow-black/20">
                         <button
                             onClick={() => onOpenExternal('https://linkedin.com/in/namkhangnle')}
                             className="active:scale-90 transition-transform"
